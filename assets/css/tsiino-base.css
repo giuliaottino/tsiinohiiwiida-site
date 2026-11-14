@@ -1,0 +1,1296 @@
+/* =========================================================================
+   tsiino-base.css — sistema visual comum do site Tsiino Hiiwiida
+   -------------------------------------------------------------------------
+   Ordem de carregamento em cada página:
+     1. Bootstrap/Quarto (spacelab + theme.scss) e styles.css   → <head>
+     2. assets/css/pages/<pagina>.css   (estilos legados da página)
+     3. assets/css/tsiino-base.css      (este arquivo — vem por último)
+
+   Este arquivo define os tokens (cor, espaço, tipo, raio) e uma camada de
+   refinamento: menos caixas, sombras e ornamentos; tipografia em escala;
+   uma única cor de destaque. Ele NÃO cria breakpoints novos: os media
+   queries aqui reutilizam os breakpoints já existentes no site
+   (991.98px = colapso da navbar/hero; 767.98px = mobile).
+
+   Sobre o !important: o CSS legado das páginas usa !important em ~2.800
+   declarações. Para que esta camada prevaleça sem reescrever o legado,
+   as regras abaixo usam !important e prefixo "html body". Ao limpar o
+   legado de uma página, os !important daqui podem ser retirados.
+   ========================================================================= */
+
+
+/* -------------------------------------------------------------------------
+   1. Tokens
+   ------------------------------------------------------------------------- */
+:root {
+  /* Cores — base neutra + um destaque (verde da marca) */
+  --tsi-ink: #171717;            /* títulos e texto forte            */
+  --tsi-text: #2a2a28;           /* texto corrido                    */
+  --tsi-muted: #5f5e5a;          /* legendas, rótulos                */
+  --tsi-faint: #8a8984;          /* metadados                        */
+  --tsi-line: rgba(23, 23, 23, 0.12);
+  --tsi-line-strong: rgba(23, 23, 23, 0.22);
+  --tsi-bg: #ffffff;
+  --tsi-bg-subtle: #f5f5f3;      /* variação sutil para blocos       */
+  --tsi-bg-dark: #1c1f19;        /* faixas escuras (fotos, rodapé)   */
+  --tsi-on-dark: #f4f3ef;
+  --tsi-on-dark-muted: rgba(244, 243, 239, 0.74);
+
+  --tsi-accent: #626A38;         /* único destaque: verde da marca   */
+  --tsi-accent-strong: #4b5229;  /* hover/links sobre fundo claro    */
+  --tsi-accent-soft: rgba(98, 106, 56, 0.10);
+  --tsi-danger: #A93632;         /* só para erro/alerta              */
+
+  /* Espaçamento — múltiplos de 4px */
+  --tsi-space-1: 4px;
+  --tsi-space-2: 8px;
+  --tsi-space-3: 12px;
+  --tsi-space-4: 16px;
+  --tsi-space-5: 24px;
+  --tsi-space-6: 32px;
+  --tsi-space-7: 48px;
+  --tsi-space-8: 64px;
+  --tsi-space-9: 96px;
+
+  /* Tipografia — escala ~1.25, com clamp só nos tamanhos de exibição */
+  --tsi-font-sans: "Montserrat", Arial, sans-serif;
+  --tsi-font-serif: "Source Serif 4", Georgia, serif;
+  --tsi-font-mono: "Space Mono", ui-monospace, monospace;
+  --tsi-fs-xs: 0.75rem;     /* 12.75px com base 17px */
+  --tsi-fs-sm: 0.875rem;
+  --tsi-fs-base: 1rem;
+  --tsi-fs-md: 1.125rem;
+  --tsi-fs-lg: 1.25rem;
+  --tsi-fs-xl: 1.5rem;
+  --tsi-fs-2xl: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);   /* h2 de seção   */
+  --tsi-fs-3xl: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);  /* títulos fortes */
+  --tsi-fs-display: clamp(2.25rem, 1.4rem + 3.6vw, 4rem);/* h1 dos heroes */
+  --tsi-lh-body: 1.6;
+  --tsi-lh-snug: 1.3;
+  --tsi-lh-tight: 1.1;
+  --tsi-tracking-tight: -0.015em;
+
+  /* Forma */
+  --tsi-radius: 6px;
+  --tsi-radius-lg: 10px;
+}
+
+
+/* -------------------------------------------------------------------------
+   2. Base global
+   ------------------------------------------------------------------------- */
+html body {
+  line-height: var(--tsi-lh-body);
+}
+
+/* Navegação e dropdowns: sem caixa-alta, espaçamento normal */
+html body #quarto-header .navbar .nav-link,
+html body #quarto-header .dropdown-menu .dropdown-item {
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+html body #quarto-header .dropdown-menu {
+  border: 1px solid var(--tsi-line) !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  padding: var(--tsi-space-1) 0 !important;
+}
+
+/* Cabeçalho de seção: remove o traço decorativo antes do título
+   e a linha sob o h2; o título passa a ser neutro (não vermelho). */
+html body .section-title {
+  display: block !important;
+  margin-bottom: var(--tsi-space-5) !important;
+}
+html body .section-title::before {
+  display: none !important;
+  content: none !important;
+}
+html body .section-title h2,
+html body .content-card > h2 {
+  font-size: var(--tsi-fs-2xl) !important;
+  font-weight: 700 !important;
+  line-height: var(--tsi-lh-snug) !important;
+  letter-spacing: var(--tsi-tracking-tight) !important;
+  color: var(--tsi-ink) !important;
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+}
+
+/* Fundo da página: branco neutro no lugar do creme.
+   Expedições mantém o fundo escuro próprio (a página é toda fotográfica). */
+html body:not(:has(.page-hero-expeditions)) {
+  background: var(--tsi-bg) !important;
+  background-image: none !important;
+}
+
+/* Seções principais: sem sombra, sem faixa grossa no topo, sem cantos.
+   A separação entre seções vira espaço + uma linha fina.
+
+   Reforço de especificidade: várias seções têm regras legadas do tipo
+   "#id.classe.classe.classe !important". O :is() com os IDs dá peso de
+   ID, e ".content-card" repetido soma 4 classes — o suficiente para
+   prevalecer sem tocar no legado. */
+html body .content-card,
+html body :is(#o-projeto, #videos-projeto, #metodo-integrado, #salvaguardas-cta,
+  #divulgacao, #pesquisadores-responsaveis, #mapa-expedicoes, #introducao,
+  #resultados-indicadores, #paineis-especificos, #infraestrutura-dados,
+  #conservacao-catalogo, #visao-geral-equipe, #bolsistas-indigenas,
+  #bolsistas-instituicoes, #equipe-ampliada).content-card.content-card.content-card.content-card {
+  background: var(--tsi-bg) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  border-top: 1px solid var(--tsi-line) !important;
+  border-radius: 0 !important;
+}
+html body :is(#o-projeto, #videos-projeto, #metodo-integrado, #salvaguardas-cta,
+  #divulgacao, #pesquisadores-responsaveis, #mapa-expedicoes, #introducao,
+  #resultados-indicadores, #paineis-especificos, #infraestrutura-dados,
+  #conservacao-catalogo, #visao-geral-equipe, #bolsistas-indigenas,
+  #bolsistas-instituicoes, #equipe-ampliada).content-card.content-card.content-card.content-card::before,
+html body :is(#o-projeto, #videos-projeto, #metodo-integrado, #salvaguardas-cta,
+  #divulgacao, #pesquisadores-responsaveis, #mapa-expedicoes, #introducao,
+  #resultados-indicadores, #paineis-especificos, #infraestrutura-dados,
+  #conservacao-catalogo, #visao-geral-equipe, #bolsistas-indigenas,
+  #bolsistas-instituicoes, #equipe-ampliada) .section-title.section-title::before {
+  display: none !important;
+}
+html body :is(#o-projeto, #videos-projeto, #metodo-integrado, #salvaguardas-cta,
+  #divulgacao, #pesquisadores-responsaveis, #mapa-expedicoes, #introducao,
+  #resultados-indicadores, #paineis-especificos, #infraestrutura-dados,
+  #conservacao-catalogo, #visao-geral-equipe, #bolsistas-indigenas,
+  #bolsistas-instituicoes, #equipe-ampliada) .section-title.section-title {
+  display: block !important;
+}
+html body :is(#o-projeto, #videos-projeto, #metodo-integrado, #salvaguardas-cta,
+  #divulgacao, #pesquisadores-responsaveis, #mapa-expedicoes, #introducao,
+  #resultados-indicadores, #paineis-especificos, #infraestrutura-dados,
+  #conservacao-catalogo, #visao-geral-equipe, #bolsistas-indigenas,
+  #bolsistas-instituicoes, #equipe-ampliada) .section-title.section-title h2 {
+  font-size: var(--tsi-fs-2xl) !important;
+  font-weight: 700 !important;
+  line-height: var(--tsi-lh-snug) !important;
+  letter-spacing: var(--tsi-tracking-tight) !important;
+  color: var(--tsi-ink) !important;
+  border-bottom: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Botões principais: sem sombra, sem pílula, sem caixa-alta */
+html body .btn-main {
+  background: var(--tsi-accent) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+  font-family: var(--tsi-font-sans) !important;
+  font-size: var(--tsi-fs-sm) !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  padding: var(--tsi-space-2) var(--tsi-space-4) !important;
+  transform: none !important;
+}
+html body .btn-main:hover,
+html body .btn-main:focus-visible {
+  background: var(--tsi-accent-strong) !important;
+}
+
+/* Hero (títulos das páginas): tamanho e espaçamento de letra contidos */
+html body .hero-strip h1,
+html body .page-hero h1,
+html body .conservation-hero h1,
+html body .hv-site-title {
+  font-size: var(--tsi-fs-display) !important;
+  letter-spacing: -0.02em !important;
+  line-height: var(--tsi-lh-tight) !important;
+}
+
+/* Subtítulos do hero: texto normal em vez de monoespaçado em caixa-alta */
+html body .hero-subtitle {
+  font-family: var(--tsi-font-sans) !important;
+  font-size: var(--tsi-fs-md) !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+
+/* -------------------------------------------------------------------------
+   3. Sobre (index)
+   ------------------------------------------------------------------------- */
+
+/* O projeto: o título ocupa a largura toda da grade (antes ficava na
+   coluna central do Quarto, desalinhado do conteúdo abaixo). */
+html body #o-projeto .section-title {
+  grid-column: 1 / -1 !important;
+}
+
+/* Citações de abertura (.lead): fio neutro no lugar da barra ocre */
+html body .lead {
+  border-left: 2px solid var(--tsi-line-strong) !important;
+}
+
+/* Números-chave: menores, na cor do texto */
+html body #o-projeto .about-stat strong,
+html body #o-projeto.content-card.about-section.projeto-editorial .about-stat strong {
+  font-size: var(--tsi-fs-xl) !important;
+  line-height: var(--tsi-lh-tight) !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+  color: var(--tsi-ink) !important;
+}
+
+/* Título "Três eixos do projeto": sem caixa escura, sombra e caixa-alta */
+html body #frentes-integradas .feature-title {
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: var(--tsi-ink) !important;
+  text-transform: none !important;
+  font-size: var(--tsi-fs-3xl) !important;
+  letter-spacing: var(--tsi-tracking-tight) !important;
+  line-height: var(--tsi-lh-tight) !important;
+}
+html body #frentes-integradas .feature-title::before,
+html body #frentes-integradas .feature-eyebrow:empty {
+  display: none !important;
+}
+
+html body #frentes-integradas.full-bleed-feature,
+html body #frentes-integradas .feature-title-wrap {
+  background: var(--tsi-bg) !important;
+  background-image: none !important;
+}
+
+/* Painéis dos eixos: cor sólida no lugar dos degradês */
+html body #frentes-integradas .feature-panel {
+  background: var(--tsi-bg-dark) !important;
+  background-image: none !important;
+}
+html body #frentes-integradas .feature-panel::after {
+  display: none !important;
+}
+/* Rótulo "Eixo N": texto simples em vez de selo com sombra */
+html body #frentes-integradas .feature-panel h3 {
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: var(--tsi-on-dark-muted) !important;
+}
+
+/* Como o projeto atua: passos sem degradê; número sem círculo */
+html body #metodo-integrado .method-river {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+  gap: var(--tsi-space-2) !important;
+}
+html body #metodo-integrado .method-step {
+  border: 0 !important;
+  border-radius: var(--tsi-radius) !important;
+  background: var(--tsi-bg-subtle) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+html body #metodo-integrado .method-number {
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  border-radius: 0 !important;
+  color: var(--tsi-muted) !important;
+  font-size: var(--tsi-fs-sm) !important;
+  justify-content: flex-start !important;
+  margin-bottom: var(--tsi-space-3) !important;
+}
+html body #metodo-integrado .method-step h3 {
+  font-size: var(--tsi-fs-lg) !important;
+  letter-spacing: normal !important;
+  color: var(--tsi-ink) !important;
+}
+html body #metodo-integrado .method-step p {
+  color: var(--tsi-text) !important;
+}
+html body #metodo-integrado .impact-card {
+  background: none !important;
+  border: 0 !important;
+  border-top: 1px solid var(--tsi-line) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: var(--tsi-space-4) 0 0 !important;
+}
+html body #metodo-integrado .impact-card.impact-card {
+  min-height: 0 !important;
+  justify-content: flex-start !important;
+}
+html body #metodo-integrado .impact-card p {
+  margin-top: var(--tsi-space-2) !important;
+}
+html body #metodo-integrado .impact-card h3 {
+  color: var(--tsi-muted) !important;
+}
+html body .method-eyebrow {
+  background: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+/* Vídeos */
+html body .video-card {
+  border: 0 !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+}
+html body .video-card .video-caption {
+  background: var(--tsi-bg) !important;
+  background-image: none !important;
+  color: var(--tsi-muted) !important;
+  padding-inline: 0 !important;
+}
+
+/* Salvaguardas: selos de siglas viram texto simples */
+html body #salvaguardas-cta .safeguards-editorial-tags span {
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Rede de coordenação: números e painel sem caixa */
+html body #pesquisadores-responsaveis :is(.researchers-panel, .researchers-summary > *) {
+  background: none !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+html body #pesquisadores-responsaveis .researchers-panel {
+  padding: 0 !important;
+}
+html body #pesquisadores-responsaveis .researchers-summary > * {
+  border-top: 1px solid var(--tsi-line) !important;
+  padding: var(--tsi-space-3) 0 0 !important;
+}
+html body #pesquisadores-responsaveis .researchers-number {
+  color: var(--tsi-ink) !important;
+  font-size: var(--tsi-fs-xl) !important;
+}
+html body #pesquisadores-responsaveis .researchers-kicker {
+  background: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+/* Logos institucionais: faixa em cinza sutil (separa do conteúdo sem caixa) */
+html body #logos-institucionais.logos-strip {
+  background: var(--tsi-bg-subtle) !important;
+  border-top: 0 !important;
+}
+
+/* Logos institucionais: sem animação de escala no hover */
+html body .logo-item:hover img {
+  transform: none !important;
+}
+
+/* Objetivos: título em escala de seção, sem sublinhado ornamental */
+html body #objetivos .core-objectives-title {
+  font-size: var(--tsi-fs-3xl) !important;
+  line-height: var(--tsi-lh-tight) !important;
+  letter-spacing: var(--tsi-tracking-tight) !important;
+}
+html body #objetivos .core-objectives-title * {
+  font-size: inherit !important;
+  letter-spacing: inherit !important;
+  margin-left: 0 !important;
+}
+html body #objetivos .core-title-line-b {
+  color: var(--tsi-ink) !important;
+}
+html body #objetivos .core-title-line-b::after,
+html body #objetivos.core-objectives-section::before,
+html body #objetivos.core-objectives-section::after {
+  display: none !important;
+}
+html body #objetivos .core-objectives-title {
+  border-bottom: 0 !important;
+}
+html body #objetivos .core-title-line {
+  text-shadow: none !important;
+}
+html body #objetivos .core-objective-card.core-objective-card {
+  background: var(--tsi-bg) !important;
+  box-shadow: none !important;
+  border: 1px solid var(--tsi-line) !important;
+  border-radius: var(--tsi-radius-lg) !important;
+}
+
+/* Salvaguardas */
+html body #salvaguardas-cta .safeguards-editorial-card {
+  background: var(--tsi-bg-subtle) !important;
+  border: 0 !important;
+  border-radius: var(--tsi-radius-lg) !important;
+  box-shadow: none !important;
+}
+
+/* Expedições recentes: título contido sobre as fotos */
+html body #expedicoes-recentes .exp-collage-heading {
+  font-size: var(--tsi-fs-3xl) !important;
+  letter-spacing: var(--tsi-tracking-tight) !important;
+}
+
+/* Divulgação: cartões sem sombra; link e selo sem caixa-alta */
+html body #divulgacao .carousel-slide {
+  box-shadow: none !important;
+  border-radius: var(--tsi-radius-lg) !important;
+}
+html body #divulgacao .carousel-link,
+html body #divulgacao .media-link {
+  font-family: var(--tsi-font-sans) !important;
+  font-size: var(--tsi-fs-sm) !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  text-underline-offset: 3px;
+}
+html body #divulgacao .carousel-type-pill {
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  color: inherit !important;
+  opacity: 0.8;
+}
+html body #divulgacao .media-panel-header::after {
+  display: none !important;
+}
+
+/* Rede de coordenação científica */
+html body .researcher-card {
+  background: var(--tsi-bg-subtle) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+}
+html body .agency-pill {
+  background: none !important;
+  color: var(--tsi-muted) !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+
+/* -------------------------------------------------------------------------
+   4. Expedições
+   ------------------------------------------------------------------------- */
+html body .expedition-card {
+  box-shadow: none !important;
+  border-radius: var(--tsi-radius-lg) !important;
+}
+html body .meta-pill {
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+html body .expedition-break {
+  box-shadow: none !important;
+}
+html body .map-legend {
+  box-shadow: none !important;
+  border-radius: var(--tsi-radius) !important;
+}
+html body .map-legend-details > summary {
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+
+/* -------------------------------------------------------------------------
+   4b. Acesso aos dados
+   ------------------------------------------------------------------------- */
+
+/* Citações e destaques de texto: sem caixa, só o fio lateral */
+html body main p.lead {
+  background: none !important;
+  border: 0 !important;
+  border-left: 2px solid var(--tsi-line-strong) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 0 0 var(--tsi-space-4) !important;
+}
+html body .big-statement {
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  font-size: var(--tsi-fs-xl) !important;
+  line-height: var(--tsi-lh-snug) !important;
+  color: var(--tsi-ink) !important;
+}
+
+/* Números de apoio (170+, 2, 4): sem caixa, separados por fio */
+html body .mini-facts .mini-fact {
+  background: none !important;
+  border: 0 !important;
+  border-top: 1px solid var(--tsi-line) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: var(--tsi-space-3) 0 0 !important;
+}
+html body .mini-facts .mini-fact strong {
+  color: var(--tsi-ink) !important;
+  font-size: var(--tsi-fs-xl) !important;
+}
+
+/* Exsicatas: cartão leve, legenda neutra em vez de faixa verde */
+html body .specimen-panel :is(.specimen-card, .herbarium-mini-card) {
+  background: var(--tsi-bg-subtle) !important;
+  border: 0 !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+}
+html body .specimen-panel :is(.specimen-card, .herbarium-mini-card) figcaption {
+  background: none !important;
+  color: var(--tsi-muted) !important;
+}
+html body .specimen-panel :is(.specimen-card, .herbarium-mini-card) figcaption b {
+  color: var(--tsi-ink) !important;
+}
+html body .specimen-panel :is(.specimen-card, .herbarium-mini-card) figcaption span {
+  color: var(--tsi-muted) !important;
+}
+
+/* Galeria "Viajantes, coleções…": título simples; selos viram texto */
+html body .full-bleed-gallery {
+  background: var(--tsi-bg) !important;
+}
+html body .full-bleed-gallery .gallery-title-wrap {
+  background: none !important;
+  box-shadow: none !important;
+}
+html body .full-bleed-gallery .gallery-title {
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: var(--tsi-ink) !important;
+  text-transform: none !important;
+  font-size: var(--tsi-fs-3xl) !important;
+  letter-spacing: var(--tsi-tracking-tight) !important;
+  line-height: var(--tsi-lh-tight) !important;
+}
+/* Rótulos sobre foto: fundo escuro translúcido discreto, só para legibilidade */
+html body .image-card .chip,
+html body .indicator-photo-card > span {
+  background: rgba(0, 0, 0, 0.5) !important;
+  border-radius: var(--tsi-radius) !important;
+  padding: 2px var(--tsi-space-2) !important;
+  color: #fff !important;
+}
+html body .indicator-photo-card {
+  border-radius: var(--tsi-radius-lg) !important;
+  box-shadow: none !important;
+}
+html body .data-photo-main {
+  border-radius: var(--tsi-radius-lg) !important;
+  box-shadow: none !important;
+}
+html body .data-photo-main .caption {
+  border-radius: var(--tsi-radius) !important;
+}
+
+/* Arquivos de entrada do painel */
+html body .input-status-grid .input-file {
+  background: none !important;
+  border: 0 !important;
+  border-top: 1px solid var(--tsi-line) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: var(--tsi-space-3) 0 0 !important;
+}
+html body .input-status-grid .input-file > span {
+  background: none !important;
+  color: var(--tsi-accent-strong) !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Painéis: sem caixa externa; o título do painel em escala de seção */
+html body .dashboard-block {
+  background: none !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+html body .dashboard-heading .eyebrow {
+  background: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+html body .dashboard-heading h3 {
+  font-size: var(--tsi-fs-3xl) !important;
+  letter-spacing: var(--tsi-tracking-tight) !important;
+  line-height: var(--tsi-lh-tight) !important;
+  color: var(--tsi-ink) !important;
+}
+
+/* KPIs: fundo claro, número na cor do texto e em tamanho contido
+   (styles.css força fundo verde-escuro; o seletor .kpi-grid prevalece) */
+html body .kpi-grid .kpi-card {
+  background: var(--tsi-bg-subtle) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+  color: var(--tsi-text) !important;
+}
+html body .kpi-grid .kpi-card .kpi-number {
+  color: var(--tsi-ink) !important;
+  font-size: var(--tsi-fs-xl) !important;
+  line-height: var(--tsi-lh-tight) !important;
+  letter-spacing: normal !important;
+}
+html body .kpi-grid .kpi-card > span {
+  color: var(--tsi-ink) !important;
+}
+html body .kpi-grid .kpi-card > p {
+  color: var(--tsi-muted) !important;
+}
+
+/* Gráficos e rankings: moldura fina, sem sombra; linhas do ranking sem caixas */
+html body .chart-card {
+  background: var(--tsi-bg) !important;
+  background-image: none !important;
+  border: 1px solid var(--tsi-line) !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+}
+html body .rank-card h4 {
+  color: var(--tsi-muted) !important;
+}
+html body .rank-list li {
+  background: none !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--tsi-line) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Lista de espécies (details/summary): barra clara em vez de faixa escura */
+html body .species-drawer > summary {
+  background: var(--tsi-bg-subtle) !important;
+  background-image: none !important;
+  color: var(--tsi-ink) !important;
+  border: 0 !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+}
+html body .species-drawer > summary .species-summary-label {
+  color: var(--tsi-ink) !important;
+  font-size: var(--tsi-fs-md) !important;
+}
+html body .species-drawer > summary .species-summary-count {
+  background: none !important;
+  border: 0 !important;
+  color: var(--tsi-muted) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+html body .species-drawer > summary::after {
+  background: none !important;
+  border: 1px solid var(--tsi-line-strong) !important;
+  color: var(--tsi-ink) !important;
+  box-shadow: none !important;
+}
+html body .species-drawer {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+/* Infraestrutura dos dados */
+html body .data-principles article {
+  background: none !important;
+  border: 0 !important;
+  border-top: 1px solid var(--tsi-line) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: var(--tsi-space-3) 0 0 !important;
+}
+html body .data-principles article b {
+  color: var(--tsi-ink) !important;
+}
+html body .data-infra-visual .data-flow-card {
+  background: var(--tsi-bg-subtle) !important;
+  background-image: none !important;
+  color: var(--tsi-text) !important;
+  border: 0 !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+}
+html body .data-infra-visual .data-flow-card > span {
+  color: var(--tsi-muted) !important;
+}
+html body .data-infra-visual .data-flow-card li {
+  color: var(--tsi-text) !important;
+}
+
+
+/* -------------------------------------------------------------------------
+   5. Equipe
+   ------------------------------------------------------------------------- */
+html body .team-card {
+  box-shadow: none !important;
+  border: 0 !important;
+  border-radius: var(--tsi-radius) !important;
+  background: var(--tsi-bg-subtle) !important;
+}
+html body .team-card::before {
+  display: none !important;
+}
+html body .team-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+/* [data-role] repetido: vence as regras legadas que coloriam nome e cargo
+   por categoria (vermelho/ocre) */
+html body .team-card[data-role] .team-name {
+  color: var(--tsi-ink) !important;
+}
+html body .team-card[data-role] .team-project-role {
+  color: var(--tsi-text) !important;
+  border-left: 2px solid var(--tsi-line-strong) !important;
+  background: none !important;
+}
+
+/* Cartão: hierarquia nome > cargo > instituição, sem alturas mínimas fixas
+   (geravam vãos grandes nos cartões dos bolsistas) e sem sombra residual. */
+html body .team-card[data-role] {
+  box-shadow: none !important;
+  padding: var(--tsi-space-4) !important;
+  min-height: 0 !important;
+}
+html body .team-card[data-role] .team-photo {
+  border: 0 !important;
+  border-radius: var(--tsi-radius) !important;
+}
+html body .team-card[data-role] .team-info {
+  flex: 1 1 auto !important;
+  gap: var(--tsi-space-1) !important;
+  padding-top: var(--tsi-space-3) !important;
+}
+html body .team-card[data-role] .team-name {
+  min-height: 0 !important;
+  font-size: var(--tsi-fs-base) !important;
+  font-weight: 700 !important;
+  line-height: var(--tsi-lh-snug) !important;
+  letter-spacing: var(--tsi-tracking-tight) !important;
+}
+html body .team-card[data-role] .team-project-role {
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-left: 0 !important;
+  font-size: var(--tsi-fs-sm) !important;
+  font-weight: 500 !important;
+  line-height: var(--tsi-lh-snug) !important;
+}
+html body .team-card[data-role] .team-institution {
+  min-height: 0 !important;
+  margin: 0 !important;
+  color: var(--tsi-muted) !important;
+  font-size: var(--tsi-fs-sm) !important;
+  line-height: var(--tsi-lh-snug) !important;
+}
+html body .team-card[data-role] .team-icons {
+  min-height: 0 !important;
+  margin: auto 0 0 !important;          /* ícones alinhados ao pé do cartão */
+  padding-top: var(--tsi-space-3) !important;
+  border-top: 0 !important;
+}
+/* Retratos: enquadra mais para cima (o centro cortava cabeças) */
+html body .team-card[data-role] .team-photo {
+  object-position: 50% 25% !important;
+}
+/* Rótulos sem caixa-alta espaçada (sobrescreve o legado; rodapé intocado) */
+html body:has(.page-hero-team) :is(.hero-kicker, .team-network-kicker, .team-label, .content-card h3:not(.team-name)) {
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-family: var(--tsi-font-sans) !important;
+  font-weight: 600 !important;
+}
+html body:has(.page-hero-team) .page-hero-team .hero-kicker {
+  color: var(--tsi-on-dark-muted) !important;
+  font-size: var(--tsi-fs-sm) !important;
+}
+html body:has(.page-hero-team) :is(.team-network-kicker, .content-card h3:not(.team-name)) {
+  color: var(--tsi-muted) !important;
+  font-size: var(--tsi-fs-sm) !important;
+}
+html body .team-network-node .team-label {
+  font-size: var(--tsi-fs-sm) !important;
+}
+html body .team-network-node-total .team-label {
+  color: #fff !important;
+}
+/* Placeholders vazios (aria-hidden) que só ocupavam espaço */
+html body .team-card[data-role] :is(.team-project-role-empty, .team-institution-empty, .team-icons-empty) {
+  display: none !important;
+}
+@media (max-width: 640px) {
+  /* Celular: foto à esquerda e texto à direita; a lista de 80 pessoas
+     deixava a página com ~49 mil px de altura. Reusa o breakpoint de 640px. */
+  html body .team-grid {
+    gap: var(--tsi-space-2) !important;
+  }
+  html body .team-card[data-role] {
+    display: grid !important;
+    grid-template-columns: 88px minmax(0, 1fr) !important;
+    grid-template-rows: auto !important;
+    column-gap: var(--tsi-space-3) !important;
+    align-items: start !important;
+    padding: var(--tsi-space-3) !important;
+  }
+  html body .team-card[data-role] .team-photo-wrap {
+    width: 88px !important;
+    margin: 0 !important;
+  }
+  html body .team-card[data-role] .team-info {
+    padding-top: 0 !important;
+  }
+  html body .team-card[data-role] .team-icons {
+    padding-top: var(--tsi-space-2) !important;
+    gap: var(--tsi-space-1) !important;
+  }
+  html body .team-card[data-role] .team-icons .icon-link {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  /* Margens laterais: o cartão de seção tinha ~48px de recuo de cada lado */
+  html body:has(.page-hero-team) #quarto-content {
+    display: block !important;   /* grade de colunas do Quarto recuava 26px */
+  }
+  html body:has(.page-hero-team) main.content {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  html body .team-network-panel {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  html body .team-network-node .team-label {
+    overflow-wrap: anywhere !important;
+  }
+  /* Painel da rede: 4 categorias em 2×2 abaixo do total */
+  html body .team-network-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-areas:
+      "total total"
+      "coord indigena"
+      "instituicao ampliada" !important;
+    gap: var(--tsi-space-2) !important;
+    align-items: stretch !important;
+  }
+  html body .team-network-node::after {
+    display: none !important;   /* traço vertical entre nós empilhados */
+  }
+  html body .team-network-node .team-node-inner {
+    height: 100% !important;
+    min-height: 0 !important;
+    padding: var(--tsi-space-3) !important;
+  }
+  html body .team-network-node .team-label {
+    font-size: var(--tsi-fs-xs) !important;
+  }
+}
+/* O texto do cargo era cortado com "…" (line-clamp legado): mostra inteiro */
+html body .team-card[data-role] :is(.team-project-role, .team-institution, .team-name) {
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  max-height: none !important;
+}
+
+/* Hero da equipe: botão secundário no mesmo padrão do principal */
+html body .hero-actions .btn-ghost {
+  background: transparent !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+  font-family: var(--tsi-font-sans) !important;
+  font-size: var(--tsi-fs-sm) !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  padding: var(--tsi-space-2) var(--tsi-space-4) !important;
+}
+
+/* Painel interativo da rede: nós sem sombra; total em destaque sólido */
+html body .team-network-panel {
+  background: none !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html body .team-network-panel::before {
+  display: none !important;
+}
+html body .team-network-node .team-node-inner {
+  background: var(--tsi-bg-subtle) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+}
+html body .team-network-node .team-node-halo {
+  display: none !important;
+}
+html body .team-network-node .team-number {
+  color: var(--tsi-ink) !important;
+}
+html body .team-network-node-total .team-node-inner {
+  background: var(--tsi-accent) !important;
+}
+html body .team-network-node-total :is(.team-number, .team-label, .team-node-helper) {
+  color: #fff !important;
+}
+
+/* Busca e filtros */
+html body .team-controls {
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html body .team-search {
+  border: 1px solid var(--tsi-line-strong) !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+  background: var(--tsi-bg) !important;
+}
+html body .team-filter-buttons .team-filter {
+  font-family: var(--tsi-font-sans) !important;
+  font-size: var(--tsi-fs-sm) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  box-shadow: none !important;
+  background: var(--tsi-bg) !important;
+  color: var(--tsi-text) !important;
+  border: 1px solid var(--tsi-line-strong) !important;
+  border-radius: var(--tsi-radius) !important;
+}
+html body .team-filter-buttons .team-filter.active {
+  background: var(--tsi-accent) !important;
+  border-color: var(--tsi-accent) !important;
+  color: #fff !important;
+}
+html body .team-network-kicker {
+  color: var(--tsi-muted) !important;
+}
+html body .team-index a {
+  color: var(--tsi-accent-strong) !important;
+}
+
+
+/* -------------------------------------------------------------------------
+   5b. Validador de planilha
+   ------------------------------------------------------------------------- */
+html body :is(.hv-clean-overview, .tsiino-validator-intro-card) {
+  background: var(--tsi-bg-subtle) !important;
+  border: 0 !important;
+  border-radius: var(--tsi-radius-lg) !important;
+  box-shadow: none !important;
+}
+html body :is(.hv-clean-overview, .tsiino-validator-intro-card) h2 {
+  color: var(--tsi-ink) !important;
+  font-size: var(--tsi-fs-2xl) !important;
+}
+html body .hv-panel {
+  background: var(--tsi-bg) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-top: 1px solid var(--tsi-line) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+html body .hv-section-title {
+  display: block !important;
+}
+html body .hv-section-title > span {
+  display: none !important;   /* traço decorativo antes do título */
+}
+html body :is(.hv-clean-overview, .tsiino-validator-intro-card) h2,
+html body .hv-section-title h2 {
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+html body .hv-section-title h2 {
+  color: var(--tsi-ink) !important;
+  text-transform: none !important;
+  letter-spacing: var(--tsi-tracking-tight) !important;
+  font-size: var(--tsi-fs-2xl) !important;
+}
+html body .hv-panel :is(input[type="text"], input[type="file"], select) {
+  border: 1px solid var(--tsi-line-strong) !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+  background: var(--tsi-bg) !important;
+}
+html body :is(.hv-primary, .hv-secondary) {
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-family: var(--tsi-font-sans) !important;
+  font-weight: 600 !important;
+}
+html body .hv-primary {
+  background: var(--tsi-accent) !important;
+  border: 1px solid var(--tsi-accent) !important;
+  color: #fff !important;
+}
+html body .hv-primary:hover {
+  background: var(--tsi-accent-strong) !important;
+}
+html body .hv-secondary {
+  background: var(--tsi-bg) !important;
+  border: 1px solid var(--tsi-line-strong) !important;
+  color: var(--tsi-ink) !important;
+}
+html body .hv-status {
+  background: var(--tsi-bg-subtle) !important;
+  border: 0 !important;
+  border-radius: var(--tsi-radius) !important;
+  box-shadow: none !important;
+}
+
+
+/* -------------------------------------------------------------------------
+   6. Heroes das páginas internas: menos vão entre navegação e conteúdo.
+      Reaproveita o breakpoint existente de 991.98px (onde antes 100vh).
+   ------------------------------------------------------------------------- */
+html body .page-hero.page-hero-expeditions,
+html body .page-hero.page-hero-team {
+  min-height: clamp(420px, 62vh, 600px) !important;
+}
+html body .conservation-hero {
+  min-height: clamp(460px, 70vh, 640px) !important;
+}
+html body .hv-site-hero {
+  min-height: clamp(420px, 62vh, 600px) !important;
+}
+@media (max-width: 991.98px) {
+  html body .page-hero.page-hero-expeditions,
+  html body .page-hero.page-hero-team,
+  html body .hv-site-hero {
+    min-height: 72svh !important;
+  }
+}
+
+/* 6b. Hero da Equipe: conteúdo no fluxo (antes era position:absolute com
+       top fixo, e o hero mais baixo cortava os botões no celular e em telas
+       baixas). A altura agora acompanha o conteúdo; o min-height continua.
+       Fundo: figures/equipe.jpg não existe no repositório; usa campo.jpg. */
+html body .page-hero.page-hero-team {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  gap: var(--tsi-space-5) !important;
+  padding: calc(76px + var(--tsi-space-6)) clamp(16px, 5vw, 80px) var(--tsi-space-8) !important;
+  background-image:
+    linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.45) 50%, rgba(0,0,0,.15) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,.55) 100%),
+    url("../../figures/campo.jpg") !important;
+  background-size: cover !important;
+  background-position: center 60% !important;
+}
+html body .page-hero-team .page-hero-overlay {
+  display: none !important;   /* o gradiente já está no fundo do hero */
+}
+html body .page-hero-team :is(.page-hero-logo, .page-hero-content) {
+  position: relative !important;
+  inset: auto !important;
+  margin: 0 !important;
+}
+html body .page-hero-team .page-hero-logo {
+  width: clamp(64px, 6vw, 96px) !important;
+}
+html body .page-hero-team .page-hero-content {
+  width: 100% !important;
+  max-width: 820px !important;
+}
+html body .page-hero-team .hero-description:empty {
+  display: none !important;
+}
+html body .page-hero-team .hero-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: var(--tsi-space-2) !important;
+  margin-top: var(--tsi-space-5) !important;
+}
+@media (max-width: 991.98px) {
+  /* ícone do menu sumia sobre a foto */
+  html body:has(.page-hero-team) #quarto-header .navbar-toggler-icon {
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.92 !important;
+  }
+  html body .page-hero.page-hero-team {
+    padding-top: calc(76px + var(--tsi-space-5)) !important;
+    padding-bottom: var(--tsi-space-6) !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   7. Correção de transbordo (bug anterior): entre ~700px e 991.98px, a grade
+      de colunas do Quarto (page-layout: full) soma mais que a viewport, e a
+      home cortava a coluna do mapa em "O projeto" e deslocava o hero e os
+      eixos em 26px. Usa o breakpoint já existente de 991.98px.
+   ------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  html body:has(.hero-strip) main.content {
+    display: block !important;
+  }
+  html body #o-projeto.content-card.about-section.projeto-editorial {
+    display: block !important;
+  }
+  html body #o-projeto.content-card.about-section.projeto-editorial :is(.about-intro-grid, .about-visual-module, .pe-image, .pe-image img) {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   8. Menu colapsado em Acesso e Validador (bug anterior): essas páginas não
+      tinham painel para o menu aberto, e os itens ficavam soltos sobre o
+      hero. Reproduz o painel da home. Breakpoint existente: 991.98px.
+   ------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  html body:is(:has(.conservation-hero), :has(.hv-site-hero)) #quarto-header .navbar-collapse:is(.show, .collapsing) {
+    margin-top: var(--tsi-space-2) !important;
+    padding: var(--tsi-space-3) var(--tsi-space-4) !important;
+    width: min(280px, calc(100vw - 2rem)) !important;
+    background: rgba(23, 23, 23, 0.86) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    border-radius: var(--tsi-radius-lg) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  html body:is(:has(.conservation-hero), :has(.hv-site-hero)) #quarto-header .navbar-collapse:is(.show, .collapsing) .nav-link {
+    color: #fff !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   9. Camada global de acessibilidade e interação (todas as páginas)
+      Foco visível, âncoras sob a navbar fixa, movimento reduzido,
+      tipografia de títulos e mídia científica.
+   ------------------------------------------------------------------------- */
+
+/* Foco por teclado: anel único na cor da marca (o legado removia outline) */
+html body :is(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--tsi-accent) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px var(--tsi-bg) !important;
+  border-radius: 2px;
+}
+/* Sobre fotos e faixas escuras o anel precisa ser claro */
+html body :is(.hero-strip, .page-hero, .conservation-hero, .hv-site-hero, .tsiino-site-footer, #quarto-header)
+  :is(a, button, summary, [tabindex]):focus-visible {
+  outline-color: var(--tsi-on-dark) !important;
+  box-shadow: none !important;
+}
+
+/* Âncoras (#secao) não ficam escondidas atrás da navbar fixa */
+html body :is(section, [id]):target,
+html body main :is(h1, h2, h3)[id],
+html body main section[id] {
+  scroll-margin-top: 88px;
+}
+
+/* Títulos: quebra equilibrada; parágrafos sem palavra órfã */
+html body main :is(h1, h2, h3) {
+  text-wrap: balance;
+}
+html body main p {
+  text-wrap: pretty;
+}
+
+/* Números (KPIs, contagens, tabelas) com algarismos alinhados */
+html body :is(table, .kpi, [class*="kpi"], [class*="stat"], [class*="metric"], [class*="count"]) {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Seleção de texto na cor da marca */
+::selection {
+  background: rgba(98, 106, 56, 0.22);
+  color: inherit;
+}
+
+/* Mídia científica: legendas consistentes (tamanhos das imagens ficam
+   com o CSS de cada página, que usa object-fit/alturas próprias) */
+html body main figure figcaption,
+html body main .figure-caption {
+  margin-top: var(--tsi-space-2);
+  color: var(--tsi-muted);
+  font-size: var(--tsi-fs-sm);
+  line-height: var(--tsi-lh-snug);
+}
+
+/* Mapas: moldura fina e controles legíveis */
+html body .leaflet-container {
+  font-family: var(--tsi-font-sans);
+}
+html body .leaflet-bar a {
+  color: var(--tsi-ink);
+}
+html body .leaflet-control-attribution {
+  font-size: 11px;
+}
+
+/* Movimento reduzido: desliga rolagem suave, revelações e transições */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  html body *,
+  html body *::before,
+  html body *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html body :is(.reveal, [class*="reveal"], [data-aos]) {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Impressão: sem navbar, rodapé ou fundos escuros */
+@media print {
+  #quarto-header,
+  .tsiino-site-footer,
+  .navbar,
+  .leaflet-control-container {
+    display: none !important;
+  }
+  html body main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: var(--tsi-muted);
+  }
+}

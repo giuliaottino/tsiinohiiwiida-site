@@ -1,0 +1,990 @@
+/* =====================================================================
+   expedicoes.css — estilos específicos da página expedicoes/index.qmd
+   Extraído dos 1 blocos <style> do .qmd, na ordem original
+   (a ordem importa: blocos posteriores sobrescrevem os anteriores).
+   Tokens e regras globais: assets/css/tsiino-base.css
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   Bloco 1/1 (origem: expedicoes/index.qmd, linhas 82-1283)
+   --------------------------------------------------------------------- */
+  :root{
+    --red: #A93632;
+    --red-dark: #6E1F1D;
+    --green: #626A38;
+    --green-map: #59602F;
+    --green-dark: #2E3B24;
+    --green-soft: #D7DDC5;
+    --ochre: #D99A27;
+    --cream: #F6F1E8;
+    --paper: #FFFDF7;
+    --ink: #171717;
+    --muted: #675F55;
+    --line: rgba(98,106,56,0.24);
+    --page-max: 1740px;
+  }
+
+  *{
+    box-sizing: border-box;
+  }
+
+  html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    background: #120706;
+  }
+
+  body{
+    overflow-x: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+    background:
+      linear-gradient(90deg, rgba(7,4,4,0.76), rgba(86,16,13,0.64)),
+      url("../../../figures/tsiino_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center top;
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: var(--cream);
+  }
+
+  body.nav-fixed{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  #quarto-content,
+  .page-columns,
+  .page-layout-full,
+  main.content,
+  main,
+  .content{
+    width: 100%;
+    max-width: none !important;
+    background: transparent !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  main.content{
+    padding-bottom: 4rem;
+  }
+
+  .quarto-title-block{
+    display: none !important;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* NAVBAR SOBRE O HERO                                                */
+  /* ------------------------------------------------------------------ */
+
+  #quarto-header{
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 10000 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  #quarto-header .navbar{
+    position: relative !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    min-height: 76px;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  #quarto-header::before{
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 130px;
+    background: linear-gradient(
+      180deg,
+      rgba(0,0,0,0.62) 0%,
+      rgba(0,0,0,0.24) 58%,
+      rgba(0,0,0,0) 100%
+    );
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  #quarto-header .navbar-brand{
+    display: none !important;
+  }
+
+  #quarto-header .navbar .nav-link,
+  #quarto-header .navbar .nav-link:visited{
+    color: #fff !important;
+    font-family: 'Montserrat', Arial, sans-serif;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.78);
+  }
+
+  #quarto-header .navbar .nav-link.active,
+  #quarto-header .navbar .nav-link:hover{
+    color: var(--ochre) !important;
+  }
+
+  #quarto-header .navbar svg,
+  #quarto-header .navbar i,
+  #quarto-header .navbar .bi,
+  #quarto-header .quarto-navbar-tools a,
+  #quarto-header .quarto-navbar-tools button{
+    color: #fff !important;
+    fill: #fff !important;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.58));
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* HERO COM VÍDEO                                                     */
+  /* ------------------------------------------------------------------ */
+
+  .page-hero{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    min-height: min(82vh, 860px);
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      linear-gradient(rgba(38,5,4,0.35), rgba(20,4,3,0.68)),
+      url("../../../figures/tsiino_bg.png") center / cover no-repeat;
+  }
+
+  .hero-video{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -4;
+  }
+
+  .page-hero-overlay{
+  display: none;
+  }
+
+  .page-hero-pattern{
+  display: none;
+  }
+
+  .page-hero-logo{
+    position: absolute;
+    top: clamp(5.4rem, 9vw, 7.4rem);
+    left: clamp(1.5rem, 3.5vw, 3.6rem);
+    width: clamp(82px, 7vw, 118px);
+    z-index: 5;
+  }
+
+  .page-hero-logo img{
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.46));
+  }
+
+  .page-hero-content{
+    position: absolute;
+    left: clamp(2rem, 5vw, 5.5rem);
+    top: clamp(14rem, 33vh, 20rem);
+    width: min(930px, calc(100% - 4rem));
+    color: #fff;
+    z-index: 4;
+  }
+
+  .hero-kicker{
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(0.68rem, 1vw, 0.82rem);
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    margin-bottom: 0.55rem;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.78);
+  }
+
+  .page-hero-content h1{
+    margin: 0;
+    color: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: clamp(3.5rem, 7.5vw, 7rem);
+    line-height: 0.90;
+    font-weight: 900;
+    letter-spacing: -0.07em;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.82);
+  }
+
+  .hero-subtitle{
+    margin: 1rem 0 0 0 !important;
+    color: #F6F1E8 !important;
+    font-family: 'Space Mono', monospace !important;
+    font-size: clamp(0.78rem, 1.35vw, 1.05rem) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.45 !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.78);
+  }
+
+  .hero-description{
+    margin: 0.9rem 0 0 0 !important;
+    color: rgba(255,255,255,0.94) !important;
+    font-size: clamp(1rem, 1.5vw, 1.24rem) !important;
+    line-height: 1.58 !important;
+    max-width: 790px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.72);
+  }
+
+  .lead{
+    font-family: 'DM Sans', 'Montserrat', Arial, sans-serif !important;
+    font-size: clamp(1rem, 1.45vw, 1.18rem) !important;
+    line-height: 1.55 !important;
+    font-weight: 500 !important;
+    color: #26231F !important;
+    border: 0 !important;
+    padding-left: 0 !important;
+    margin: 0 0 1.1rem 0 !important;
+    max-width: 980px;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* LEAFLET                                                            */
+  /* ------------------------------------------------------------------ */
+
+  .leaflet-container{
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(0,0,0,0.18);
+    font-family: 'Montserrat', Arial, sans-serif;
+    border: 1px solid rgba(98,106,56,0.22);
+  }
+
+  .leaflet-control,
+  .leaflet-bar,
+  .leaflet-control-layers{
+    border-radius: 10px !important;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.16) !important;
+    border: 1px solid rgba(98,106,56,0.26) !important;
+    background: rgba(255,253,247,0.96) !important;
+  }
+
+  .leaflet-bar a{
+    border-radius: 8px !important;
+    color: var(--green-dark) !important;
+  }
+
+  .leaflet-popup-content-wrapper{
+    border-radius: 14px !important;
+    background: rgba(255,253,247,0.99) !important;
+    border: 1px solid rgba(98,106,56,0.24) !important;
+    box-shadow: 0 14px 26px rgba(0,0,0,0.18) !important;
+  }
+
+  .leaflet-popup-content{
+    margin: 14px 16px !important;
+    max-height: 390px;
+    overflow-y: auto;
+  }
+
+  .leaflet-popup-tip{
+    background: rgba(255,253,247,0.99) !important;
+  }
+
+  .popup-card{
+    min-width: 250px;
+    max-width: 380px;
+  }
+
+  .popup-title{
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 1.03rem;
+    color: var(--green-dark);
+    margin: 0 0 0.25rem 0;
+  }
+
+  .popup-title.popup-taxon{
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.18rem;
+    line-height: 1.22;
+    margin-bottom: 0.10rem;
+  }
+
+  .popup-family{
+    font-family: 'DM Sans', 'Montserrat', Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--muted);
+    margin: 0 0 0.58rem 0;
+  }
+
+  .popup-sub{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.67rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+  }
+
+  .popup-table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+  }
+
+  .popup-table td{
+    padding: 0.24rem 0;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(98,106,56,0.08);
+  }
+
+  .popup-k{
+    color: var(--red);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.63rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-right: 0.65rem !important;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+
+  .popup-v{
+    color: var(--ink);
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .popup-source{
+    margin-top: 0.6rem;
+    padding-top: 0.48rem;
+    border-top: 1px solid rgba(98,106,56,0.16);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    line-height: 1.35;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+  }
+
+  /* Legenda recolhida por padrão */
+  .map-legend-control{
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .map-legend-details{
+    width: min(235px, 58vw);
+    font-family: 'Montserrat', Arial, sans-serif;
+  }
+
+  .map-legend-details > summary{
+    cursor: pointer;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    float: right;
+    padding: 0.42rem 0.62rem;
+    border-radius: 999px;
+    background: rgba(255,253,247,0.96);
+    color: var(--green-dark);
+    border: 1px solid rgba(98,106,56,0.28);
+    box-shadow: 0 7px 15px rgba(0,0,0,0.18);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .map-legend-details > summary::-webkit-details-marker{
+    display: none;
+  }
+
+  .map-legend-details[open] > summary{
+    margin-bottom: 0.35rem;
+  }
+
+  .map-legend{
+    clear: both;
+    padding: 0.58rem 0.65rem;
+    background: rgba(255,253,247,0.965);
+    border: 1px solid rgba(98,106,56,0.24);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.18);
+    max-height: 230px;
+    overflow-y: auto;
+  }
+
+  .map-legend .legend-title{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.34rem;
+  }
+
+  .map-legend .legend-row{
+    display: flex;
+    align-items: center;
+    gap: 0.42rem;
+    font-size: 0.72rem;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-top: 0.22rem;
+  }
+
+  .map-legend .dot{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex: 0 0 9px;
+    display: inline-block;
+    border: 1.5px solid rgba(255,255,255,0.95);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.20);
+  }
+
+  .map-legend .line{
+    width: 16px;
+    height: 0;
+    flex: 0 0 16px;
+    display: inline-block;
+    border-top: 3px solid var(--ochre);
+  }
+
+  /* Cluster de coletas: número = quantidade de registros agrupados */
+  .tsiino-cluster{
+    background: transparent !important;
+    border: 0 !important;
+  }
+
+  .tsiino-cluster-bubble{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(132,36,32,0.94);
+    border: 3px solid rgba(255,253,247,0.94);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.38);
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.73rem;
+    font-weight: 700;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* RESPONSIVO                                                         */
+  /* ------------------------------------------------------------------ */
+
+  @media (max-width: 991.98px){
+    .page-hero{
+      min-height: 100vh;
+    }
+
+    .page-hero-logo{
+      top: 4.9rem;
+      left: 0.85rem;
+      width: 78px;
+    }
+
+    .page-hero-content{
+      top: 12rem;
+      left: 0.9rem;
+      width: calc(100% - 1.8rem);
+    }
+
+    #quarto-header .navbar-collapse.show,
+    #quarto-header .navbar-collapse.collapsing{
+      margin-top: 0.6rem;
+      padding: 0.85rem 1rem;
+      width: min(280px, calc(100vw - 2rem));
+      background: rgba(23,23,23,0.78) !important;
+      border: 1px solid rgba(246,241,232,0.22);
+      border-radius: 18px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.28);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    #quarto-header .navbar-collapse.show .nav-link,
+    #quarto-header .navbar-collapse.collapsing .nav-link{
+      color: #F6F1E8 !important;
+      font-weight: 600;
+      padding: 0.45rem 0.25rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+    }
+
+  }
+
+  @media (max-width: 767.98px){
+    .page-hero-content h1{
+      font-size: clamp(2.4rem, 10.5vw, 3.2rem);
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+    }
+  }
+
+  @media (max-width: 520px){
+    .page-hero-logo{
+      display: none;
+    }
+
+    .page-hero-content h1{
+      font-size: clamp(2.15rem, 10vw, 2.85rem);
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+    }
+
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* AJUSTES DE LARGURA, CENTRALIZAÇÃO E TEMA ESCURO DAS EXPEDIÇÕES     */
+  /* ------------------------------------------------------------------ */
+
+  /* Nesta página não há sidebar/TOC. Remover a grade assimétrica do
+     Quarto impede que os blocos largos fiquem deslocados para a direita
+     em notebooks e mantém o centro geométrico da viewport. */
+  #quarto-content.page-columns{
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #quarto-content > main.content,
+  main#quarto-document-content{
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #mapa-expedicoes,
+  #lista-expedicoes{
+    grid-column: screen-start / screen-end !important;
+    justify-self: center !important;
+  }
+
+  /* Mapa responsivo: grande em desktop e proporcional em notebook/mobile. */
+  #mapa-expedicoes .leaflet.html-widget,
+  #mapa-expedicoes .leaflet-container{
+    height: clamp(600px, 76vh, 920px) !important;
+  }
+
+  /* Heatmap e transição visual por escala. */
+  .tsiino-heat-layer{
+    mix-blend-mode: screen;
+    transition: opacity 0.22s ease;
+  }
+
+  .leaflet-container.zoom-heat path.collection-marker,
+  .leaflet-container.zoom-heat .tsiino-cluster{
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .leaflet-container.zoom-points .tsiino-cluster-bubble{
+    width: 16px;
+    height: 16px;
+    margin: 13px;
+    border-width: 2px;
+    box-shadow: 0 2px 9px rgba(0,0,0,0.34);
+  }
+
+  .leaflet-container.zoom-points .tsiino-cluster-bubble span{
+    display: none;
+  }
+
+  .leaflet-container.zoom-counts .tsiino-cluster-bubble{
+    transition: width .18s ease, height .18s ease, margin .18s ease;
+  }
+
+  .collection-number-tooltip{
+    border: 0 !important;
+    border-radius: 999px !important;
+    padding: 4px 7px !important;
+    background: rgba(14,11,9,0.88) !important;
+    color: #FFFDF7 !important;
+    box-shadow: 0 4px 11px rgba(0,0,0,0.30) !important;
+    font-family: 'Space Mono', monospace !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+  }
+
+  .collection-number-tooltip::before{
+    display: none !important;
+  }
+
+  /* Controle de tela cheia criado diretamente no widget, sem pacote extra. */
+  .tsiino-fullscreen-control a{
+    width: 34px !important;
+    height: 34px !important;
+    line-height: 34px !important;
+    text-align: center;
+    font-size: 20px !important;
+    font-weight: 700;
+    color: #2E3B24 !important;
+    text-decoration: none !important;
+  }
+
+  .leaflet-container:fullscreen,
+  .leaflet-container:-webkit-full-screen,
+  .leaflet-container.tsiino-faux-fullscreen{
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    z-index: 999999 !important;
+  }
+
+  .leaflet-container.tsiino-faux-fullscreen{
+    position: fixed !important;
+    inset: 0 !important;
+  }
+
+  body.tsiino-map-fullscreen{
+    overflow: hidden !important;
+  }
+
+  @media (min-width: 1800px){
+    :root{
+      --page-max: 1760px;
+    }
+
+  }
+
+  @media (max-width: 991.98px){
+
+    #mapa-expedicoes .leaflet.html-widget,
+    #mapa-expedicoes .leaflet-container{
+      height: min(74vh, 720px) !important;
+      min-height: 520px;
+    }
+
+  }
+
+  @media (max-width: 520px){
+
+    #mapa-expedicoes .leaflet.html-widget,
+    #mapa-expedicoes .leaflet-container{
+      height: 70svh !important;
+      min-height: 470px;
+      border-radius: 10px;
+    }
+
+  }
+
+/* =========================================================================
+   Seções sem caixa (reforma 2026-11)
+   Ordem: 3D em largura total -> álbum de campo -> mapa de coletas.
+   O texto fica direto sobre o fundo escuro; a hierarquia vem da
+   tipografia e do espaço, não de cartões.
+   ========================================================================= */
+.exp-section {
+  --sec-w: min(var(--page-max), calc(100vw - clamp(2rem, 7vw, 8rem)));
+  --bleed: calc((100vw - var(--sec-w)) / 2);
+  width: var(--sec-w);
+  margin: clamp(4.5rem, 11vw, 9rem) auto 0;
+  color: var(--cream);
+  scroll-margin-top: 4.5rem;
+}
+
+.exp-section-head {
+  max-width: 44rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.exp-section-head h2 {
+  margin: 0 0 0.7rem;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(2.1rem, 1.3rem + 3vw, 3.75rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.012em;
+  color: #FFFDF7;
+  border: 0;
+  padding: 0;
+}
+
+.exp-section .lead {
+  margin: 0 !important;
+  max-width: 40rem;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  color: rgba(246, 241, 232, 0.8) !important;
+}
+
+/* ---------- 3D: a peça central, de borda a borda ---------- */
+.exp3d-section { margin-top: clamp(3.5rem, 8vw, 6rem); }
+
+.exp3d-frame {
+  width: 100vw;
+  margin-left: calc(-1 * var(--bleed));
+  height: min(88vh, 900px);
+  min-height: 440px;
+  background: #1c1f19;
+}
+
+.exp3d-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.exp3d-actions {
+  margin: 0.9rem 0 0;
+  font-size: 0.9rem;
+}
+
+.exp3d-actions a,
+.exp3d-link {
+  color: var(--ochre);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(217, 154, 39, 0.45);
+}
+
+.exp3d-actions a:hover,
+.exp3d-link:hover { border-bottom-color: currentColor; }
+
+/* ---------- Álbum de campo: linha do tempo ---------- */
+.field-log {
+  display: grid;
+  gap: clamp(3.5rem, 8vw, 6.5rem);
+}
+
+.field-entry {
+  display: grid;
+  grid-template-columns: minmax(14rem, 21rem) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3.5vw, 3.25rem);
+  align-items: start;
+  scroll-margin-top: 5rem;
+}
+
+/* O filete marca o início de cada expedição na linha do tempo. */
+.field-head {
+  position: sticky;
+  top: 5.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(217, 154, 39, 0.55);
+}
+
+.field-date {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  color: var(--ochre);
+}
+
+.field-head h3 {
+  margin: 0 0 0.75rem;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(1.6rem, 1.1rem + 1.5vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: #FFFDF7;
+}
+
+.field-where {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(246, 241, 232, 0.72);
+}
+
+.field-facts {
+  margin: 0 0 1.1rem;
+  font-size: 0.92rem;
+  color: rgba(246, 241, 232, 0.92);
+  font-variant-numeric: tabular-nums;
+}
+
+/* As fotos correm até a borda direita da tela, como um rolo de filme. */
+.field-strip {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  justify-self: start;
+  width: calc(100% + var(--bleed));
+  max-width: none;
+  margin-right: calc(-1 * var(--bleed));
+  padding: 0 var(--bleed) 0.9rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(217, 154, 39, 0.55) transparent;
+}
+
+.field-strip:focus-visible { outline-offset: 4px; }
+
+.field-shot {
+  flex: 0 0 auto;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.field-photo {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: #1a1210;
+  cursor: zoom-in;
+}
+
+.field-photo img {
+  display: block;
+  height: clamp(15rem, 54vh, 34rem);
+  width: auto;
+  max-width: 82vw;
+  object-fit: cover;
+}
+
+/* A legenda acompanha a largura da foto, sem alargá-la. */
+.field-shot figcaption {
+  width: 0;
+  min-width: 100%;
+  padding-top: 0.5rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(246, 241, 232, 0.72);
+}
+
+.field-empty {
+  margin: 0;
+  padding-top: 1rem;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  color: rgba(246, 241, 232, 0.6);
+}
+
+/* ---------- Visualizador de fotos ---------- */
+.photo-viewer {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #FFFDF7;
+}
+
+.photo-viewer::backdrop { background: rgba(12, 7, 6, 0.95); }
+
+.photo-viewer figure {
+  height: 100%;
+  margin: 0;
+  padding: 3.5rem clamp(1rem, 6vw, 5rem) 1.25rem;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  justify-items: center;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.photo-viewer img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.photo-viewer figcaption {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  width: min(100%, 60rem);
+  font-size: 0.9rem;
+  color: rgba(246, 241, 232, 0.8);
+}
+
+.pv-count { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.pv-btn {
+  position: absolute;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 253, 247, 0.08);
+  color: #FFFDF7;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.pv-btn:hover { background: rgba(255, 253, 247, 0.18); }
+.pv-close { top: 0.75rem; right: 0.75rem; font-size: 1.1rem; }
+.pv-prev, .pv-next { top: 50%; transform: translateY(-50%); }
+.pv-prev { left: 0.75rem; }
+.pv-next { right: 0.75rem; }
+
+/* ---------- Mapa de coletas ---------- */
+#mapa-expedicoes .lead { margin-bottom: 1.5rem !important; }
+
+#mapa-expedicoes .leaflet.html-widget,
+#mapa-expedicoes .leaflet-container {
+  height: clamp(520px, 72vh, 820px) !important;
+}
+
+.popup-3d {
+  display: inline-block;
+  margin-top: 0.45rem;
+  font-weight: 700;
+  color: #A93632 !important;
+}
+
+/* ---------- Telas menores ---------- */
+@media (max-width: 899.98px) {
+  .field-entry { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; }
+  .field-head { position: static; }
+  .field-photo img { height: clamp(14rem, 46svh, 26rem); }
+  .exp3d-frame { height: 74svh; min-height: 400px; }
+}
+
+@media (max-width: 520px) {
+  .pv-prev, .pv-next { top: auto; bottom: 0.75rem; transform: none; }
+  .photo-viewer figure { padding-bottom: 4.25rem; }
+}
+
+/* O fio lateral global de .lead some aqui: o texto alinha com o título. */
+html body main .exp-section p.lead {
+  border-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* O wrapper de saída do Quarto rola por padrão e cortaria a faixa de fotos. */
+#lista-expedicoes .cell-output-display { overflow: visible; }
