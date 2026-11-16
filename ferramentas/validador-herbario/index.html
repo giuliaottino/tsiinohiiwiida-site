@@ -2,13 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
+<!-- tsiino:perf -->
+<link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#2E3B24">
+<link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/source-serif-4-latin-400-700-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/th-sans-normal.woff2" crossorigin>
 <meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Ferramenta gratuita para validar, converter e anotar planilhas de herbário no modelo INPA/BRAHMS, com checagem de nomes (Flora e Funga do Brasil) e de geografia (IBGE).">
+<meta name="description" content="Ferramenta gratuita para validar, converter e anotar planilhas de herbário no modelo INPA/BRAHMS, com checagem de nomes (Flora e Funga do Brasil) e geografia.">
 
-<title>Validador de planilha de herbário – Tsiino Hiiwiida</title>
+<title>Validador de planilha de herbário — Tsiino Hiiwiida</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,20 +33,19 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<link href="../../figures/tsiino_hex_sticker.png" rel="icon" type="image/png">
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d8710e480f3b49ae2d124b0e9e9981a1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js?v=12d334846b"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js?v=ace0360e57"></script>
+<link href="../../assets/icons/favicon-32.png" rel="icon" type="image/png">
+<script src="../../site_libs/clipboard/clipboard.min.js?v=15f52a1ee5"></script>
+<script src="../../site_libs/quarto-html/quarto.js?v=6f4245742d" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js?v=e8d6a8862b" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js?v=3a4a291ccf"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js?v=d828775275"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js?v=91bcf6cd1f"></script>
+<link href="../../site_libs/quarto-html/tippy.css?v=ebd6f8ce46" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css?v=15634bcf2e" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js?v=e2b09c06f0"></script>
+<link href="../../site_libs/bootstrap/bootstrap-5d109bf42d25a98673420823b236554f.min.css?v=5d109bf42d" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Nenhum resultado",
@@ -58,20 +63,31 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
-<link rel="stylesheet" href="../../assets/css/herb-validator.css">
-<meta property="og:title" content="Validador de planilha de herbário – Tsiino Hiiwiida">
-<meta property="og:description" content="Validação, conversão e anotação de planilhas de herbário">
-<meta property="og:image" content="https://tsiinohiiwiida.net/figures/page_break.jpg">
+<link rel="stylesheet" href="../../assets/css/tsiino-tokens.css?v=db6a12bdb0">
+<link rel="stylesheet" href="../../styles.css?v=44184b4f14">
+<link rel="stylesheet" href="../../assets/css/herb-validator.css?v=fdee6bcdd2">
+<meta property="og:title" content="Validador de planilha de herbário — Tsiino Hiiwiida">
+<meta property="og:description" content="Ferramenta gratuita para validar, converter e anotar planilhas de herbário no modelo INPA/BRAHMS, com checagem de nomes (Flora e Funga do Brasil) e geografia.">
+<meta property="og:image" content="https://tsiinohiiwiida.net/assets/og/padrao.jpg">
 <meta property="og:site_name" content="Tsiino Hiiwiida">
 <meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_GB">
 <meta property="og:image:alt" content="Igarapé de águas escuras entre rochas cobertas de musgo em floresta do Alto Rio Negro">
-<meta name="twitter:title" content="Validador de planilha de herbário – Tsiino Hiiwiida">
-<meta name="twitter:description" content="Validação, conversão e anotação de planilhas de herbário">
-<meta name="twitter:image" content="https://tsiinohiiwiida.net/figures/page_break.jpg">
+<meta name="twitter:title" content="Validador de planilha de herbário — Tsiino Hiiwiida">
+<meta name="twitter:description" content="Ferramenta gratuita para validar, converter e anotar planilhas de herbário no modelo INPA/BRAHMS, com checagem de nomes (Flora e Funga do Brasil) e geografia.">
+<meta name="twitter:image" content="https://tsiinohiiwiida.net/assets/og/padrao.jpg">
 <meta name="twitter:image:alt" content="Igarapé de águas escuras entre rochas cobertas de musgo em floresta do Alto Rio Negro">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://tsiinohiiwiida.net/ferramentas/validador-herbario/">
+<!-- tsiino:hreflang -->
+<link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/ferramentas/validador-herbario/">
+<link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/ferramentas/validador-herbario/">
+<link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/ferramentas/validador-herbario/">
+
+<meta property="og:url" content="https://tsiinohiiwiida.net/ferramentas/validador-herbario/">
+<meta property="og:type" content="website">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <script type="application/ld+json" id="tsiino-jsonld">
 {
@@ -81,10 +97,44 @@ ul.task-list li input[type="checkbox"] {
    "@type": "ResearchProject",
    "@id": "https://tsiinohiiwiida.net/#project",
    "name": "Tsiino Hiiwiida",
+   "alternateName": [
+    "Cabeça do Cachorro",
+    "Projeto Tsiino Hiiwiida",
+    "Tsiino Hiiwiida Project",
+    "Tsiino Hiwiida",
+    "Tsiino Hiiwiida: Unveiling multiple dimensions of plant and fungal biodiversity of the Upper Rio Negro"
+   ],
    "description": "Tsiino Hiiwiida, nome Baniwa da região conhecida como Cabeça do Cachorro, é um projeto científico aprovado na Chamada Expedições da Iniciativa Amazônia+10, que articula instituições do Brasil e do Reino Unido para revelar múltiplas dimensões da flora e da funga no Alto Rio Negro: expedições de campo, identificação taxonômica, coleções científicas, sistemática molecular, metagenômica, biomonitoramento e comunicação pública.",
    "url": "https://tsiinohiiwiida.net/",
-   "logo": "https://tsiinohiiwiida.net/figures/tsiino_hex_sticker.png",
+   "logo": "https://tsiinohiiwiida.net/assets/icons/icon-512.png",
    "email": "tsiinohiiwiida@gmail.com",
+   "sameAs": [
+    "https://www.instagram.com/tsiinohiiwiida/",
+    "https://www.youtube.com/@TsiinoHiiwiida",
+    "https://gtr.ukri.org/projects?ref=UKRI501"
+   ],
+   "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "UKRI Gateway to Research",
+    "value": "UKRI501"
+   },
+   "keywords": [
+    "Tsiino Hiiwiida",
+    "Cabeça do Cachorro",
+    "Alto Rio Negro",
+    "Upper Rio Negro",
+    "São Gabriel da Cachoeira",
+    "Amazônia",
+    "biodiversidade",
+    "plantas",
+    "fungos",
+    "flora",
+    "funga",
+    "expedições botânicas",
+    "herbário",
+    "taxonomia",
+    "Amazônia+10"
+   ],
    "location": {
     "@id": "https://tsiinohiiwiida.net/#cabeca-do-cachorro"
    },
@@ -204,6 +254,33 @@ ul.task-list li input[type="checkbox"] {
      "name": "Universidade de Brasília",
      "alternateName": "UnB",
      "url": "https://www.unb.br/"
+    },
+    {
+     "@id": "https://tsiinohiiwiida.net/#charles-zartman"
+    },
+    {
+     "@id": "https://tsiinohiiwiida.net/#domingos-cardoso"
+    },
+    {
+     "@id": "https://tsiinohiiwiida.net/#sandra-diane-knapp"
+    },
+    {
+     "@id": "https://tsiinohiiwiida.net/#anna-luiza-ilkiu-borges"
+    },
+    {
+     "@id": "https://tsiinohiiwiida.net/#clistenes-nascimento"
+    },
+    {
+     "@id": "https://tsiinohiiwiida.net/#dirce-komura"
+    },
+    {
+     "@id": "https://tsiinohiiwiida.net/#denilson-peralta"
+    },
+    {
+     "@id": "https://tsiinohiiwiida.net/#felipe-wartchow"
+    },
+    {
+     "@id": "https://tsiinohiiwiida.net/#micheline-carvalho-silva"
     }
    ]
   },
@@ -231,7 +308,10 @@ ul.task-list li input[type="checkbox"] {
    "@id": "https://tsiinohiiwiida.net/#website",
    "url": "https://tsiinohiiwiida.net/",
    "name": "Tsiino Hiiwiida",
-   "inLanguage": "pt-BR",
+   "inLanguage": [
+    "pt-BR",
+    "en"
+   ],
    "publisher": {
     "@id": "https://tsiinohiiwiida.net/#project"
    },
@@ -249,6 +329,187 @@ ul.task-list li input[type="checkbox"] {
   },
   {
    "@type": "Person",
+   "@id": "https://tsiinohiiwiida.net/#charles-zartman",
+   "name": "Charles Zartman",
+   "affiliation": {
+    "@type": "Organization",
+    "name": "Instituto Nacional de Pesquisas da Amazônia — INPA"
+   },
+   "memberOf": {
+    "@id": "https://tsiinohiiwiida.net/#project"
+   },
+   "sameAs": [
+    "https://orcid.org/0000-0001-8481-9782",
+    "http://lattes.cnpq.br/1704819172861021"
+   ],
+   "funder": {
+    "@type": "Organization",
+    "name": "FAPEAM"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://tsiinohiiwiida.net/#domingos-cardoso",
+   "name": "Domingos Cardoso",
+   "affiliation": {
+    "@type": "Organization",
+    "name": "Jardim Botânico do Rio de Janeiro — JBRJ"
+   },
+   "memberOf": {
+    "@id": "https://tsiinohiiwiida.net/#project"
+   },
+   "sameAs": [
+    "https://github.com/domingoscardoso",
+    "https://orcid.org/0000-0001-7072-2656",
+    "http://lattes.cnpq.br/2228981567893077"
+   ],
+   "funder": {
+    "@type": "Organization",
+    "name": "FAPERJ"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://tsiinohiiwiida.net/#sandra-diane-knapp",
+   "name": "Sandra Diane Knapp",
+   "affiliation": {
+    "@type": "Organization",
+    "name": "Natural History Museum"
+   },
+   "memberOf": {
+    "@id": "https://tsiinohiiwiida.net/#project"
+   },
+   "sameAs": [
+    "https://orcid.org/0000-0001-7698-3945",
+    "https://www.nhm.ac.uk/our-science/people/sandra-knapp.html"
+   ],
+   "funder": {
+    "@type": "Organization",
+    "name": "UKRI"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://tsiinohiiwiida.net/#anna-luiza-ilkiu-borges",
+   "name": "Anna Luiza Ilkiu-Borges",
+   "affiliation": {
+    "@type": "Organization",
+    "name": "Museu Paraense Emílio Goeldi — MPEG"
+   },
+   "memberOf": {
+    "@id": "https://tsiinohiiwiida.net/#project"
+   },
+   "sameAs": [
+    "https://orcid.org/0000-0001-7949-2594",
+    "http://lattes.cnpq.br/1407844052374872"
+   ],
+   "funder": {
+    "@type": "Organization",
+    "name": "FAPESPA"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://tsiinohiiwiida.net/#clistenes-nascimento",
+   "name": "Clístenes Nascimento",
+   "affiliation": {
+    "@type": "Organization",
+    "name": "Universidade Federal Rural de Pernambuco — UFRPE"
+   },
+   "memberOf": {
+    "@id": "https://tsiinohiiwiida.net/#project"
+   },
+   "sameAs": [
+    "https://orcid.org/0000-0002-5103-5524",
+    "http://lattes.cnpq.br/2562022438053334"
+   ],
+   "funder": {
+    "@type": "Organization",
+    "name": "FACEPE"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://tsiinohiiwiida.net/#dirce-komura",
+   "name": "Dirce Komura",
+   "affiliation": {
+    "@type": "Organization",
+    "name": "Instituto Nacional de Pesquisas da Amazônia — INPA"
+   },
+   "memberOf": {
+    "@id": "https://tsiinohiiwiida.net/#project"
+   },
+   "sameAs": [
+    "https://orcid.org/0000-0001-9129-868X",
+    "http://lattes.cnpq.br/3573059727962827"
+   ],
+   "funder": {
+    "@type": "Organization",
+    "name": "FAPEMA"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://tsiinohiiwiida.net/#denilson-peralta",
+   "name": "Denilson Peralta",
+   "affiliation": {
+    "@type": "Organization",
+    "name": "Instituto de Pesquisas Ambientais — IPA"
+   },
+   "memberOf": {
+    "@id": "https://tsiinohiiwiida.net/#project"
+   },
+   "sameAs": [
+    "https://orcid.org/0000-0002-5305-9300",
+    "http://lattes.cnpq.br/8084147980411650"
+   ],
+   "funder": {
+    "@type": "Organization",
+    "name": "FAPESP"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://tsiinohiiwiida.net/#felipe-wartchow",
+   "name": "Felipe Wartchow",
+   "affiliation": {
+    "@type": "Organization",
+    "name": "Universidade Federal da Paraíba — UFPB"
+   },
+   "memberOf": {
+    "@id": "https://tsiinohiiwiida.net/#project"
+   },
+   "sameAs": [
+    "https://orcid.org/0000-0003-4930-565X",
+    "http://lattes.cnpq.br/6314571767850075"
+   ],
+   "funder": {
+    "@type": "Organization",
+    "name": "FAPESQ"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://tsiinohiiwiida.net/#micheline-carvalho-silva",
+   "name": "Micheline Carvalho-Silva",
+   "affiliation": {
+    "@type": "Organization",
+    "name": "Universidade de Brasília — UnB"
+   },
+   "memberOf": {
+    "@id": "https://tsiinohiiwiida.net/#project"
+   },
+   "sameAs": [
+    "https://orcid.org/0000-0002-2389-3804",
+    "http://lattes.cnpq.br/1015868478480965"
+   ],
+   "funder": {
+    "@type": "Organization",
+    "name": "FAPDF"
+   }
+  },
+  {
+   "@type": "Person",
    "@id": "https://tsiinohiiwiida.net/#giulia-ottino",
    "name": "Giulia Cavalcanti Ottino",
    "sameAs": [
@@ -258,20 +519,11 @@ ul.task-list li input[type="checkbox"] {
    ]
   },
   {
-   "@type": "Person",
-   "@id": "https://tsiinohiiwiida.net/#domingos-cardoso",
-   "name": "Domingos Cardoso",
-   "sameAs": [
-    "https://github.com/domingoscardoso",
-    "https://orcid.org/0000-0001-7072-2656",
-    "http://lattes.cnpq.br/2228981567893077"
-   ]
-  },
-  {
    "@type": "WebPage",
    "@id": "https://tsiinohiiwiida.net/ferramentas/validador-herbario/#webpage",
    "url": "https://tsiinohiiwiida.net/ferramentas/validador-herbario/",
-   "name": "Validador de planilha de herbário – Tsiino Hiiwiida",
+   "name": "Validador de planilha de herbário — Tsiino Hiiwiida",
+   "description": "Ferramenta gratuita para validar, converter e anotar planilhas de herbário no modelo INPA/BRAHMS, com checagem de nomes (Flora e Funga do Brasil) e geografia.",
    "inLanguage": "pt-BR",
    "isPartOf": {
     "@id": "https://tsiinohiiwiida.net/#website"
@@ -279,10 +531,9 @@ ul.task-list li input[type="checkbox"] {
    "about": {
     "@id": "https://tsiinohiiwiida.net/#project"
    },
-   "description": "Ferramenta gratuita para validar, converter e anotar planilhas de herbário no modelo INPA/BRAHMS, com checagem de nomes (Flora e Funga do Brasil) e de geografia (IBGE).",
    "primaryImageOfPage": {
     "@type": "ImageObject",
-    "url": "https://tsiinohiiwiida.net/figures/page_break.jpg"
+    "url": "https://tsiinohiiwiida.net/assets/og/padrao.jpg"
    },
    "breadcrumb": {
     "@id": "https://tsiinohiiwiida.net/ferramentas/validador-herbario/#breadcrumb"
@@ -304,8 +555,7 @@ ul.task-list li input[type="checkbox"] {
     {
      "@type": "ListItem",
      "position": 2,
-     "name": "Ferramentas",
-     "item": "https://tsiinohiiwiida.net/ferramentas/"
+     "name": "Ferramentas"
     },
     {
      "@type": "ListItem",
@@ -316,10 +566,13 @@ ul.task-list li input[type="checkbox"] {
    ]
   },
   {
-   "@type": "WebApplication",
+   "@type": [
+    "SoftwareApplication",
+    "WebApplication"
+   ],
    "@id": "https://tsiinohiiwiida.net/ferramentas/validador-herbario/#software",
    "name": "Validador de planilha de herbário",
-   "description": "Ferramenta gratuita para validar, converter e anotar planilhas de herbário no modelo INPA/BRAHMS, com checagem de nomes (Flora e Funga do Brasil) e de geografia (IBGE).",
+   "description": "Ferramenta gratuita para validar, converter e anotar planilhas de herbário no modelo INPA/BRAHMS, com checagem de nomes (Flora e Funga do Brasil) e geografia.",
    "url": "https://tsiinohiiwiida.net/ferramentas/validador-herbario/",
    "applicationCategory": "ScienceApplication",
    "operatingSystem": "Web",
@@ -359,29 +612,53 @@ ul.task-list li input[type="checkbox"] {
 </head>
 
 <body class="nav-fixed quarto-light">
+<a class="tsiino-skip-link" href="#quarto-document-content">Pular para o conteúdo</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../figures/tsiino_hex_sticker.png" alt="" class="navbar-logo light-content">
-    <img src="../../figures/tsiino_hex_sticker.png" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo" aria-label="Tsiino Hiiwiida, página inicial">
+    <img src="../../assets/icons/logo-tsiino.webp" alt="" class="navbar-logo light-content">
+    <img src="../../assets/icons/logo-tsiino.webp" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Tsiino Hiiwiida</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">Sobre</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sobre" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sobre</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sobre">    
+        <li>
+    <a class="dropdown-item" href="../../index.html">
+ <span class="dropdown-text">Visão geral do projeto</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../eixos/habitats-e-especies/index.html">
+ <span class="dropdown-text">Eixo 1: Habitats e espécies</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../eixos/biodiversidade-sustento-e-bioeconomia/index.html">
+ <span class="dropdown-text">Eixo 2: Biodiversidade, sustento e bioeconomia</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../eixos/campo-e-tecnologias-emergentes/index.html">
+ <span class="dropdown-text">Eixo 3: Campo e tecnologias emergentes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../salvaguardas/index.html">
+ <span class="dropdown-text">Salvaguardas socioambientais</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../expedicoes/index.html"> 
 <span class="menu-text">Expedições</span></a>
@@ -393,7 +670,15 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu" aria-labelledby="nav-menu-acesso-aos-dados">    
         <li>
     <a class="dropdown-item" href="../../acesso/index.html">
- <span class="dropdown-text">Visão geral</span></a>
+ <span class="dropdown-text">Catálogo e indicadores</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../publicacoes/index.html">
+ <span class="dropdown-text">Publicações, dados e softwares</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../como-citar/index.html">
+ <span class="dropdown-text">Como citar</span></a>
   </li>  
     </ul>
   </li>
@@ -409,12 +694,16 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="../../noticias/index.html"> 
+<span class="menu-text">Notícias</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../team/index.html"> 
 <span class="menu-text">Equipe</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools"><a class="tsiino-lang-link" href="../../en/ferramentas/validador-herbario/" hreflang="en" lang="en" title="Read this page in English"><span class="tsiino-lang-full">English</span><span class="tsiino-lang-short" aria-hidden="true">EN</span></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -427,11 +716,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content column-page" id="quarto-document-content">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/pages/validador.css">
-<link rel="stylesheet" href="../../assets/css/tsiino-base.css">
+<link rel="stylesheet" href="../../assets/fonts/fonts.css?v=6cbb49c765">
+<link rel="stylesheet" href="../../assets/css/pages/validador.css?v=d09a3c6a1f">
+<link rel="stylesheet" href="../../assets/css/tsiino-base.css?v=031d64fce7">
 <link rel="stylesheet" href="../../assets/css/pages/validador-resultados.css?v=20261114-r3">
 
 <div class="hv-modern-page">
@@ -447,7 +734,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </section>
 
-  <main class="hv-modern-main" id="hv-page">
+  <div class="hv-modern-main" id="hv-page">
     <section class="hv-clean-overview tsiino-validator-intro-card" aria-label="Como funciona o validador">
   <div class="tsiino-validator-intro-card__content">
     <h2 class="anchored">Validação de planilha de coleta</h2>
@@ -583,7 +870,7 @@ ul.task-list li input[type="checkbox"] {
 
       <div id="tsr-fixbar" class="tsr-fixbar" hidden="" role="region" aria-label="Correções pendentes" aria-live="polite"></div>
     </section>
-  </main>
+  </div>
 </div>
 <script src="../../assets/js/herb-validator.js?v=20261114-r3"></script>
 
@@ -600,7 +887,7 @@ ul.task-list li input[type="checkbox"] {
 
       <a class="tsiino-footer-home" href="index.html" aria-label="Página inicial do Tsiino Hiiwiida">
 
-        <img class="tsiino-footer-logo tsiino-footer-logo-project" data-src="figures/tsiino_hex_sticker.png" alt="Tsiino Hiiwiida">
+        <picture><source type="image/avif" srcset="../../assets/img/opt/assets/icons/logo-tsiino-288.avif 288w" sizes="auto, (min-width: 992px) 50vw, 100vw"><source type="image/webp" srcset="../../assets/img/opt/assets/icons/logo-tsiino-288.webp 288w" sizes="auto, (min-width: 992px) 50vw, 100vw"><img src="../../assets/img/opt/assets/icons/logo-tsiino-288.png" srcset="../../assets/img/opt/assets/icons/logo-tsiino-288.png 288w" sizes="auto, (min-width: 992px) 50vw, 100vw" class="tsiino-footer-logo tsiino-footer-logo-project" alt="Tsiino Hiiwiida" width="288" height="288" loading="lazy" decoding="async" data-opt="1"></picture>
 
       </a>
 
@@ -608,7 +895,7 @@ ul.task-list li input[type="checkbox"] {
 
       <a href="https://www.amazoniamaisdez.org.br/" target="_blank" rel="noopener" aria-label="Iniciativa Amazônia+10">
 
-        <img class="tsiino-footer-logo tsiino-footer-logo-amazonia" data-src="figures/amazoniamais10.png" alt="Iniciativa Amazônia+10">
+        <picture><source type="image/avif" srcset="../../assets/img/opt/figures/amazoniamais10-160.avif 160w, ../../assets/img/opt/figures/amazoniamais10-320.avif 320w, ../../assets/img/opt/figures/amazoniamais10-640.avif 640w" sizes="auto, 160px"><source type="image/webp" srcset="../../assets/img/opt/figures/amazoniamais10-160.webp 160w, ../../assets/img/opt/figures/amazoniamais10-320.webp 320w, ../../assets/img/opt/figures/amazoniamais10-640.webp 640w" sizes="auto, 160px"><img src="../../assets/img/opt/figures/amazoniamais10-640.png" srcset="../../assets/img/opt/figures/amazoniamais10-640.png 640w" sizes="auto, 160px" class="tsiino-footer-logo tsiino-footer-logo-amazonia" alt="Iniciativa Amazônia+10" width="3257" height="1856" loading="lazy" decoding="async" data-opt="1"></picture>
 
       </a>
 
@@ -616,7 +903,7 @@ ul.task-list li input[type="checkbox"] {
 
       <a href="https://confap.org.br/" target="_blank" rel="noopener" aria-label="CONFAP">
 
-        <img class="tsiino-footer-logo tsiino-footer-logo-confap" data-src="figures/logo_confap.png" alt="CONFAP">
+        <picture><source type="image/avif" srcset="../../assets/img/opt/figures/logo-confap-160.avif 160w, ../../assets/img/opt/figures/logo-confap-320.avif 320w, ../../assets/img/opt/figures/logo-confap-640.avif 640w" sizes="auto, 160px"><source type="image/webp" srcset="../../assets/img/opt/figures/logo-confap-160.webp 160w, ../../assets/img/opt/figures/logo-confap-320.webp 320w, ../../assets/img/opt/figures/logo-confap-640.webp 640w" sizes="auto, 160px"><img src="../../assets/img/opt/figures/logo-confap-640.png" srcset="../../assets/img/opt/figures/logo-confap-640.png 640w" sizes="auto, 160px" class="tsiino-footer-logo tsiino-footer-logo-confap" alt="CONFAP" width="1920" height="881" loading="lazy" decoding="async" data-opt="1"></picture>
 
       </a>
 
@@ -624,7 +911,7 @@ ul.task-list li input[type="checkbox"] {
 
       <a href="https://www.gov.br/cnpq/pt-br" target="_blank" rel="noopener" aria-label="CNPq">
 
-        <img class="tsiino-footer-logo tsiino-footer-logo-cnpq" data-src="figures/logo_cnpq.png" alt="CNPq">
+        <picture><source type="image/avif" srcset="../../assets/img/opt/figures/logo-cnpq-160.avif 160w, ../../assets/img/opt/figures/logo-cnpq-320.avif 320w, ../../assets/img/opt/figures/logo-cnpq-640.avif 640w" sizes="auto, 160px"><source type="image/webp" srcset="../../assets/img/opt/figures/logo-cnpq-160.webp 160w, ../../assets/img/opt/figures/logo-cnpq-320.webp 320w, ../../assets/img/opt/figures/logo-cnpq-640.webp 640w" sizes="auto, 160px"><img src="../../assets/img/opt/figures/logo-cnpq-640.png" srcset="../../assets/img/opt/figures/logo-cnpq-640.png 640w" sizes="auto, 160px" class="tsiino-footer-logo tsiino-footer-logo-cnpq" alt="CNPq" width="2305" height="710" loading="lazy" decoding="async" data-opt="1"></picture>
 
       </a>
 
@@ -632,11 +919,27 @@ ul.task-list li input[type="checkbox"] {
 
       <a href="https://www.gov.br/pt-br/" target="_blank" rel="noopener" aria-label="Governo Federal">
 
-        <img class="tsiino-footer-logo tsiino-footer-logo-governo" data-src="figures/logo_governo.png" alt="Governo Federal">
+        <picture><source type="image/avif" srcset="../../assets/img/opt/figures/logo-governo-160.avif 160w, ../../assets/img/opt/figures/logo-governo-320.avif 320w, ../../assets/img/opt/figures/logo-governo-616.avif 616w" sizes="auto, 160px"><source type="image/webp" srcset="../../assets/img/opt/figures/logo-governo-160.webp 160w, ../../assets/img/opt/figures/logo-governo-320.webp 320w, ../../assets/img/opt/figures/logo-governo-616.webp 616w" sizes="auto, 160px"><img src="../../assets/img/opt/figures/logo-governo-616.png" srcset="../../assets/img/opt/figures/logo-governo-616.png 616w" sizes="auto, 160px" class="tsiino-footer-logo tsiino-footer-logo-governo" alt="Governo Federal" width="616" height="298" loading="lazy" decoding="async" data-opt="1"></picture>
 
       </a>
 
     </div>
+
+
+
+    <nav class="tsiino-footer-nav" aria-label="Mais páginas do site">
+
+      <div class="tsiino-footer-title">Projeto</div>
+
+      <a href="../../publicacoes/">Publicações, dados e softwares</a>
+
+      <a href="../../como-citar/">Como citar</a>
+
+      <a href="../../noticias/">Notícias</a>
+
+      <a href="../../salvaguardas/">Salvaguardas socioambientais</a>
+
+    </nav>
 
 
 
@@ -660,7 +963,7 @@ ul.task-list li input[type="checkbox"] {
 
         <a href="https://github.com/giuliaottino" target="_blank" rel="noopener" aria-label="GitHub de G.C. Ottino">
 
-          <i class="bi bi-github" aria-hidden="true"></i>
+          <svg viewbox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path></svg>
 
           <span>G.C. Ottino</span>
 
@@ -670,7 +973,7 @@ ul.task-list li input[type="checkbox"] {
 
         <a href="https://github.com/domingoscardoso" target="_blank" rel="noopener" aria-label="GitHub de D. Cardoso / dboslab">
 
-          <i class="bi bi-github" aria-hidden="true"></i>
+          <svg viewbox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path></svg>
 
           <span>D. Cardoso</span>
 
@@ -833,12 +1136,43 @@ ul.task-list li input[type="checkbox"] {
 (function () {
   "use strict";
 
+  // Página estática em outro idioma (/en/…, gerada por scripts/build_i18n.mjs):
+  // guarda o texto que já veio traduzido no HTML e começa a observar mudanças
+  // antes de mapas e painéis rodarem. O runtime só traduz o que surgir depois.
+  var pageLang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+  if (pageLang && pageLang.indexOf("pt") !== 0 && document.body && window.MutationObserver) {
+    var ATTRS = ["placeholder", "title", "aria-label", "alt", "data-label"];
+    var norm = function (value) {
+      return String(value || "").replace(/\u00a0/g, " ").replace(/[\u201C\u201D]/g, '"')
+        .replace(/[\u2018\u2019]/g, "'").replace(/\s+/g, " ").trim();
+    };
+    var seen = new Set();
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+      var text = norm(walker.currentNode.nodeValue);
+      if (text) seen.add(text);
+    }
+    document.querySelectorAll("[" + ATTRS.join("],[") + "]").forEach(function (el) {
+      ATTRS.forEach(function (attr) {
+        var value = norm(el.getAttribute(attr));
+        if (value) seen.add(value);
+      });
+    });
+    var queue = [];
+    var early = new MutationObserver(function (records) { queue.push.apply(queue, records); });
+    early.observe(document.body, {
+      childList: true, subtree: true, characterData: true, attributes: true,
+      attributeFilter: ATTRS.concat(["value"])
+    });
+    window.__tsiinoStatic = { strings: seen, queue: queue, observer: early };
+  }
+
   function getSitePrefix() {
-    var favicon = document.querySelector('link[rel~="icon"][href*="figures/tsiino_hex_sticker.png"]');
+    var favicon = document.querySelector('link[rel~="icon"][href*="assets/icons/favicon-32.png"]');
     if (!favicon) return "";
 
     var href = favicon.getAttribute("href") || "";
-    return href.replace(/figures\/tsiino_hex_sticker\.png(?:[?#].*)?$/, "");
+    return href.replace(/assets\/icons\/favicon-32\.png(?:[?#].*)?$/, "");
   }
 
   function loadScript(src, callback) {

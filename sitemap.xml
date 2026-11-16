@@ -1,23 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://tsiinohiiwiida.net/team/</loc>
-    <lastmod>2026-11-14T22:16:48.899Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tsiinohiiwiida.net/expedicoes/</loc>
-    <lastmod>2026-11-14T22:16:48.898Z</lastmod>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tsiinohiiwiida.net/</loc>
-    <lastmod>2026-11-14T22:16:48.899Z</lastmod>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/"/>
   </url>
   <url>
     <loc>https://tsiinohiiwiida.net/acesso/</loc>
-    <lastmod>2026-11-14T22:16:48.897Z</lastmod>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/acesso/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/acesso/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/acesso/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/como-citar/</loc>
+    <lastmod>2026-11-16T13:32:31-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/como-citar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/como-citar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/como-citar/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/eixos/biodiversidade-sustento-e-bioeconomia/</loc>
+    <lastmod>2026-11-16T13:32:31-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/eixos/biodiversidade-sustento-e-bioeconomia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/eixos/biodiversidade-sustento-e-bioeconomia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/eixos/biodiversidade-sustento-e-bioeconomia/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/eixos/campo-e-tecnologias-emergentes/</loc>
+    <lastmod>2026-11-16T13:32:31-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/eixos/campo-e-tecnologias-emergentes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/eixos/campo-e-tecnologias-emergentes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/eixos/campo-e-tecnologias-emergentes/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/eixos/habitats-e-especies/</loc>
+    <lastmod>2026-11-16T13:32:31-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/eixos/habitats-e-especies/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/eixos/habitats-e-especies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/eixos/habitats-e-especies/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/acesso/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/acesso/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/acesso/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/acesso/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/como-citar/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/como-citar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/como-citar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/como-citar/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/eixos/biodiversidade-sustento-e-bioeconomia/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/eixos/biodiversidade-sustento-e-bioeconomia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/eixos/biodiversidade-sustento-e-bioeconomia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/eixos/biodiversidade-sustento-e-bioeconomia/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/eixos/campo-e-tecnologias-emergentes/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/eixos/campo-e-tecnologias-emergentes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/eixos/campo-e-tecnologias-emergentes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/eixos/campo-e-tecnologias-emergentes/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/eixos/habitats-e-especies/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/eixos/habitats-e-especies/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/eixos/habitats-e-especies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/eixos/habitats-e-especies/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/expedicoes/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/expedicoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/expedicoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/expedicoes/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/expedicoes/curicuriari-janeiro-2026/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-janeiro-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/expedicoes/curicuriari-janeiro-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-janeiro-2026/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/expedicoes/curicuriari-julho-2025/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-julho-2025/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/expedicoes/curicuriari-julho-2025/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-julho-2025/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/expedicoes/curicuriari-maio-2026/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-maio-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/expedicoes/curicuriari-maio-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-maio-2026/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/expedicoes/curicuriari-outubro-2025/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-outubro-2025/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/expedicoes/curicuriari-outubro-2025/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-outubro-2025/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/expedicoes/tiquie-julho-2026/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/expedicoes/tiquie-julho-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/expedicoes/tiquie-julho-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/expedicoes/tiquie-julho-2026/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/ferramentas/validador-herbario/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/ferramentas/validador-herbario/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/ferramentas/validador-herbario/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/ferramentas/validador-herbario/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/noticias/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/noticias/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/noticias/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/noticias/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/publicacoes/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/publicacoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/publicacoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/publicacoes/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/salvaguardas/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/salvaguardas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/salvaguardas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/salvaguardas/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/en/team/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/team/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/team/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/team/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/expedicoes/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/expedicoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/expedicoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/expedicoes/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/expedicoes/curicuriari-janeiro-2026/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-janeiro-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/expedicoes/curicuriari-janeiro-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-janeiro-2026/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/expedicoes/curicuriari-julho-2025/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-julho-2025/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/expedicoes/curicuriari-julho-2025/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-julho-2025/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/expedicoes/curicuriari-maio-2026/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-maio-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/expedicoes/curicuriari-maio-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-maio-2026/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/expedicoes/curicuriari-outubro-2025/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-outubro-2025/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/expedicoes/curicuriari-outubro-2025/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/expedicoes/curicuriari-outubro-2025/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/expedicoes/tiquie-julho-2026/</loc>
+    <lastmod>2026-11-16T19:22:09-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/expedicoes/tiquie-julho-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/expedicoes/tiquie-julho-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/expedicoes/tiquie-julho-2026/"/>
   </url>
   <url>
     <loc>https://tsiinohiiwiida.net/ferramentas/validador-herbario/</loc>
-    <lastmod>2026-11-14T22:16:48.899Z</lastmod>
+    <lastmod>2026-11-16T13:06:41-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/ferramentas/validador-herbario/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/ferramentas/validador-herbario/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/ferramentas/validador-herbario/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/noticias/</loc>
+    <lastmod>2026-11-16T13:32:31-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/noticias/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/noticias/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/noticias/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/publicacoes/</loc>
+    <lastmod>2026-11-16T13:32:31-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/publicacoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/publicacoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/publicacoes/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/salvaguardas/</loc>
+    <lastmod>2026-11-16T14:15:08-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/salvaguardas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/salvaguardas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/salvaguardas/"/>
+  </url>
+  <url>
+    <loc>https://tsiinohiiwiida.net/team/</loc>
+    <lastmod>2026-11-16T14:15:08-03:00</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tsiinohiiwiida.net/team/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tsiinohiiwiida.net/en/team/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tsiinohiiwiida.net/team/"/>
   </url>
 </urlset>

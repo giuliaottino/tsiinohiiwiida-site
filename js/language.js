@@ -44,6 +44,7 @@
   let observer = null;
   let refreshTimer = null;
   let translating = false;
+  let staticStrings = null;
   const originalTitle = document.title;
 
   function normalize(value) {
@@ -156,6 +157,9 @@
     const raw = String(value || "");
     if (language === defaultLanguage) return raw;
     if (!hasLetters(raw)) return raw;
+    // Página estática já traduzida: o texto que veio no HTML não é retraduzido
+    // (o dicionário é PT→EN; aplicá-lo a texto em inglês trocaria palavras soltas).
+    if (staticStrings && staticStrings.has(normalize(raw))) return raw;
 
     const exact = lookupExact(raw, language);
     if (exact !== null) return preserveSpacing(raw, exact);
@@ -367,9 +371,37 @@
     refreshTimer = setTimeout(function () { applyLanguage(currentLanguage); }, 80);
   }
 
+  // Páginas estáticas (/en/): só o que muda depois do carregamento é traduzido,
+  // nó a nó, em vez de reprocessar a página inteira.
+  function translateRecords(records) {
+    if (!records || !records.length || translating) return;
+    if (observer) observer.disconnect();
+    translating = true;
+    try {
+      invalidateExternalChanges(records);
+      records.forEach(function (m) {
+        if (m.type === "childList") {
+          m.addedNodes.forEach(function (node) {
+            if (node.isConnected) translateElementTree(node, currentLanguage);
+          });
+        } else if (m.type === "characterData") {
+          translateTextNode(m.target, currentLanguage);
+        } else if (m.type === "attributes" && m.target.nodeType === Node.ELEMENT_NODE) {
+          translateDataI18nElement(m.target, currentLanguage);
+          translateDataI18nAttributes(m.target, currentLanguage);
+          translateAttributes(m.target, currentLanguage);
+        }
+      });
+    } finally {
+      translating = false;
+      if (observer && document.body) observer.observe(document.body, observerOptions);
+    }
+  }
+
   function startObserver() {
     if (observer || !document.body) return;
     observer = new MutationObserver(function (mutations) {
+      if (staticStrings) { translateRecords(mutations); return; }
       if (invalidateExternalChanges(mutations)) scheduleApply();
     });
     observer.observe(document.body, observerOptions);
@@ -391,97 +423,38 @@
     if (document.body && window.TsiinoSetLanguage) applyLanguage(currentLanguage);
   });
 
+  // O idioma é o da própria página: as versões em inglês são páginas estáticas
+  // em /en/ (com <html lang="en">), ligadas pelo link do cabeçalho. Este runtime
+  // só traduz o que é criado depois do carregamento (popups de mapa, painéis,
+  // mensagens do validador). Nas páginas em português ele não altera nada.
   function getInitialLanguage() {
-    const params = new URLSearchParams(window.location.search);
-    const queryLanguage = params.get("lang");
-    if (available.includes(queryLanguage)) return queryLanguage;
-
-    try {
-      const stored = localStorage.getItem(storageKey);
-      if (available.includes(stored)) return stored;
-    } catch (error) {}
-
-    return defaultLanguage;
+    const pageLanguage = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+    return pageLanguage.indexOf("en") === 0 && available.includes("en") ? "en" : defaultLanguage;
   }
 
-  function makeButton(language) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "tsiino-language-button";
-    button.dataset.language = language;
-    button.textContent = labels[language] || language.toUpperCase();
-    button.addEventListener("click", function () { applyLanguage(language); });
-    return button;
-  }
-
-  function installSwitcherStyles() {
-    if (document.getElementById("tsiino-language-style")) return;
-    const style = document.createElement("style");
-    style.id = "tsiino-language-style";
-    style.textContent = `
-      .tsiino-language-control{
-        position: fixed;
-        right: clamp(0.75rem, 1.6vw, 1.25rem);
-        bottom: calc(clamp(0.75rem, 1.6vw, 1.25rem) + 2cm);
-        z-index: 2147483000;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.25rem;
-        padding: 0.25rem;
-        border-radius: 999px;
-        background: rgba(255,253,247,0.94);
-        border: 1px solid rgba(98,106,56,0.28);
-        box-shadow: 0 12px 26px rgba(0,0,0,0.16);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        font-family: Montserrat, Arial, sans-serif;
-      }
-      .tsiino-language-button{
-        border: 0;
-        border-radius: 999px;
-        background: transparent;
-        color: #2E3B24;
-        font-size: 0.76rem;
-        font-weight: 800;
-        letter-spacing: 0.02em;
-        line-height: 1;
-        padding: 0.52rem 0.72rem;
-        cursor: pointer;
-      }
-      .tsiino-language-button:hover{ background: rgba(215,221,197,0.65); }
-      .tsiino-language-button.is-active{ background: #626A38; color: #FFFDF7; }
-      @media (max-width: 640px){
-        .tsiino-language-control{ right: 0.55rem; bottom: 0.55rem; }
-        .tsiino-language-button{ font-size: 0.7rem; padding: 0.48rem 0.58rem; }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  function createSwitcher() {
-    if (document.querySelector(".tsiino-language-control")) return;
-    installSwitcherStyles();
-    const control = document.createElement("div");
-    control.className = "tsiino-language-control";
-    control.setAttribute("aria-label", "Idioma");
-    available.forEach(function (language) { control.appendChild(makeButton(language)); });
-    document.body.appendChild(control);
-  }
-
-  function updateSwitcher(language) {
-    const control = document.querySelector(".tsiino-language-control");
-    if (control) control.setAttribute("aria-label", language === "en" ? "Language" : "Idioma");
-    document.querySelectorAll(".tsiino-language-button").forEach(function (button) {
-      const active = button.dataset.language === language;
-      button.classList.toggle("is-active", active);
-      button.setAttribute("aria-pressed", active ? "true" : "false");
-    });
-  }
+  function updateSwitcher() {}
 
   function boot() {
     if (!document.body) return;
     refreshConfig();
-    createSwitcher();
+
+    const early = window.__tsiinoStatic;
+    if (early && getInitialLanguage() !== defaultLanguage) {
+      // Página já traduzida no build (ver scripts/build_i18n.mjs e language-router.html).
+      staticStrings = early.strings;
+      currentLanguage = getInitialLanguage();
+      document.documentElement.setAttribute("data-tsiino-language", currentLanguage);
+      if (early.observer) {
+        early.queue.push.apply(early.queue, early.observer.takeRecords());
+        early.observer.disconnect();
+      }
+      startObserver();
+      translateRecords(early.queue.splice(0));
+      window.TsiinoSetLanguage = function () {};
+      window.TsiinoTranslate = function (value, language) { return translateValue(value, language || currentLanguage); };
+      return;
+    }
+
     applyLanguage(getInitialLanguage());
     startObserver();
     window.addEventListener("load", function () {

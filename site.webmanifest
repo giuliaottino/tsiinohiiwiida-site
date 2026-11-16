@@ -1,0 +1,22 @@
+{
+  "name": "Tsiino Hiiwiida",
+  "short_name": "Tsiino Hiiwiida",
+  "description": "Biodiversidade de plantas e fungos do Alto Rio Negro (Cabeça do Cachorro).",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FFFDF7",
+  "theme_color": "#2E3B24",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

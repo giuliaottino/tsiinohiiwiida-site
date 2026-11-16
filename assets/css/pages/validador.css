@@ -74,8 +74,8 @@ html body section.hv-minimal-explainer {
   text-align: left !important;
   background: rgba(255, 252, 243, 0.92) !important;
   border: 1px solid rgba(55, 63, 34, 0.16) !important;
-  border-radius: 24px !important;
-  box-shadow: 0 18px 46px rgba(30, 33, 20, 0.08) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: none !important;
 }
 
 html body .hv-clean-overview::before,
@@ -360,8 +360,8 @@ body{ background: var(--tsiino-cream); }
   background:
     linear-gradient(90deg, rgba(16,18,12,.84) 0%, rgba(30,37,23,.62) 42%, rgba(30,37,23,.18) 100%),
     linear-gradient(180deg, rgba(16,18,12,.06), rgba(16,18,12,.52)),
-    url('../../../figures/conservacao/herbario.png'),
-    url('../../../figures/conservacao/herbarium_blitz.jpg'),
+    url('../../../figures/conservacao/web/herbario.jpg'),
+    url('../../../figures/conservacao/web/herbarium_blitz.jpg'),
     linear-gradient(135deg, var(--tsiino-ink), var(--tsiino-moss));
   background-size: cover;
   background-position: center;
@@ -392,13 +392,13 @@ body{ background: var(--tsiino-cream); }
   margin: 0 0 1.2rem 0;
   padding: .42rem .78rem;
   border: 1px solid rgba(255,255,255,.36);
-  border-radius: 999px;
+  border-radius: var(--radius);
   background: rgba(255,255,255,.12);
   backdrop-filter: blur(10px);
   text-transform: uppercase;
   letter-spacing: .16em;
   font-size: .74rem;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .hv-site-title{
@@ -407,7 +407,7 @@ body{ background: var(--tsiino-cream); }
   font-size: clamp(3.8rem, 10vw, 8.8rem);
   line-height: .82;
   letter-spacing: -.08em;
-  font-weight: 900;
+  font-weight: 700;
   text-transform: uppercase;
   text-wrap: balance;
 }
@@ -435,11 +435,11 @@ body{ background: var(--tsiino-cream); }
   justify-content:center;
   min-height: 44px;
   padding:.72rem 1rem;
-  border-radius:999px;
+  border-radius:var(--radius);
   border:1px solid rgba(255,255,255,.42);
   color:#fff;
   text-decoration:none;
-  font-weight:900;
+  font-weight:700;
   background: rgba(255,255,255,.14);
   backdrop-filter: blur(10px);
 }
@@ -455,9 +455,9 @@ body{ background: var(--tsiino-cream); }
 .hv-panel,
 .hv-results{
   border: 1px solid var(--tsiino-line) !important;
-  border-radius: 28px !important;
+  border-radius: var(--radius) !important;
   background: rgba(255,253,247,.94) !important;
-  box-shadow: var(--tsiino-shadow) !important;
+  box-shadow:none !important;
 }
 
 .hv-site-card,
@@ -491,7 +491,7 @@ body{ background: var(--tsiino-cream); }
   font-size: clamp(1.85rem, 4.8vw, 4.4rem);
   line-height:.92;
   letter-spacing:-.06em;
-  font-weight:900;
+  font-weight:700;
   text-transform: uppercase;
 }
 
@@ -505,9 +505,9 @@ body{ background: var(--tsiino-cream); }
 .hv-card-number,
 .hv-converter-panel{
   border:1px solid rgba(46,59,36,.14) !important;
-  border-radius:22px !important;
+  border-radius:var(--radius) !important;
   background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(247,241,232,.74)) !important;
-  box-shadow: 0 12px 32px rgba(24,29,18,.08) !important;
+  box-shadow: none !important;
 }
 
 .hv-feature-grid article{ padding:1rem; }
@@ -524,8 +524,8 @@ body{ background: var(--tsiino-cream); }
 .hv-map-close,
 #download-inpa-template,
 #open-inpa-mapper{
-  border-radius:999px !important;
-  font-weight:900 !important;
+  border-radius:var(--radius) !important;
+  font-weight:700 !important;
 }
 
 .hv-primary{
@@ -548,15 +548,15 @@ body{ background: var(--tsiino-cream); }
 
 .hv-status,
 .hv-converter-status{
-  border-radius:18px !important;
+  border-radius:var(--radius) !important;
   border:1px solid rgba(46,59,36,.12);
 }
 
 .hv-sheet-wrap,
 .hv-issues-wrap,
 .hv-converter-table-wrap{
-  border-radius:22px !important;
-  box-shadow: 0 14px 36px rgba(24,29,18,.08);
+  border-radius:var(--radius) !important;
+  box-shadow: none;
 }
 
 .hv-sheet th,
@@ -575,7 +575,7 @@ body{ background: var(--tsiino-cream); }
 
 .hv-photo-card{
   min-height: 360px;
-  border-radius:28px;
+  border-radius:var(--radius);
   overflow:hidden;
   color:#fff;
   display:flex;
@@ -583,18 +583,18 @@ body{ background: var(--tsiino-cream); }
   padding:1rem;
   background:
     linear-gradient(180deg, rgba(46,59,36,.04), rgba(16,18,12,.76)),
-    url('../../../figures/conservacao/herbarium_blitz.jpg'),
-    url('../../../figures/conservacao/herbario.png'),
+    url('../../../figures/conservacao/web/herbarium_blitz.jpg'),
+    url('../../../figures/conservacao/web/herbario.jpg'),
     linear-gradient(135deg, var(--tsiino-ink), var(--tsiino-moss));
   background-size: cover;
   background-position: center;
-  box-shadow: var(--tsiino-shadow);
+  box-shadow:none;
 }
 
 .hv-photo-card .caption{
   width:100%;
   padding:1rem;
-  border-radius:20px;
+  border-radius:var(--radius);
   background: rgba(16,18,12,.40);
   backdrop-filter: blur(10px);
 }
@@ -617,7 +617,7 @@ body{ background: var(--tsiino-cream); }
 .hv-site-title, .hv-hero-title, .validator-hero-title { font-size: clamp(2.15rem, 4.15vw, 4.85rem) !important; line-height: .96 !important; text-align: left !important; text-transform: none !important; color: #fff !important; max-width: 620px !important; margin: 0 !important; }
 .hv-site-title br, .hv-hero-title br, .validator-hero-title br { display: none !important; }
 .hv-site-lead, .hv-hero-lead, .validator-hero-lead { text-align: left !important; max-width: 430px !important; margin: 1rem 0 0 !important; }
-.hv-clean-overview, .tsiino-validator-intro-card { width: min(760px, calc(100vw - 48px)) !important; max-width: 760px !important; margin: clamp(32px, 5vw, 68px) auto clamp(40px, 6vw, 86px) clamp(28px, 6vw, 98px) !important; padding: clamp(22px, 3vw, 36px) !important; background: rgba(255,252,244,.94) !important; border: 1px solid rgba(42,57,32,.16) !important; border-radius: 24px !important; box-shadow: 0 18px 46px rgba(30,38,24,.09) !important; text-align: left !important; }
+.hv-clean-overview, .tsiino-validator-intro-card { width: min(760px, calc(100vw - 48px)) !important; max-width: 760px !important; margin: clamp(32px, 5vw, 68px) auto clamp(40px, 6vw, 86px) clamp(28px, 6vw, 98px) !important; padding: clamp(22px, 3vw, 36px) !important; background: rgba(255,252,244,.94) !important; border: 1px solid rgba(42,57,32,.16) !important; border-radius: var(--radius) !important; box-shadow: none !important; text-align: left !important; }
 .hv-clean-overview::before, .hv-clean-overview::after, .tsiino-validator-intro-card::before, .tsiino-validator-intro-card::after { display: none !important; content: none !important; }
 .hv-clean-overview h2, .tsiino-validator-intro-card h2 { text-align: left !important; margin: 0 0 .85rem !important; color: #7c1d16 !important; font-size: clamp(1.45rem,2.05vw,2.05rem) !important; line-height: 1.12 !important; text-transform: none !important; }
 .hv-clean-overview p, .tsiino-validator-intro-card p { text-align: left !important; margin: 0 0 .82rem !important; max-width: 670px !important; font-size: clamp(.98rem,1.05vw,1.12rem) !important; line-height: 1.62 !important; color: #203021 !important; }

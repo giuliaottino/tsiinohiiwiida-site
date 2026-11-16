@@ -1117,10 +1117,13 @@
     loadLeaflet.p = new Promise((resolve, reject) => {
       const css = document.createElement('link');
       css.rel = 'stylesheet';
-      css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      // Leaflet hospedado no próprio site (assets/vendor/leaflet), relativo a este script.
+      const own = document.querySelector('script[src*="herb-validator.js"]');
+      const assetsBase = own ? own.src.replace(/js\/herb-validator\.js.*$/, '') : '../../assets/';
+      css.href = assetsBase + 'vendor/leaflet/leaflet.css';
       document.head.appendChild(css);
       const js = document.createElement('script');
-      js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      js.src = assetsBase + 'vendor/leaflet/leaflet.js';
       js.onload = () => resolve(window.L);
       js.onerror = (e) => { loadLeaflet.p = null; reject(e); };
       document.head.appendChild(js);

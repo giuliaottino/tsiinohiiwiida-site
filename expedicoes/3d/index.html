@@ -2,14 +2,18 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<!-- tsiino:perf -->
+<link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta name="theme-color" content="#2E3B24">
+<link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/source-serif-4-latin-400-700-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/th-sans-normal.woff2" crossorigin>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Expedições em 3D · Tsiino Hiiwiida</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/fonts/fonts.css?v=6cbb49c765">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<script src="data.js"></script>
+<script src="data.js?v=a3cddbc965"></script>
 <style>
   /* Tokens alinhados a assets/css/tsiino-base.css */
   :root {
@@ -22,9 +26,9 @@
     --tsi-accent-strong: #4b5229;
     --tsi-accent-light: #b4bc7a;
     --tsi-accent-glow: #dfe5ae;
-    --tsi-font-sans: "Montserrat", Arial, sans-serif;
-    --tsi-font-serif: "Source Serif 4", Georgia, serif;
-    --tsi-font-mono: "Space Mono", ui-monospace, monospace;
+    --tsi-font-sans: var(--font-sans);
+    --tsi-font-serif: var(--font-serif);
+    --tsi-font-mono: var(--font-sans);
     --tsi-radius: 6px;
     --tsi-radius-lg: 10px;
     --gap: 24px;
@@ -46,7 +50,7 @@
   .title { position: fixed; z-index: 5; top: var(--gap); left: var(--gap); max-width: min(460px, calc(100% - 2 * var(--gap) - 150px)); text-shadow: 0 1px 12px rgba(0, 0, 0, .45); }
   .mark { display: inline-flex; align-items: center; gap: 8px; font: 700 12px/1 var(--tsi-font-sans); color: var(--tsi-on-dark-muted); }
   .mark img { width: 22px; height: 22px; display: block; }
-  h1 { margin: 14px 0 4px; font: 800 clamp(22px, 1.4rem + .8vw, 32px)/1.08 var(--tsi-font-sans); letter-spacing: -.015em; text-wrap: balance; }
+  h1 { margin: 14px 0 4px; font: 700 clamp(22px, 1.4rem + .8vw, 32px)/1.08 var(--tsi-font-sans); letter-spacing: -.015em; text-wrap: balance; }
   .sub { color: var(--tsi-on-dark-muted); font: 400 15px/1.4 var(--tsi-font-serif); }
   .now { margin-top: 18px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; transition: opacity .5s; }
   .now-name { font: 600 15px/1.3 var(--tsi-font-sans); }
@@ -54,12 +58,12 @@
 
   /* ---------- canto superior direito ---------- */
   .top-right { position: fixed; z-index: 6; top: var(--gap); right: var(--gap); display: flex; gap: 8px; align-items: center; }
-  .pill { height: 34px; padding: 0 13px; border-radius: 999px; border: 1px solid var(--tsi-line); background: var(--glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font: 600 12px/1 var(--tsi-font-sans); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+  .pill { height: 34px; padding: 0 13px; border-radius: var(--radius); border: 1px solid var(--tsi-line); background: var(--glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font: 600 12px/1 var(--tsi-font-sans); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
   .pill:hover { border-color: rgba(244, 243, 239, .35); }
   .lang { display: inline-flex; padding: 2px; gap: 0; }
-  .lang button { border: 0; background: none; color: var(--tsi-on-dark-faint); font: 600 11px/1 var(--tsi-font-sans); letter-spacing: .06em; padding: 0 9px; height: 28px; border-radius: 999px; cursor: pointer; }
+  .lang button { border: 0; background: none; color: var(--tsi-on-dark-faint); font: 600 11px/1 var(--tsi-font-sans); letter-spacing: .06em; padding: 0 9px; height: 28px; border-radius: var(--radius); cursor: pointer; }
   .lang button[aria-pressed="true"] { background: var(--tsi-on-dark); color: var(--tsi-bg-dark); }
-  .menu { position: absolute; top: 42px; right: 0; min-width: 240px; padding: 6px; border-radius: var(--tsi-radius-lg); background: rgba(28, 31, 25, .95); border: 1px solid var(--tsi-line); box-shadow: 0 16px 40px rgba(0, 0, 0, .4); display: none; }
+  .menu { position: absolute; top: 42px; right: 0; min-width: 240px; padding: 6px; border-radius: var(--tsi-radius-lg); background: rgba(28, 31, 25, .95); border: 1px solid var(--tsi-line); box-shadow: none; display: none; }
   .menu.open { display: block; }
   .menu button { display: block; width: 100%; text-align: left; border: 0; background: none; padding: 9px 10px; border-radius: var(--tsi-radius); cursor: pointer; font: 600 13px/1.3 var(--tsi-font-sans); }
   .menu button small { display: block; font-weight: 400; color: var(--tsi-on-dark-faint); margin-top: 2px; }
@@ -85,28 +89,28 @@
   .tcard { pointer-events: auto; position: relative; width: 196px; margin: 18px 0 0 18px; padding: 0; border: 0; background: none; cursor: zoom-in; display: block; transition: opacity .6s, transform .6s; }
   .tcard.off { opacity: 0; transform: translateY(6px); pointer-events: none; }
   .tcard::before { content: ""; position: absolute; left: -18px; top: -18px; width: 22px; height: 22px; border-left: 1px solid rgba(244, 243, 239, .7); border-top: 1px solid rgba(244, 243, 239, .7); border-radius: 2px 0 0 0; }
-  .tframe { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--tsi-radius); border: 1px solid rgba(244, 243, 239, .55); background: #2a2e25; box-shadow: 0 12px 28px rgba(0, 0, 0, .45); }
+  .tframe { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--tsi-radius); border: 1px solid rgba(244, 243, 239, .55); background: #2a2e25; box-shadow: none; }
   .tframe img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.1s ease; }
   .tframe img.on { opacity: 1; }
   .tmeta { display: flex; justify-content: space-between; gap: 8px; margin-top: 6px; font: 400 10.5px/1.3 var(--tsi-font-mono); color: var(--tsi-on-dark-muted); text-shadow: 0 1px 4px rgba(0, 0, 0, .9); }
   .tmeta span:first-child { font: italic 400 12.5px/1.3 var(--tsi-font-serif); color: var(--tsi-on-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .alt { position: absolute; left: 14px; top: -30px; font: 700 11px/1 var(--tsi-font-mono); padding: 4px 7px; border-radius: 999px; background: rgba(28, 31, 25, .8); color: var(--tsi-accent-glow); white-space: nowrap; opacity: 0; transition: opacity .4s; }
+  .alt { position: absolute; left: 14px; top: -30px; font: 700 11px/1 var(--tsi-font-mono); padding: 4px 7px; border-radius: var(--radius); background: rgba(28, 31, 25, .8); color: var(--tsi-accent-glow); white-space: nowrap; opacity: 0; transition: opacity .4s; }
   .alt.show { opacity: 1; }
 
   /* fotos com coordenada: ficam presas no lugar */
   .gpin { pointer-events: auto; border: 0; padding: 0; background: none; cursor: zoom-in; opacity: 0; transition: opacity .6s; }
   .gpin.show { opacity: 1; }
-  .gpin .gframe { width: 92px; aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden; border: 1px solid rgba(244, 243, 239, .7); box-shadow: 0 8px 18px rgba(0, 0, 0, .45); transition: width .5s; }
+  .gpin .gframe { width: 92px; aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden; border: 1px solid rgba(244, 243, 239, .7); box-shadow: none; transition: width .5s; }
   .gpin .gframe img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .gpin.mini .gframe { width: 14px; border-radius: 50%; aspect-ratio: 1; border-width: 2px; }
 
   /* registros de campo (waypoints) */
   .wp { display: flex; align-items: center; gap: 6px; pointer-events: none; opacity: 0; transition: opacity .6s; }
   .wp.show { opacity: 1; }
-  .wp i { width: 8px; height: 8px; border-radius: 50%; background: var(--tsi-on-dark); box-shadow: 0 0 0 3px rgba(98, 106, 56, .65); flex: none; }
+  .wp i { width: 8px; height: 8px; border-radius: 50%; background: var(--tsi-on-dark); box-shadow:none; flex: none; }
   .wp span { font: 500 11.5px var(--tsi-font-sans); color: var(--tsi-on-dark); text-shadow: 0 1px 4px rgba(0, 0, 0, .95); white-space: nowrap; transition: opacity .6s; }
   .wp.past span { opacity: 0; }
-  .wp.summit i { width: 0; height: 0; border-radius: 0; background: none; box-shadow: none; border: 6px solid transparent; border-bottom: 10px solid var(--tsi-on-dark); border-top: 0; }
+  .wp.summit i { width: 0; height: 0; border-radius: 0; background: none; box-shadow:none; border: 6px solid transparent; border-bottom: 10px solid var(--tsi-on-dark); border-top: 0; }
   .wp.summit span { font: 700 11px var(--tsi-font-mono); opacity: 1; }
 
   /* ---------- lightbox ---------- */
@@ -125,7 +129,7 @@
   .intro.gone { opacity: 0; pointer-events: none; }
   .intro .mark { font-size: 15px; color: var(--tsi-on-dark); gap: 10px; }
   .intro .mark img { width: 38px; height: 38px; }
-  .intro h2 { font: 800 clamp(2.25rem, 1.4rem + 3.6vw, 4rem)/1.05 var(--tsi-font-sans); letter-spacing: -.02em; margin: 28px 0 14px; }
+  .intro h2 { font: 700 clamp(2.25rem, 1.4rem + 3.6vw, 4rem)/1.05 var(--tsi-font-sans); letter-spacing: -.02em; margin: 28px 0 14px; }
   .intro p { max-width: 520px; margin: 0 auto 28px; color: var(--tsi-on-dark-muted); font: 400 17px/1.55 var(--tsi-font-serif); }
   .intro .start { padding: 13px 26px; border-radius: var(--tsi-radius); border: 0; background: var(--tsi-accent); color: var(--tsi-on-dark); font: 600 15px var(--tsi-font-sans); cursor: pointer; }
   .intro .start:hover { background: var(--tsi-accent-strong); }
@@ -161,7 +165,7 @@
 <div class="shade"></div>
 
 <header class="title">
-  <div class="mark"><img src="../../figures/brand/logo_tsiino_symbol.png" alt="" onerror="this.style.display='none'"><span>Tsiino Hiiwiida</span></div>
+  <div class="mark"><picture><source type="image/avif" srcset="../../assets/img/opt/assets/icons/logo-tsiino-288.avif 288w" sizes="auto, (min-width: 992px) 50vw, 100vw"><source type="image/webp" srcset="../../assets/img/opt/assets/icons/logo-tsiino-288.webp 288w" sizes="auto, (min-width: 992px) 50vw, 100vw"><img src="../../assets/img/opt/assets/icons/logo-tsiino-288.png" srcset="../../assets/img/opt/assets/icons/logo-tsiino-288.png 288w" sizes="auto, (min-width: 992px) 50vw, 100vw" alt="" width="288" height="288" loading="lazy" decoding="async" data-opt="1"></picture><span>Tsiino Hiiwiida</span></div>
   <h1 id="exp-name">—</h1>
   <div class="sub" id="exp-meta"></div>
   <div class="now" id="now"><span class="now-name" id="trail-name"></span><span class="chip" id="trail-chip"></span></div>
@@ -197,7 +201,7 @@
 
 <div class="intro" id="intro">
   <div>
-    <div class="mark"><img src="../../figures/brand/logo_tsiino_symbol.png" alt="" onerror="this.style.display='none'"><span>Tsiino Hiiwiida</span></div>
+    <div class="mark"><picture><source type="image/avif" srcset="../../assets/img/opt/assets/icons/logo-tsiino-288.avif 288w" sizes="auto, (min-width: 992px) 50vw, 100vw"><source type="image/webp" srcset="../../assets/img/opt/assets/icons/logo-tsiino-288.webp 288w" sizes="auto, (min-width: 992px) 50vw, 100vw"><img src="../../assets/img/opt/assets/icons/logo-tsiino-288.png" srcset="../../assets/img/opt/assets/icons/logo-tsiino-288.png 288w" sizes="auto, (min-width: 992px) 50vw, 100vw" alt="" width="288" height="288" loading="lazy" decoding="async" data-opt="1"></picture><span>Tsiino Hiiwiida</span></div>
     <h2 data-t="introTitle"></h2>
     <p id="intro-text"></p>
     <button class="start" id="btn-start" data-t="start"></button>
@@ -507,7 +511,7 @@
       if (p.lat == null) return;
       const btn = document.createElement('button');
       btn.className = 'gpin';
-      btn.innerHTML = `<div class="gframe"><img loading="lazy" alt="" src="${photoSrc(p)}"></div>`;
+      btn.innerHTML = `<div class="gframe"><img loading="lazy" alt="" src="${photoSrc(p)}" decoding="async"></div>`;
       btn.onclick = () => openLightbox(i);
       const near = e.trails.reduce((best, t, k) => { const n = nearestDist(t, [p.lon, p.lat]); return n.off < best.off ? { off: n.off, ti: k, along: n.along } : best; }, { off: Infinity, ti: 0, along: 0 });
       P.pins.push({ el: btn, ti: near.ti, along: near.along, marker: htmlMarker(btn, [p.lon, p.lat], 'bottom', [0, -6]) });

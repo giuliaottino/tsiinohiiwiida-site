@@ -111,7 +111,7 @@ html,
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  
 }
 
 .tsiino-site-footer {
@@ -125,7 +125,7 @@ body {
   color: #F6F1E8 !important;
   padding: 2rem clamp(1.2rem, 3vw, 3.5rem) !important;
   box-sizing: border-box !important;
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: var(--font-sans);
 }
 
 body > .tsiino-site-footer {
@@ -222,7 +222,7 @@ body > .tsiino-site-footer {
 
 .tsiino-footer-title {
   margin-bottom: 0.45rem;
-  font-family: "Space Mono", monospace;
+  font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -232,7 +232,7 @@ body > .tsiino-site-footer {
 
 .tsiino-footer-contact a {
   font-size: clamp(0.95rem, 1.1vw, 1.12rem);
-  font-weight: 800;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -363,7 +363,7 @@ html,
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  
 }
 
 body > .tsiino-site-footer {
@@ -386,13 +386,10 @@ body .tsiino-site-footer {
    Regras com !important são necessárias porque algumas páginas
    definem o background em CSS local e/ou com !important.
 */
-html body .kpi-card,
 html body .mol-kpi,
 html body .taxa-card,
 html body .about-stat,
 html body .safeguards-status-card,
-html body .species-drawer summary,
-html body .data-flow-card,
 html body .project-map-header,
 html body #divulgacao .media-panel-header,
 html body #salvaguardas-cta .safeguards-simple-card {

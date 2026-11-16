@@ -1,0 +1,181 @@
+/* =========================================================================
+   tsiino-tokens.css — sistema visual do site Tsiino Hiiwiida (2026-11)
+   -------------------------------------------------------------------------
+   Direção: publicação científica / portal de dados de herbário. A hierarquia
+   vem de tipografia, alinhamento, espaço e fios de 1px — não de caixas
+   coloridas, sombras, pílulas ou barras laterais.
+
+   Este arquivo só define variáveis e alguns utilitários. Toda regra do site
+   deve usar estas variáveis em vez de valores soltos.
+
+   DUAS FAMÍLIAS
+   --font-serif  Source Serif 4   títulos, texto corrido, números de destaque
+   --font-sans   TH Sans          interface, rótulos, tabelas, legendas, dados
+                 (subconjunto da Source Sans 3 com versalete real e algarismos
+                 tabulares; ver scripts/build-fonts.py)
+   Não há fonte monoespaçada decorativa. Pesos: 400, 600 e 700. Nada de 800/900.
+   ========================================================================= */
+
+:root {
+  /* ---- Famílias ------------------------------------------------------- */
+  --font-serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --font-sans: "TH Sans", "Source Sans 3", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+
+  /* ---- Pesos ---------------------------------------------------------- */
+  --fw-regular: 400;
+  --fw-semibold: 600;   /* títulos e rótulos */
+  --fw-bold: 700;       /* ênfase pontual em texto e dados */
+
+  /* ---- Escala de tamanhos (base 1rem = 17px no site) ------------------- */
+  --fs-caption: 0.8125rem;   /* legendas, notas, metadados          */
+  --fs-small: 0.9375rem;     /* interface, tabelas, texto de apoio  */
+  --fs-body: 1.0625rem;      /* texto corrido                       */
+  --fs-lead: 1.25rem;        /* parágrafo de abertura               */
+  --fs-h3: 1.375rem;
+  --fs-h2: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem);
+  --fs-h1: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  --fs-figure: clamp(1.875rem, 1.4rem + 1.6vw, 2.5rem);   /* número de indicador */
+
+  /* ---- Entrelinha e medida -------------------------------------------- */
+  --lh-tight: 1.1;      /* h1, números          */
+  --lh-heading: 1.2;    /* h2, h3               */
+  --lh-ui: 1.4;         /* interface e tabelas  */
+  --lh-body: 1.6;       /* texto corrido        */
+  --measure: 68ch;      /* largura do texto corrido */
+  --measure-narrow: 60ch;
+
+  /* ---- Cores de base (derivadas da paleta atual) ----------------------- */
+  --ink: #1a1c17;            /* títulos                         */
+  --text: #2c2e29;           /* texto corrido                   */
+  --text-muted: #5d6058;     /* rótulos, legendas (7,0:1 no papel) */
+  --text-faint: #7b7e75;     /* metadados (4,6:1 no papel)      */
+  --paper: #fcfbf8;          /* fundo da página (off-white)     */
+  --paper-alt: #f4f2eb;      /* faixa alternada, usada com parcimônia */
+  --rule: #d8d5ca;           /* fio de 1px                      */
+  --rule-strong: #1a1c17;    /* fio de abertura de seção/tabela */
+  --dark: #1c2117;           /* faixas escuras e heroes         */
+  --on-dark: #f6f4ee;
+  --on-dark-muted: #c9cabf;
+
+  /* ---- Cores da marca, cada uma com papel fixo ------------------------- */
+  --olive: #5b6433;          /* marca; links e ações; fonte "coleções/GBIF" */
+  --olive-dark: #3d4423;     /* hover de links e botões         */
+  --terra: #a03a2c;          /* vermelho-terra: fonte "expedições"; erro */
+  --ochre: #b07a1c;          /* ocre: destaque de leitura (pico, período) */
+  --ochre-on-dark: #e9b860;  /* ocre legível sobre fundo escuro */
+
+  /* ---- Cores de dados: significado fixo em todos os gráficos ----------- */
+  /* Fonte do registro */
+  --data-expedicoes: var(--terra);
+  --data-colecoes: var(--olive);
+  /* Nível de identificação: rampa sequencial de cinzas quentes */
+  --data-id-especie: #3a3830;
+  --data-id-genero: #7a7566;
+  --data-id-familia: #b0ab9a;
+  --data-id-indet: #dcd8ca;
+  /* Grupo biológico: três tons terrosos da própria paleta */
+  --data-fanerogamas: #3d4423;   /* verde-oliva escuro */
+  --data-criptogamas: #b07a1c;   /* ocre               */
+  --data-fungos: #8a5a3c;        /* castanho           */
+  --ochre-soft: #f3e6c8;         /* realce de busca e destaque de leitura */
+
+  /* ---- Espaço: escala de 4/8 px ---------------------------------------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10: 128px;
+
+  /* ---- Layout: um sistema só para o site inteiro ------------------------ */
+  --gutter: clamp(20px, 5vw, 72px);                       /* respiro lateral          */
+  --container: min(1240px, 100% - 2 * var(--gutter));     /* títulos, painéis, grades */
+  --container-wide: min(1440px, 100% - 2 * var(--gutter));/* galerias e mapas         */
+  --section-space: clamp(64px, 9vw, 128px);               /* entre seções             */
+  /* mesma escala com os nomes --space-N */
+  --space-1: var(--sp-1); --space-2: var(--sp-2); --space-3: var(--sp-3); --space-4: var(--sp-4);
+  --space-5: var(--sp-5); --space-6: var(--sp-6); --space-7: var(--sp-7); --space-8: var(--sp-8);
+  --space-9: var(--sp-9); --space-10: var(--sp-10);
+  /* nomes usados antes desta etapa */
+  --page-gutter: var(--gutter);
+  --page-max: 1240px;
+
+  /* ---- Forma e movimento ----------------------------------------------- */
+  --radius: 6px;             /* único raio do site (o outro é 0)     */
+  --ease: 180ms ease;        /* transições discretas (150–200 ms)    */
+  --focus: 2px solid var(--terra);
+
+  /* ---- Botões (um componente, três variantes) --------------------------- */
+  --btn-height: 44px;
+  --btn-pad: 0 var(--sp-5);
+  --btn-font: var(--fw-semibold) var(--fs-small)/1 var(--font-sans);
+}
+
+/* -------------------------------------------------------------------------
+   Utilitários tipográficos
+   ------------------------------------------------------------------------- */
+
+/* Rótulo / eyebrow: versalete de verdade (recurso smcp da TH Sans). */
+.t-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: var(--fw-semibold);
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.06em;
+  line-height: var(--lh-ui);
+  color: var(--text-muted);
+  hyphens: none;
+}
+
+/* Números de dados: sempre tabulares e alinháveis. */
+.t-num {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* -------------------------------------------------------------------------
+   Botões
+   .btn-th            primário (preenchido)
+   .btn-th.is-outline secundário (contorno de 1px)
+   .btn-th.is-ghost   terciário (só texto + seta)
+   .btn-th.on-dark    variante para fundo escuro
+   A seta (→) é opcional: <span class="btn-th-arrow" aria-hidden="true">→</span>
+   ------------------------------------------------------------------------- */
+.btn-th {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: var(--btn-height);
+  padding: var(--btn-pad);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--paper);
+  font: var(--btn-font);
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  text-transform: none;
+  hyphens: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--ease), color var(--ease), border-color var(--ease);
+}
+.btn-th:hover { background: var(--olive-dark); border-color: var(--olive-dark); color: var(--paper); }
+.btn-th.is-outline { background: transparent; color: var(--ink); }
+.btn-th.is-outline:hover { background: var(--ink); color: var(--paper); }
+.btn-th.is-ghost { padding: 0; border-color: transparent; background: transparent; color: var(--olive-dark); }
+.btn-th.is-ghost:hover { background: transparent; color: var(--ink); }
+.btn-th.on-dark { border-color: var(--on-dark); background: transparent; color: var(--on-dark); }
+.btn-th.on-dark:hover { background: var(--on-dark); color: var(--dark); }
+.btn-th-arrow { display: inline-block; transition: transform var(--ease); }
+.btn-th:hover .btn-th-arrow { transform: translateX(4px); }
+.btn-th:focus-visible { outline: var(--focus); outline-offset: 2px; }
+.btn-th.on-dark:focus-visible { outline-color: var(--on-dark); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-th, .btn-th-arrow { transition: none; }
+}

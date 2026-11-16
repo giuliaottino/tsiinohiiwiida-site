@@ -14,6 +14,11 @@ window.TsiinoTranslations = {
   "storageKey": "tsiino-language",
   "strings": {
     "en": {
+      "4": "4",
+      "6": "6",
+      "30": "30",
+      "36": "36",
+      "66": "66",
       "Sobre": "About",
       "Expedições": "Expeditions",
       "Acesso aos dados": "Data access",
@@ -47,13 +52,9 @@ window.TsiinoTranslations = {
       "Campinaranas, florestas de terra-firme, igapós, serras e formações aluviais na fronteira entre Brasil, Colômbia e Venezuela. A heterogeneidade ambiental e a longa história geológica da Bacia Amazônica fazem da região um grande cenário para entender evolução, distribuição e endemismos.": "Campinaranas, terra-firme forests, igapó floodplain forests, mountain ranges and alluvial formations occur along the border between Brazil, Colombia and Venezuela. The region’s environmental heterogeneity and the long geological history of the Amazon Basin make it a major setting for understanding evolution, distribution and endemism.",
       "O objetivo é acelerar a documentação de plantas e fungos, preencher lacunas taxonômicas, biogeográficas e evolutivas, e formar novas redes de pesquisa com participação local. As expedições de campo se conectam à identificação taxonômica, coleções científicas, sistemática molecular, metagenômica, biomonitoramento e comunicação pública.": "The goal is to accelerate the documentation of plants and fungi, fill taxonomic, biogeographic and evolutionary gaps, and build new research networks with local participation. The field expeditions connect taxonomic identification, scientific collections, molecular systematics, metagenomics, biomonitoring and public communication.",
       "Da coleta em rios e serras ao catálogo público: o projeto transforma registros de campo, coleções biológicas em conhecimento acessível sobre a flora e a funga da Cabeça do Cachorro.": "From collecting along rivers and mountains to a public catalogue: the project transforms field records and biological collections into accessible knowledge about the flora and funga of Cabeça do Cachorro.",
-      "36": "36",
       "meses de duração": "months of duration",
-      "6": "6",
       "campanhas de campo": "field campaigns",
-      "30": "30",
       "instituições Brasil + Reino Unido": "Brazil + United Kingdom institutions",
-      "4": "4",
       "rios de amostragem": "sampling rivers",
       "Alto Rio Negro · território, ciência e colaboração": "Upper Rio Negro · territory, science and collaboration",
       "São Gabriel da Cachoeira": "São Gabriel da Cachoeira",
@@ -201,7 +202,6 @@ window.TsiinoTranslations = {
       "O projeto é coordenado por uma rede multidisciplinar vinculada a instituições amazônicas, centros de pesquisa de outros estados brasileiros e parceiros do Reino Unido.": "The project is coordinated by a multidisciplinary network linked to Amazonian institutions, research centers in other Brazilian states and partners in the United Kingdom.",
       "A rede combina taxonomia, sistemática, bioinformática, micologia, briologia, florística, química de solos, comunicação científica, audiovisual e colaboração com parataxonomistas e representantes indígenas.": "The network combines taxonomy, systematics, bioinformatics, mycology, bryology, floristics, soil chemistry, science communication, audiovisual work and collaboration with parataxonomists and Indigenous representatives.",
       "instituições articuladas": "connected institutions",
-      "66": "66",
       "pesquisadores, estudantes e equipe técnica": "researchers, students and technical staff",
       "Conhecer a equipe completa": "Meet the full team",
       "FAPEAM": "FAPEAM",
@@ -480,7 +480,7 @@ window.TsiinoTranslations = {
       "Fechar": "Close",
       "Visualizador de fotos": "Photo viewer",
       "Ver este percurso em 3D": "See this route in 3D",
-      "Fotografias e registros das expedições do projeto.":"Photographs and records from the project's expeditions.",
+      "Fotografias e registros das expedições do projeto.": "Photographs and records from the project's expeditions.",
       "Coleta do projeto Tsiino Hiiwiida": "Collection from the Tsiino Hiiwiida project",
       "Coleta botânica": "Botanical collection",
       "Coletor principal": "Primary collector",
@@ -572,7 +572,376 @@ window.TsiinoTranslations = {
       "expeditions.3d.title": "Expeditions in 3D",
       "expeditions.3d.lead": "Follow the GPS routes of the expeditions over the terrain and satellite imagery, with the photos and records made along the way.",
       "expeditions.3d.open": "Open in a new tab",
-      "expeditions.card.view3d": "See the route in 3D"
+      "expeditions.card.view3d": "See the route in 3D",
+      "Catálogo de espécies de plantas e fungos do Alto Rio Negro com links para Flora e Funga do Brasil, POWO, GBIF e WFO, além das coleções e dados do projeto Tsiino Hiiwiida.": "Catalogue of plant and fungal species of the Upper Rio Negro, with links to Flora e Funga do Brasil, POWO, GBIF and WFO, alongside the collections and data of the Tsiino Hiiwiida project.",
+      "Exsicata de planta fanerógama montada em cartolina de herbário": "Herbarium specimen of a seed plant mounted on a herbarium sheet",
+      "Pular para o conteúdo": "Skip to content",
+      "Alternar de navegação": "Toggle navigation",
+      "Tsiino Hiiwiida, página inicial": "Tsiino Hiiwiida, home page",
+      "Visão geral": "Overview",
+      "Rodapé do site Tsiino Hiiwiida": "Tsiino Hiiwiida site footer",
+      "Página inicial do Tsiino Hiiwiida": "Tsiino Hiiwiida home page",
+      "Website desenvolvido por": "Website developed by",
+      "GitHub de G.C. Ottino": "G.C. Ottino on GitHub",
+      "GitHub de D. Cardoso / dboslab": "D. Cardoso / dboslab on GitHub",
+      "Expedições botânicas do projeto Tsiino Hiiwiida no Alto Rio Negro: trilhas, coletas e registros de campo em mapas interativos e visualização 3D do terreno.": "Botanical expeditions of the Tsiino Hiiwiida project in the Upper Rio Negro: trails, collections and field records on interactive maps and a 3D terrain view.",
+      "Igarapé de águas escuras entre rochas cobertas de musgo em floresta do Alto Rio Negro": "Blackwater stream between moss-covered rocks in Upper Rio Negro forest",
+      "Matapi do Uaupés, Pirarara-poço, São José II, São Domingos Sávio, Maracajá, Pari-Cachoeira, São Pedro e Cachoeira Comprida": "Matapi do Uaupés, Pirarara-poço, São José II, São Domingos Sávio, Maracajá, Pari-Cachoeira, São Pedro and Cachoeira Comprida",
+      "Ferramenta gratuita para validar, converter e anotar planilhas de herbário no modelo INPA/BRAHMS, com checagem de nomes (Flora e Funga do Brasil) e de geografia (IBGE).": "Free tool to validate, convert and annotate herbarium spreadsheets in the INPA/BRAHMS template, with checks on names (Flora e Funga do Brasil) and geography (IBGE).",
+      "Validador de planilha de herbário – Tsiino Hiiwiida": "Herbarium spreadsheet validator – Tsiino Hiiwiida",
+      "Outro / customizado (abrir mapeador de colunas)": "Other / custom (open the column mapper)",
+      "Coluna arrastada além dos dados": "Column dragged beyond the data",
+      "Seções do resultado": "Result sections",
+      "Mostrar pontos por situação": "Show points by status",
+      "Com erro": "With errors",
+      "Só colunas com ocorrência": "Only columns with issues",
+      "As mensagens aparecem na célula onde o problema foi detectado. Na planilha anotada baixada, os valores originais são preservados e as mensagens ficam nos comentários das células, com um resumo na aba \"Validação Tsiino\".": "Messages appear in the cell where the problem was detected. In the downloaded annotated spreadsheet, the original values are preserved and the messages are stored as cell comments, with a summary in the \"Validação Tsiino\" sheet.",
+      "Ocorrências agrupadas por tipo, da mais grave para a mais frequente. Clique em uma linha para vê-la na planilha.": "Issues grouped by type, from the most severe to the most frequent. Click a row to see it in the spreadsheet.",
+      "Correções pendentes": "Pending corrections",
+      "Projeto científico sobre as dimensões da biodiversidade de plantas e fungos no Alto Rio Negro, na região da Cabeça do Cachorro (São Gabriel da Cachoeira, AM): expedições, coleções, DNA e dados abertos.": "Scientific project on the dimensions of plant and fungal biodiversity in the Upper Rio Negro, in the Cabeça do Cachorro region (São Gabriel da Cachoeira, Amazonas, Brazil): expeditions, collections, DNA and open data.",
+      "é o nome Baniwa da região conhecida como Cabeça do Cachorro.": "is the Baniwa name for the region known as Cabeça do Cachorro.",
+      "O projeto em números": "The project in numbers",
+      "Resumo territorial e institucional": "Territorial and institutional summary",
+      "Detalhe de planta em campo": "Detail of a plant in the field",
+      "Atividade de campo com colaboração local": "Fieldwork with local collaboration",
+      "Reproduzir o vídeo: Projeto Tsiino Hiiwiida: revelando múltiplas dimensões da biodiversidade no Alto Rio Negro": "Play video: Tsiino Hiiwiida Project: revealing multiple dimensions of biodiversity in the Upper Rio Negro",
+      "Projeto Tsiino Hiiwiida: revelando múltiplas dimensões da biodiversidade no Alto Rio Negro · canal Tsiino Hiiwiida": "Tsiino Hiiwiida Project: revealing multiple dimensions of biodiversity in the Upper Rio Negro · Tsiino Hiiwiida channel",
+      "Reproduzir o vídeo: INPA na SBPC 2026: experiência da expedição Amazônia+10 na Comunidade Yanomami": "Play video: INPA at SBPC 2026: the Amazônia+10 expedition experience in the Yanomami Community",
+      "INPA na SBPC 2026: experiência da expedição Amazônia+10 na Comunidade Yanomami · Editora INPA": "INPA at SBPC 2026: the Amazônia+10 expedition experience in the Yanomami Community · Editora INPA",
+      "Produtos e impactos previstos": "Expected outputs and impacts",
+      "Levantamento de flora e funga em campo": "Flora and funga survey in the field",
+      "Registro de campo de flora e funga": "Field record of flora and funga",
+      "Linhagens raras ou pouco conhecidas": "Rare or little-known lineages",
+      "Identificação taxonômica em campo": "Taxonomic identification in the field",
+      "Preparação de material biológico": "Preparation of biological material",
+      "Taxonomia, sistemática molecular e biomonitoramento": "Taxonomy, molecular systematics and biomonitoring",
+      "Análises taxonômicas e moleculares": "Taxonomic and molecular analyses",
+      "Amostragem de organismos em campo": "Sampling organisms in the field",
+      "Biomonitoramento e análises científicas": "Biomonitoring and scientific analyses",
+      "Catálogo da flora e funga da Cabeça do Cachorro": "Catalogue of the flora and funga of Cabeça do Cachorro",
+      "Trabalho de campo com comunidades indígenas locais": "Fieldwork with local Indigenous communities",
+      "Colaboração territorial e conhecimento local": "Territorial collaboration and local knowledge",
+      "Essas salvaguardas explicitam a origem dos dados e amostras, fortalece a rastreabilidade científica, previne usos indevidos e orienta as devolutivas, a comunicação pública e eventuais repartições de benefícios quando aplicáveis.": "These safeguards make the origin of data and samples explicit, strengthen scientific traceability, prevent misuse, and guide the return of results, public communication and any benefit sharing where applicable.",
+      "Eixos de salvaguarda": "Safeguard areas",
+      "Equipe em acampamento de campo na floresta, preparando material de coleta": "Team at a forest field camp preparing collecting material",
+      "Margem de rio com a floresta refletida na água escura": "Riverbank with the forest reflected in dark water",
+      "Pesquisadora e colaborador examinam uma amostra junto a uma parede de rocha": "A researcher and a collaborator examine a sample beside a rock wall",
+      "Serra rochosa de pico pontiagudo ao pôr do sol, vista por cima da copa das árvores": "Rocky mountain with a sharp peak at sunset, seen above the forest canopy",
+      "Corredeira de águas escuras passando sobre uma rocha": "Blackwater rapids flowing over a rock",
+      "Rio com corredeiras e floresta ao fundo": "River with rapids and forest in the background",
+      "Frutos escuros pendentes ao lado de uma folha, com integrantes da equipe desfocados ao fundo": "Dark fruits hanging beside a leaf, with team members out of focus in the background",
+      "Vista aérea de floresta contínua cortada por um rio estreito": "Aerial view of continuous forest crossed by a narrow river",
+      "Vista do alto da serra, acima das nuvens, sobre a floresta do Alto Rio Negro": "View from the top of the mountain range, above the clouds, over the Upper Rio Negro forest",
+      "Atividades de campo na Serra Curicuriari e Serra da Bela Adormecida": "Fieldwork on Serra Curicuriari and Serra da Bela Adormecida",
+      "A equipe do projeto Tsiino Hiiwiida responsável pela subida à Serra Curicuriari realizou atividades de campo na Serra da Bela Adormecida, no Alto Rio Negro.": "The Tsiino Hiiwiida team responsible for the ascent of Serra Curicuriari carried out fieldwork on Serra da Bela Adormecida, in the Upper Rio Negro.",
+      "Rio de águas escuras entre margens de floresta, sob céu nublado": "Blackwater river between forested banks under a cloudy sky",
+      "Nova etapa para revelar a biodiversidade de plantas e fungos do Alto Rio Negro": "A new stage in revealing the plant and fungal biodiversity of the Upper Rio Negro",
+      "No dia 19 de maio, o projeto Tsiino Hiiwiida iniciou mais uma etapa para revelar múltiplas dimensões da biodiversidade de plantas e fungos no Alto Rio Negro.": "On 19 May, the Tsiino Hiiwiida project began another stage in revealing multiple dimensions of plant and fungal biodiversity in the Upper Rio Negro.",
+      "Inflorescência de bromélia com brácteas amarelas e eixo rosado": "Bromeliad inflorescence with yellow bracts and a pink axis",
+      "Bromélia do igapó no Alto Rio Negro": "A bromeliad of the igapó in the Upper Rio Negro",
+      "A publicação destaca uma bromélia como exemplo das surpresas que a flora do Alto Rio Negro ainda reserva; a espécie ocorre em áreas de igapó.": "The post highlights a bromeliad as an example of the surprises the flora of the Upper Rio Negro still holds; the species occurs in igapó areas.",
+      "Pesquisador prensa amostras de plantas em folhas de jornal na floresta": "A researcher presses plant samples in sheets of newspaper in the forest",
+      "Do campo ao herbário: revelando a biodiversidade do Alto Rio Negro": "From field to herbarium: revealing the biodiversity of the Upper Rio Negro",
+      "Durante as atividades de campo do projeto Tsiino Hiiwiida, a publicação mostra o caminho do campo ao herbário na revelação da biodiversidade do Alto Rio Negro.": "Filmed during the Tsiino Hiiwiida fieldwork, the post shows the path from field to herbarium in revealing the biodiversity of the Upper Rio Negro.",
+      "Logotipo do Jardim Botânico do Rio de Janeiro": "Logo of the Rio de Janeiro Botanical Garden",
+      "Vista aérea de rio de águas escuras com corredeira, margeado por floresta": "Aerial view of a blackwater river with rapids, bordered by forest",
+      "Reportagem sobre biodiversidade no Alto Rio Negro": "News report on biodiversity in the Upper Rio Negro",
+      "Reportagem da BBC News Brasil relacionada ao projeto e à biodiversidade amazônica.": "BBC News Brasil report related to the project and to Amazonian biodiversity.",
+      "Igarapé de águas escuras entre rochas cobertas de musgo": "Blackwater stream between moss-covered rocks",
+      "Equipe prepara uma amostra botânica sobre jornal no chão da floresta": "The team prepares a botanical sample on newspaper on the forest floor",
+      "Post de divulgação do projeto Tsiino Hiiwiida": "Outreach post from the Tsiino Hiiwiida project",
+      "Post de divulgação do projeto Tsiino Hiiwiida no Instagram.": "Outreach post from the Tsiino Hiiwiida project on Instagram.",
+      "Dois integrantes da equipe, de costas, em um barco no rio": "Two team members, seen from behind, in a boat on the river",
+      "Sub-bosque da floresta com o logotipo do Tsiino Hiiwiida": "Forest understorey with the Tsiino Hiiwiida logo",
+      "Coordenadores por agência de fomento": "Coordinators by funding agency",
+      "Logo Ecoturismo Coração da Amazônia": "Ecoturismo Coração da Amazônia logo",
+      "Logo Nhiõ Hũí": "Nhiõ Hũí logo",
+      "Pesquisadores, instituições e colaboradores do projeto Tsiino Hiiwiida, com afiliações e perfis acadêmicos (ORCID, Lattes).": "Researchers, institutions and collaborators of the Tsiino Hiiwiida project, with affiliations and academic profiles (ORCID, Lattes).",
+      "Bolsista Comunidade São Jorge": "Fellow, São Jorge Community",
+      "Bolsista Comunidade Tukano – São José II, Rio Tiquié": "Fellow, Tukano Community – São José II, Rio Tiquié",
+      "Bolsista Comunidade Tuyuka – São Pedro, Rio Tiquié": "Fellow, Tuyuka Community – São Pedro, Rio Tiquié",
+      "Bolsista Comunidade Baré – São Gabriel da Cachoeira": "Fellow, Baré Community – São Gabriel da Cachoeira",
+      "Read this page in English": "Read this page in English",
+      "Ferramentas": "Tools",
+      "Financiadores": "Funders",
+      "Instituições participantes": "Participating institutions",
+      "Instituições parceiras": "Partner institutions",
+      "Buscar na planilha": "Search the spreadsheet",
+      "Buscar valor, nome, coletor…": "Search value, name, collector…",
+      "Tipo de ocorrência": "Issue type",
+      "Todas as ocorrências": "All issues",
+      "Registros fotográficos de campo": "Field photographic records",
+      "Flora · registro de campo": "Flora · field record",
+      "Equipe processando material botânico em campo": "Team processing botanical material in the field",
+      "Coleções · trabalho de campo": "Collections · fieldwork",
+      "Vídeos do projeto": "Project videos",
+      "Material taxonômico para coleções científicas": "Taxonomic material for scientific collections",
+      "Coordenador; pesquisador responsável FAPEAM": "Coordinator; principal investigator, FAPEAM",
+      "Vice-coordenador; pesquisador responsável FAPERJ": "Deputy coordinator; principal investigator, FAPERJ",
+      "Bolsista Comunidade Yanomami - Maturacá": "Fellow, Yanomami Community - Maturacá",
+      "Comunidade Baniwa - Itacoatiara-Mirim": "Baniwa Community - Itacoatiara-Mirim",
+      "Carregando a lista...": "Loading the list...",
+      "Baixar template INPA vazio": "Download empty INPA template",
+      "Baixar planilha corrigida": "Download corrected spreadsheet",
+      "Mapa base": "Base map",
+      "Filtrar linhas": "Filter rows",
+      "Mostrar notas": "Show notes",
+      "Brasil + Reino Unido": "Brazil + United Kingdom",
+      "Logos institucionais": "Institutional logos",
+      "Pesquisador associado FAPESP / Integrante": "Associate researcher, FAPESP / Member",
+      "Tsiino Hiiwiida — Biodiversidade de plantas e fungos do Alto Rio Negro (Cabeça do Cachorro)": "Tsiino Hiiwiida — Plant and fungal biodiversity of the Upper Rio Negro (Cabeça do Cachorro)",
+      "Validador de planilha de herbário — Tsiino Hiiwiida": "Herbarium spreadsheet validator — Tsiino Hiiwiida",
+      "Projeto científico sobre a biodiversidade de plantas e fungos do Alto Rio Negro (Cabeça do Cachorro, AM): expedições, coleções, DNA e dados abertos.": "Scientific project on the plant and fungal biodiversity of the Upper Rio Negro (Cabeça do Cachorro, Brazil): expeditions, collections, DNA and open data.",
+      "Catálogo de espécies de plantas e fungos do Alto Rio Negro, com links para Flora e Funga do Brasil, POWO, GBIF e WFO e indicadores das coleções do projeto.": "Catalogue of plant and fungal species of the Upper Rio Negro, with links to Flora e Funga do Brasil, POWO, GBIF and WFO and indicators from project collections.",
+      "Pesquisadores, bolsistas indígenas, instituições e colaboradores do projeto Tsiino Hiiwiida no Alto Rio Negro, com afiliações e perfis acadêmicos (ORCID, Lattes).": "Researchers, Indigenous fellows, institutions and collaborators of the Tsiino Hiiwiida project in the Upper Rio Negro, with affiliations and academic profiles (ORCID, Lattes).",
+      "Ferramenta gratuita para validar, converter e anotar planilhas de herbário no modelo INPA/BRAHMS, com checagem de nomes (Flora e Funga do Brasil) e geografia.": "Free tool to validate, convert and annotate herbarium spreadsheets in the INPA/BRAHMS template, with checks on names (Flora e Funga do Brasil) and geography.",
+      "Pesquisadores, bolsistas indígenas, instituições e colaboradores do Tsiino Hiiwiida no Alto Rio Negro, com afiliações e perfis acadêmicos (ORCID, Lattes).": "Researchers, Indigenous fellows, institutions and collaborators of Tsiino Hiiwiida in the Upper Rio Negro, with affiliations and profiles (ORCID, Lattes).",
+      "Tsiino Hiiwiida, nome Baniwa da região conhecida como Cabeça do Cachorro, é um projeto científico aprovado na Chamada Expedições da Iniciativa Amazônia+10, que articula instituições do Brasil e do Reino Unido para revelar múltiplas dimensões da flora e da funga no Alto Rio Negro: expedições de campo, identificação taxonômica, coleções científicas, sistemática molecular, metagenômica, biomonitoramento e comunicação pública.": "Tsiino Hiiwiida, the Baniwa name for the region known as Cabeça do Cachorro, is a scientific project approved under the Expeditions Call of the Amazônia+10 Initiative. It connects institutions in Brazil and the United Kingdom to reveal multiple dimensions of the flora and funga of the Upper Rio Negro: field expeditions, taxonomic identification, scientific collections, molecular systematics, metagenomics, biomonitoring and public communication.",
+      "Região de fronteira entre Brasil, Colômbia e Venezuela, no noroeste do Amazonas.": "Border region between Brazil, Colombia and Venezuela, in the northwest of the state of Amazonas, Brazil.",
+      "Cabeça do Cachorro (Tsiino Hiiwiida), Alto Rio Negro": "Cabeça do Cachorro (Tsiino Hiiwiida), Upper Rio Negro",
+      "Catálogo de espécies de plantas e fungos da Cabeça do Cachorro (Alto Rio Negro)": "Catalogue of plant and fungal species of Cabeça do Cachorro (Upper Rio Negro)",
+      "Taxonomia vegetal": "Plant taxonomy",
+      "Flora e funga do Alto Rio Negro": "Flora and funga of the Upper Rio Negro",
+      "Coleções biológicas e herbários": "Biological collections and herbaria",
+      "Sistemática molecular": "Molecular systematics",
+      "Biodiversidade amazônica": "Amazonian biodiversity",
+      "Validação de planilhas no modelo INPA/BRAHMS": "Validation of spreadsheets in the INPA/BRAHMS template",
+      "Conferência de nomes com a Flora e Funga do Brasil": "Name checking against Flora e Funga do Brasil",
+      "Conferência de geografia com malhas do IBGE": "Geography checking against IBGE boundaries",
+      "Conversão e anotação da planilha": "Spreadsheet conversion and annotation",
+      "lista de espécies": "species list",
+      "número de registros": "number of records",
+      "ano do registro": "year of record",
+      "Visão geral do projeto": "Project overview",
+      "Eixo 1: Habitats e espécies": "Axis 1: Habitats and species",
+      "Eixo 2: Biodiversidade, sustento e bioeconomia": "Axis 2: Biodiversity, livelihoods and bioeconomy",
+      "Eixo 3: Campo e tecnologias emergentes": "Axis 3: Fieldwork and emerging technologies",
+      "Eixo 1: Habitats e espécies — Tsiino Hiiwiida": "Axis 1: Habitats and species — Tsiino Hiiwiida",
+      "Eixo 2: Biodiversidade, sustento e bioeconomia — Tsiino Hiiwiida": "Axis 2: Biodiversity, livelihoods and bioeconomy — Tsiino Hiiwiida",
+      "Eixo 3: Campo e tecnologias emergentes — Tsiino Hiiwiida": "Axis 3: Fieldwork and emerging technologies — Tsiino Hiiwiida",
+      "Catálogo e indicadores": "Catalogue and indicators",
+      "Publicações, dados e softwares": "Publications, data and software",
+      "Publicações, dados e softwares — Tsiino Hiiwiida": "Publications, data and software — Tsiino Hiiwiida",
+      "Como citar": "How to cite",
+      "Como citar — Tsiino Hiiwiida": "How to cite — Tsiino Hiiwiida",
+      "Notícias": "News",
+      "Notícias — Tsiino Hiiwiida": "News — Tsiino Hiiwiida",
+      "Salvaguardas socioambientais — Tsiino Hiiwiida": "Social and environmental safeguards — Tsiino Hiiwiida",
+      "Mais páginas do site": "More pages on this site",
+      "Projeto": "Project",
+      "Você está aqui": "You are here",
+      "Eixos do projeto": "Project axes",
+      "Eixo 1 em detalhe: habitats e espécies": "Axis 1 in detail: habitats and species",
+      "Eixo 2 em detalhe: sustento e bioeconomia": "Axis 2 in detail: livelihoods and bioeconomy",
+      "Eixo 3 em detalhe: campo e tecnologias": "Axis 3 in detail: fieldwork and technologies",
+      "Salvaguardas em detalhe: base legal, Princípios CARE e selos Local Contexts": "Safeguards in detail: legal basis, CARE Principles and Local Contexts labels",
+      "Todas as reportagens e publicações do projeto": "All press coverage and project posts",
+      "Como citar o projeto": "How to cite the project",
+      "Eixo 1 de 3": "Axis 1 of 3",
+      "Eixo 2 de 3": "Axis 2 of 3",
+      "Eixo 3 de 3": "Axis 3 of 3",
+      "Eixo 3 do projeto Tsiino Hiiwiida: vouchers, coleções, DNA, metabarcoding, biomonitoramento e bancos de dados para tornar as coletas conhecimento público.": "Axis 3 of the Tsiino Hiiwiida project: vouchers, collections, DNA, metabarcoding, biomonitoring and databases that turn collections into public knowledge.",
+      "Objetivos do projeto ligados a este eixo": "Project objectives linked to this axis",
+      "Objetivo 01 · Campo": "Objective 01 · Fieldwork",
+      "Objetivo 02 · Diversidade críptica e taxonomia integrativa": "Objective 02 · Cryptic diversity and integrative taxonomy",
+      "Objetivo 03 · Interações ecológicas": "Objective 03 · Ecological interactions",
+      "Objetivo 04 · Bioeconomia e segurança alimentar": "Objective 04 · Bioeconomy and food security",
+      "Objetivo 05 · Biomonitoramento": "Objective 05 · Biomonitoring",
+      "Objetivo 06 · Acervos e dados públicos": "Objective 06 · Collections and public data",
+      "Objetivo 07 · Formação e comunicação": "Objective 07 · Training and communication",
+      "Como o eixo se conecta ao restante do projeto": "How this axis connects to the rest of the project",
+      "Os outros eixos": "The other axes",
+      "Expedições de campo no Alto Rio Negro": "Field expeditions in the Upper Rio Negro",
+      "Catálogo de espécies e indicadores das coleções": "Species catalogue and collection indicators",
+      "Salvaguardas socioambientais e conhecimento tradicional associado": "Social and environmental safeguards and associated traditional knowledge",
+      "Publicações, dados e softwares do projeto": "Project publications, data and software",
+      "Expedição de campo do projeto Tsiino Hiiwiida no município de São Gabriel da Cachoeira, Alto Rio Negro.": "Field expedition of the Tsiino Hiiwiida project in the municipality of São Gabriel da Cachoeira, Upper Rio Negro.",
+      "Resumo da expedição": "Expedition summary",
+      "Período": "Period",
+      "Rios e região": "Rivers and region",
+      "São Gabriel da Cachoeira, Amazonas": "São Gabriel da Cachoeira, Amazonas, Brazil",
+      "Comunidades visitadas": "Communities visited",
+      "Trajetos de GPS": "GPS routes",
+      "Fotos nesta página": "Photos on this page",
+      "Onde": "Where",
+      "O mapa mostra apenas o limite do município. Pontos de coleta e localizações exatas não são publicados nesta página.": "The map shows only the municipal boundary. Collection points and exact locations are not published on this page.",
+      "Os trajetos desta expedição podem ser percorridos sobre o relevo no": "The routes of this expedition can be followed over the terrain in the",
+      "módulo de expedições em 3D": "3D expeditions module",
+      "Fotos de campo": "Field photographs",
+      "Coletas e dados": "Collections and data",
+      "As coletas feitas nas expedições são incorporadas a herbários e passam por identificação taxonômica. Os registros do projeto, junto com os de coleções históricas, podem ser consultados no": "Material collected on the expeditions is deposited in herbaria and goes through taxonomic identification. The project records, together with those from historical collections, can be consulted in the",
+      "catálogo de espécies e nos indicadores de Acesso aos dados": "species catalogue and indicators under Data access",
+      "Outras expedições": "Other expeditions",
+      "Expedições realizadas": "Expeditions carried out",
+      "Cada expedição tem uma página própria, com período, área visitada e fotos de campo.": "Each expedition has its own page, with dates, area visited and field photographs.",
+      "Comunidades visitadas: Matapi do Uaupés, Pirarara-poço, São José II, São Domingos Sávio, Maracajá, Pari-Cachoeira, São Pedro e Cachoeira Comprida.": "Communities visited: Matapi do Uaupés, Pirarara-poço, São José II, São Domingos Sávio, Maracajá, Pari-Cachoeira, São Pedro and Cachoeira Comprida.",
+      "Duas pessoas com lanternas de cabeça prensam plantas em folhas de papel sobre uma mesa, à noite, em foto preto e branco": "Two people wearing head torches press plants in sheets of paper on a table at night, in a black-and-white photograph",
+      "Colaborador de camiseta verde segura um fungo de véu branco rendado na floresta": "A collaborator in a green shirt holds a fungus with a white lace-like veil in the forest",
+      "Margem de rio de águas escuras com floresta alta refletida na água": "Bank of a blackwater river with tall forest reflected in the water",
+      "Integrante da equipe sorri ao lado de um ramo com folhas compostas e uma inflorescência vermelha": "A team member smiles beside a branch with compound leaves and a red inflorescence",
+      "Copa de árvore coberta de flores cor-de-rosa vista de cima, em meio à floresta": "Tree crown covered in pink flowers seen from above, in the middle of the forest",
+      "Duas pessoas em pé na proa de um barco usam uma vara longa para alcançar galhos na margem do rio": "Two people standing at the bow of a boat use a long pole to reach branches on the riverbank",
+      "Grupo de adultos e crianças segura um painel diante de uma maloca com fachada de padrões geométricos": "A group of adults and children holds a panel in front of a longhouse with a geometric-patterned façade",
+      "Duas integrantes da equipe examinam um ramo de planta dentro da floresta": "Two team members examine a plant branch inside the forest",
+      "Interior de um abrigo de madeira com chão de areia, onde duas pessoas organizam equipamentos": "Inside a wooden shelter with a sand floor, where two people organise equipment",
+      "Canoa de alumínio carregada de material, atracada entre árvores em área alagada": "Aluminium canoe loaded with gear, moored among trees in a flooded area",
+      "Copa de árvore em flor, cor-de-rosa, vista de cima entre árvores verdes": "Pink flowering tree crown seen from above among green trees",
+      "Colaborador com cesto nas costas e pesquisadora examinam juntos uma planta no chão da floresta": "A collaborator carrying a basket on his back and a researcher examine a plant together on the forest floor",
+      "Três integrantes da equipe coletam material junto à base de uma árvore grande com raízes tabulares": "Three team members collect material at the base of a large tree with buttress roots",
+      "Pesquisador ajoelhado no chão da floresta faz anotações ao lado de uma amostra": "A researcher kneeling on the forest floor takes notes beside a sample",
+      "Quatro integrantes da equipe em pé diante de um grande paredão de rocha na floresta": "Four team members standing in front of a large rock wall in the forest",
+      "Equipe trabalha entre grandes blocos de rocha ao pé de um paredão": "The team works among large boulders at the foot of a rock wall",
+      "Pesquisador sentado no chão, no alto da serra, organiza amostras em um recipiente": "A researcher sitting on the ground, high on the mountain, sorts samples into a container",
+      "Duas pessoas observam do alto da serra a planície de floresta sob nuvens": "Two people look out from the top of the mountain over the forested plain beneath clouds",
+      "Mão com pulseira de miçangas segura uma planta pequena de inflorescência em umbela": "A hand wearing a beaded bracelet holds a small plant with an umbel-shaped inflorescence",
+      "Caixa organizadora com amostras de fungos separadas em compartimentos": "Compartment box with fungal samples sorted into separate sections",
+      "Rio largo de águas escuras com corredeiras e, ao fundo, o perfil de serras rochosas": "Wide blackwater river with rapids and, in the background, the outline of rocky mountains",
+      "Um integrante da equipe fotografa uma planta de folhas grandes enquanto outra pessoa a segura": "A team member photographs a large-leaved plant while another person holds it",
+      "Acampamento na floresta com lona azul estendida sobre estrutura de madeira e redes de dormir": "Forest camp with a blue tarpaulin stretched over a wooden frame and hammocks",
+      "Inflorescência de bromélia com brácteas alaranjadas sobre fundo escuro": "Bromeliad inflorescence with orange bracts against a dark background",
+      "Fruto verde aberto, preso ao ramo, sobre fundo escuro": "Open green fruit attached to its branch, against a dark background",
+      "Três integrantes da equipe em uma mesa de campo com folhas de plantas e pilhas de papel para prensagem": "Three team members at a field table with plant leaves and stacks of pressing paper",
+      "Equipe prepara mochilas e equipamentos sobre uma laje de rocha à beira do rio, ao lado de uma corredeira": "The team prepares backpacks and equipment on a rock slab at the river's edge, beside rapids",
+      "Frutos vermelhos pendentes em um ramo, fotografados à noite": "Red fruits hanging from a branch, photographed at night",
+      "Duas integrantes da equipe, de camiseta verde, ao lado de caixas organizadoras com amostras em um acampamento na floresta": "Two team members in green shirts beside compartment boxes of samples at a forest camp",
+      "Grupo de crianças, jovens e pesquisadores mostra desenhos feitos em uma oficina, em volta de uma mesa ao ar livre": "A group of children, young people and researchers shows drawings made at a workshop, around an outdoor table",
+      "Detalhe de ramos de uma planta de folhas muito finas e recortadas, com estruturas reprodutivas": "Close-up of the branches of a plant with very fine, divided leaves and reproductive structures",
+      "Equipe reunida sobre uma laje de rocha ao lado de uma cachoeira, em foto de grupo": "The team gathered on a rock slab beside a waterfall, in a group photograph",
+      "Abrigo de campo feito com folhas grandes amarradas a uma estrutura de varas na floresta": "Field shelter made of large leaves tied to a frame of poles in the forest",
+      "Encosta de rocha nua com uma ilha de vegetação no topo": "Bare rock slope with an island of vegetation at the top",
+      "Três integrantes da equipe sentados em um tronco caído sobre um igarapé": "Three team members sitting on a fallen trunk over a forest stream",
+      "Rio calmo com floresta na margem e picos rochosos ao fundo": "Calm river with forest on the bank and rocky peaks in the background",
+      "Amostra de fungo em forma de leque, de tons amarelados, sobre fundo claro com etiqueta": "Fan-shaped fungal specimen in yellowish tones on a light background with a label",
+      "Cogumelos claros crescendo em fileira sobre o tronco de uma árvore": "Pale mushrooms growing in a row on a tree trunk",
+      "Folha segurada contra um tronco com um corte recente que mostra a casca interna": "A leaf held against a trunk with a fresh cut showing the inner bark",
+      "Flor vermelha carnosa aberta em um ramo, com a floresta ao fundo": "Open fleshy red flower on a branch, with the forest in the background",
+      "Ramo com folhas largas, botões e uma flor branca, fotografado à noite": "Branch with broad leaves, buds and a white flower, photographed at night",
+      "Inflorescência de flores brancas com muitos estames entre folhas verdes": "Inflorescence of white flowers with many stamens among green leaves",
+      "Reportagens sobre o projeto Tsiino Hiiwiida e publicações do projeto nas redes: BBC News Brasil, Universidade de Oxford, JBRJ e registros das expedições.": "Press coverage of the Tsiino Hiiwiida project and the project's own posts: BBC News Brasil, the University of Oxford, JBRJ and records from the expeditions.",
+      "Imprensa e redes": "Press and social media",
+      "Reportagens sobre o projeto e publicações da equipe durante as expedições.": "Press coverage of the project and posts by the team during the expeditions.",
+      "Na mídia": "In the media",
+      "Abre no site do veículo.": "Opens on the publisher's website.",
+      "Publicações do projeto": "Posts by the project",
+      "Abre no Instagram.": "Opens on Instagram.",
+      "Acompanhe o projeto": "Follow the project",
+      "Novidades das expedições são publicadas no": "News from the expeditions is posted on",
+      "e no": "and on the",
+      "canal Tsiino Hiiwiida no YouTube": "Tsiino Hiiwiida YouTube channel",
+      ". Para a imprensa:": ". Press contact:",
+      "Produtos do projeto Tsiino Hiiwiida: catálogo de espécies do Alto Rio Negro, validador de planilhas de herbário, pacote forplotR e vídeos, com links.": "Outputs of the Tsiino Hiiwiida project: the Upper Rio Negro species catalogue, the herbarium spreadsheet validator, the forplotR package and videos, with links.",
+      "Produtos do projeto": "Project outputs",
+      "Artigos, conjuntos de dados, softwares e materiais de comunicação produzidos pelo projeto Tsiino Hiiwiida.": "Articles, datasets, software and communication materials produced by the Tsiino Hiiwiida project.",
+      "Artigos científicos": "Scientific articles",
+      "Os artigos do projeto serão listados aqui, com DOI, à medida que forem publicados.": "The project's articles will be listed here, with DOIs, as they are published.",
+      "Conjuntos de dados": "Datasets",
+      "Conjunto de dados · consulta no site": "Dataset · searchable on this site",
+      "Lista de espécies registradas na região, reunindo as coletas das expedições do projeto e registros de coleções científicas disponíveis no GBIF, com links para Flora e Funga do Brasil, POWO, GBIF e WFO.": "List of species recorded in the region, combining collections from the project's expeditions with records from scientific collections available through GBIF, with links to Flora e Funga do Brasil, POWO, GBIF and WFO.",
+      "Softwares": "Software",
+      "Aplicação web · uso gratuito": "Web application · free to use",
+      "Valida, converte e anota planilhas de herbário no modelo INPA/BRAHMS, com conferência de nomes na Flora e Funga do Brasil e de geografia na base do IBGE.": "Validates, converts and annotates herbarium spreadsheets in the INPA/BRAHMS template, checking names against Flora e Funga do Brasil and geography against the IBGE database.",
+      "Pacote R e aplicativo web · versão 1.0.0": "R package and web app · version 1.0.0",
+      "Pacote R e aplicativo web para processar dados de parcelas florestais, gerar planilhas prontas para herbário, organizar pastas de vouchers e criar mapas. Autores: Giulia C. Ottino e Domingos Cardoso. Código em": "R package and web app for processing forest plot data, generating herbarium-ready spreadsheets, organising voucher folders and creating maps. Authors: Giulia C. Ottino and Domingos Cardoso. Code at",
+      "Vídeos e comunicação": "Videos and communication",
+      "Os vídeos do projeto estão no": "The project's videos are on the",
+      ". As reportagens e as publicações nas redes estão reunidas em": ". Press coverage and social media posts are collected under",
+      "A citação recomendada do projeto e dos seus produtos, com arquivos BibTeX e RIS, está em": "The recommended citation for the project and its outputs, with BibTeX and RIS files, is under",
+      "Citação recomendada do projeto Tsiino Hiiwiida, do catálogo de espécies e dos softwares, com arquivos BibTeX e RIS para gerenciadores de referências.": "Recommended citation for the Tsiino Hiiwiida project, the species catalogue and the software, with BibTeX and RIS files for reference managers.",
+      "Citação e créditos": "Citation and credits",
+      "Citação recomendada do projeto e dos seus produtos, com arquivos para gerenciadores de referências.": "Recommended citation for the project and its outputs, with files for reference managers.",
+      "O projeto e este site": "The project and this website",
+      "Formato ABNT:": "ABNT format (Brazilian standard):",
+      "Formato autor-data (inglês):": "Author–date format (English):",
+      "Baixar BibTeX (.bib)": "Download BibTeX (.bib)",
+      "Baixar RIS (.ris)": "Download RIS (.ris)",
+      "O catálogo de espécies": "The species catalogue",
+      "Ao usar a lista de espécies, cite o catálogo e a data de consulta, porque a lista é atualizada ao longo do projeto:": "When using the species list, cite the catalogue and the date of access, because the list is updated throughout the project:",
+      "Os registros de coleções históricas vêm do GBIF e de herbários; cite também essas fontes quando usar os registros de origem.": "Records from historical collections come from GBIF and herbaria; cite those sources as well when using the underlying records.",
+      "Agradecimento ao fomento": "Funding acknowledgement",
+      "O projeto foi aprovado na Chamada Expedições da Iniciativa Amazônia+10. As instituições de fomento do Brasil e do Reino Unido estão listadas na": "The project was approved under the Expeditions Call of the Amazônia+10 Initiative. The funding agencies in Brazil and the United Kingdom are listed on the",
+      "página inicial": "home page",
+      "Como o Tsiino Hiiwiida protege direitos de povos indígenas: consentimento, CGen e SisGen, articulação com a Funai, Princípios CARE e dados sensíveis.": "How Tsiino Hiiwiida protects the rights of Indigenous peoples: consent, CGen and SisGen, coordination with Funai, the CARE Principles and sensitive data.",
+      "As atividades do Tsiino Hiiwiida são conduzidas com atenção aos direitos dos povos indígenas e comunidades detentoras de conhecimentos associados à biodiversidade.": "Tsiino Hiiwiida activities are conducted with attention to the rights of Indigenous peoples and communities who hold knowledge associated with biodiversity.",
+      "Base legal e institucional": "Legal and institutional basis",
+      "O projeto está amparado pelos procedimentos do CGen, com registros no SisGen para o acesso ao patrimônio genético e aos conhecimentos tradicionais associados, além da articulação com a Funai para as atividades em Terras Indígenas.": "The project follows CGen procedures, with SisGen registrations for access to genetic heritage and associated traditional knowledge, and coordinates with Funai for activities in Indigenous Lands.",
+      "Para cada comunidade envolvida, o projeto organiza registros específicos de consentimento, CTA e SisGen, respeitando protocolos, formas próprias de representação, acordos comunitários e orientações da Funai.": "For each community involved, the project keeps specific records of consent, associated traditional knowledge and SisGen registration, respecting protocols, the communities' own forms of representation, community agreements and Funai guidance.",
+      "Termos usados nesta página": "Terms used on this page",
+      "Patrimônio Genético: informações genéticas presentes em plantas, fungos, microrganismos, amostras, tecidos, vouchers e materiais associados à biodiversidade brasileira.": "Genetic Heritage: genetic information present in plants, fungi, microorganisms, samples, tissues, vouchers and materials associated with Brazilian biodiversity.",
+      "Conhecimento Tradicional Associado: saberes, nomes, classificações, usos e relações com a biodiversidade compartilhados por povos indígenas e comunidades tradicionais.": "Associated Traditional Knowledge: knowledge, names, classifications, uses and relationships with biodiversity shared by Indigenous peoples and traditional communities.",
+      "Conselho de Gestão do Patrimônio Genético, instância federal que orienta e regula o acesso a PG e CTA.": "Council for the Management of Genetic Heritage, the Brazilian federal body that guides and regulates access to genetic heritage and associated traditional knowledge.",
+      "Sistema nacional onde os acessos a PG e CTA são cadastrados e acompanhados.": "National system in which access to genetic heritage and associated traditional knowledge is registered and monitored.",
+      "Fundação Nacional dos Povos Indígenas, com a qual o projeto articula as atividades em Terras Indígenas.": "National Foundation for Indigenous Peoples, with which the project coordinates its activities in Indigenous Lands.",
+      "Princípios CARE para a governança de dados indígenas": "CARE Principles for Indigenous Data Governance",
+      "Os Princípios CARE, da Global Indigenous Data Alliance, complementam os princípios FAIR de dados abertos: além de encontráveis e reutilizáveis, os dados devem servir às pessoas e aos povos a que dizem respeito. Eles orientam o modo como este site trata dados e imagens.": "The CARE Principles, from the Global Indigenous Data Alliance, complement the FAIR principles for open data: as well as being findable and reusable, data should serve the people and peoples they concern. They guide how this website handles data and images.",
+      "Benefício coletivo": "Collective benefit",
+      "Os dados devem gerar benefícios para os povos indígenas e suas comunidades.": "Data should generate benefits for Indigenous peoples and their communities.",
+      "Autoridade para controlar": "Authority to control",
+      "Povos indígenas têm o direito de decidir sobre os dados que lhes dizem respeito e sobre como são representados.": "Indigenous peoples have the right to decide about data that concern them and about how they are represented.",
+      "Responsabilidade": "Responsibility",
+      "Quem trabalha com esses dados deve prestar contas de como eles são usados para apoiar a autodeterminação e o benefício coletivo.": "Those working with these data are accountable for how they are used to support self-determination and collective benefit.",
+      "Ética": "Ethics",
+      "Os direitos e o bem-estar dos povos indígenas vêm em primeiro lugar em todas as etapas do ciclo de vida dos dados.": "The rights and wellbeing of Indigenous peoples come first at every stage of the data life cycle.",
+      "Fonte: Global Indigenous Data Alliance,": "Source: Global Indigenous Data Alliance,",
+      "O que este site não publica": "What this website does not publish",
+      "Conhecimento tradicional associado a espécies (usos, nomes e classificações), que depende de consentimento das comunidades.": "Traditional knowledge associated with species (uses, names and classifications), which depends on the consent of the communities.",
+      "Pontos de coleta e traçados de trilhas nas páginas de cada expedição: elas mostram apenas o limite do município.": "Collection points and trail routes on the individual expedition pages: they show only the municipal boundary.",
+      "A lista de espécies em formato de dados para buscadores: os arquivos do catálogo não são indexados.": "The species list as data files for search engines: the catalogue files are not indexed.",
+      "Traduções automáticas para Baniwa, Tukano ou Nheengatu: conteúdo nessas línguas só entra quando produzido ou validado por falantes.": "Machine translations into Baniwa, Tukano or Nheengatu: content in these languages is only added when produced or validated by speakers.",
+      "Selos Local Contexts": "Local Contexts labels",
+      "Os selos de Conhecimento Tradicional (TK) e de Biocultura (BC) da iniciativa Local Contexts indicam condições de uso definidas pelas próprias comunidades. Eles são emitidos pelas comunidades por meio do Local Contexts Hub, não pelo projeto.": "The Traditional Knowledge (TK) and Biocultural (BC) labels of the Local Contexts initiative indicate conditions of use defined by the communities themselves. They are issued by the communities through the Local Contexts Hub, not by the project.",
+      "Nenhum selo foi emitido até o momento. Quando as comunidades parceiras definirem seus selos no Local Contexts Hub, eles serão exibidos aqui, com o texto de cada um.": "No labels have been issued so far. When the partner communities define their labels on the Local Contexts Hub, they will be shown here, with the text of each one.",
+      "Contato": "Contact",
+      "Dúvidas, correções ou pedidos de retirada de conteúdo podem ser enviados para": "Questions, corrections or requests to remove content can be sent to",
+      "Eixo 1 do projeto Tsiino Hiiwiida: campinaranas, florestas de terra-firme, igapós e serras do Alto Rio Negro como mosaicos vivos de flora e funga.": "Axis 1 of the Tsiino Hiiwiida project: campinaranas, terra-firme forests, igapós and mountains of the Upper Rio Negro as living mosaics of flora and funga.",
+      "Eixo 2 do projeto Tsiino Hiiwiida: plantas alimentícias não convencionais, segurança alimentar, nutrientes e metais em diálogo com demandas locais.": "Axis 2 of the Tsiino Hiiwiida project: non-conventional food plants, food security, nutrients and metals in species of local interest, in dialogue with local needs.",
+      "Espécies": "Species",
+      "Espécies — Tsiino Hiiwiida": "Species — Tsiino Hiiwiida",
+      "Ficha de espécie ·": "Species page ·",
+      "Ficha de espécie": "Species page",
+      ". Espécie registrada na região da Cabeça do Cachorro, Alto Rio Negro.": ". Species recorded in the Cabeça do Cachorro region, Upper Rio Negro.",
+      "Classificação e registros": "Classification and records",
+      "Família": "Family",
+      "Gênero": "Genus",
+      "Grupo": "Group",
+      "Categoria taxonômica": "Taxonomic rank",
+      "Espécie": "Species",
+      "Registros no catálogo": "Records in the catalogue",
+      "Período dos registros": "Period of the records",
+      "Lista Vermelha da IUCN": "IUCN Red List",
+      "Pouco preocupante (LC) · fonte: IUCN, via GBIF": "Least Concern (LC) · source: IUCN, via GBIF",
+      "Quase ameaçada (NT) · fonte: IUCN, via GBIF": "Near Threatened (NT) · source: IUCN, via GBIF",
+      "Não avaliada (NE) · fonte: IUCN, via GBIF": "Not Evaluated (NE) · source: IUCN, via GBIF",
+      "Dados insuficientes (DD) · fonte: IUCN, via GBIF": "Data Deficient (DD) · source: IUCN, via GBIF",
+      "Não conferida": "Not checked",
+      "Sem data informada": "No date recorded",
+      "Esta ficha não mostra localidades, coordenadas de coleta nem conhecimento tradicional associado à espécie.": "This page does not show localities, collection coordinates or traditional knowledge associated with the species.",
+      "Em bases taxonômicas": "In taxonomic databases",
+      "em Flora e Funga do Brasil": "in Flora e Funga do Brasil",
+      "em GBIF": "in GBIF",
+      "em Plants of the World Online (POWO)": "in Plants of the World Online (POWO)",
+      "em World Flora Online (WFO)": "in World Flora Online (WFO)",
+      "em Index Fungorum": "in Index Fungorum",
+      "Nenhum identificador externo registrado no catálogo.": "No external identifier recorded in the catalogue.",
+      "No catálogo do projeto": "In the project catalogue",
+      "A espécie faz parte do": "The species is part of the",
+      "catálogo de espécies de plantas e fungos da Cabeça do Cachorro": "catalogue of plant and fungal species of Cabeça do Cachorro",
+      ", que reúne as coletas das expedições do projeto e registros de coleções científicas. Para citar o catálogo, veja": ", which brings together collections from the project's expeditions and records from scientific collections. To cite the catalogue, see",
+      "Catálogo · fichas de espécie": "Catalogue · species pages",
+      "Por família": "By family",
+      "Pontos e coordenadas de coleta: os mapas das expedições mostram trajetos e o limite do município, não os locais de coleta.": "Collection points and coordinates: the expedition maps show routes and the municipal boundary, not the collection sites.",
+      "Ver dados": "View data",
+      "Categoria": "Category",
+      "Proporção": "Share",
+      "Ano": "Year",
+      "Registro": "Record",
+      "Origem": "Source",
+      "Clique em uma espécie para ver os links para bases taxonômicas e os registros de coleta.": "Click a species to see links to taxonomic databases and its collection records.",
+      "Registrada nas expedições do projeto": "Recorded on the project's expeditions",
+      "1 espécie": "1 species",
+      "Carregando links e registros...": "Loading links and records...",
+      "Nenhuma espécie encontrada.": "No species found.",
+      "Ver expedição": "View expedition",
+      "O mapa mostra o limite do município e os trajetos percorridos pela expedição. Pontos de coleta não são publicados nesta página.": "The map shows the municipal boundary and the routes travelled by the expedition. Collection points are not published on this page."
     }
   },
   "prefixes": {
@@ -765,19 +1134,19 @@ window.TsiinoTranslations = {
         "terminal": true
       },
       {
-        "pattern": "^Cada ponto é uma coleta do projeto com coordenadas: ([0-9\u202F]+) registros de ([0-9\u202F]+) famílias[.] Clique em um trajeto para vê-lo em 3D[.]$",
+        "pattern": "^Cada ponto é uma coleta do projeto com coordenadas: ([0-9 ]+) registros de ([0-9 ]+) famílias[.] Clique em um trajeto para vê-lo em 3D[.]$",
         "replacement": "Each point is a project collection with coordinates: $1 records from $2 families. Click a route to see it in 3D.",
         "flags": "",
         "terminal": true
       },
       {
-        "pattern": "^([0-9\u202F]+) km em 1 trajeto de GPS$",
+        "pattern": "^([0-9 ]+) km em 1 trajeto de GPS$",
         "replacement": "$1 km over 1 GPS route",
         "flags": "",
         "terminal": true
       },
       {
-        "pattern": "^([0-9\u202F]+) km em ([0-9]+) trajetos de GPS$",
+        "pattern": "^([0-9 ]+) km em ([0-9]+) trajetos de GPS$",
         "replacement": "$1 km over $2 GPS routes",
         "flags": "",
         "terminal": true
@@ -894,6 +1263,498 @@ window.TsiinoTranslations = {
         "pattern": "Equipe:\\s*",
         "replacement": "Team: ",
         "flags": "g"
+      },
+      {
+        "pattern": "^Pico: ([\\d.]+) registros? em um ano · série (\\d{4})–(\\d{4})$",
+        "replacement": "Peak: $1 records in one year · series $2–$3",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Pesquisadora? responsável (.+)$",
+        "replacement": "Principal investigator, $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(← )?Expedição (.+), janeiro de (\\d{4})( →| — Tsiino Hiiwiida)?$",
+        "replacement": "$1$2 expedition, January $3$4",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição · janeiro de (\\d{4})$",
+        "replacement": "Expedition · January $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^janeiro de (\\d{4})$",
+        "replacement": "January $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(← )?Expedição (.+), fevereiro de (\\d{4})( →| — Tsiino Hiiwiida)?$",
+        "replacement": "$1$2 expedition, February $3$4",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição · fevereiro de (\\d{4})$",
+        "replacement": "Expedition · February $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^fevereiro de (\\d{4})$",
+        "replacement": "February $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(← )?Expedição (.+), março de (\\d{4})( →| — Tsiino Hiiwiida)?$",
+        "replacement": "$1$2 expedition, March $3$4",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição · março de (\\d{4})$",
+        "replacement": "Expedition · March $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^março de (\\d{4})$",
+        "replacement": "March $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(← )?Expedição (.+), abril de (\\d{4})( →| — Tsiino Hiiwiida)?$",
+        "replacement": "$1$2 expedition, April $3$4",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição · abril de (\\d{4})$",
+        "replacement": "Expedition · April $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^abril de (\\d{4})$",
+        "replacement": "April $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(← )?Expedição (.+), maio de (\\d{4})( →| — Tsiino Hiiwiida)?$",
+        "replacement": "$1$2 expedition, May $3$4",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição · maio de (\\d{4})$",
+        "replacement": "Expedition · May $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^maio de (\\d{4})$",
+        "replacement": "May $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(← )?Expedição (.+), junho de (\\d{4})( →| — Tsiino Hiiwiida)?$",
+        "replacement": "$1$2 expedition, June $3$4",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição · junho de (\\d{4})$",
+        "replacement": "Expedition · June $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^junho de (\\d{4})$",
+        "replacement": "June $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(← )?Expedição (.+), julho de (\\d{4})( →| — Tsiino Hiiwiida)?$",
+        "replacement": "$1$2 expedition, July $3$4",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição · julho de (\\d{4})$",
+        "replacement": "Expedition · July $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^julho de (\\d{4})$",
+        "replacement": "July $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(← )?Expedição (.+), agosto de (\\d{4})( →| — Tsiino Hiiwiida)?$",
+        "replacement": "$1$2 expedition, August $3$4",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição · agosto de (\\d{4})$",
+        "replacement": "Expedition · August $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^agosto de (\\d{4})$",
+        "replacement": "August $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(← )?Expedição (.+), setembro de (\\d{4})( →| — Tsiino Hiiwiida)?$",
+        "replacement": "$1$2 expedition, September $3$4",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição · setembro de (\\d{4})$",
+        "replacement": "Expedition · September $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^setembro de (\\d{4})$",
+        "replacement": "September $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(← )?Expedição (.+), outubro de (\\d{4})( →| — Tsiino Hiiwiida)?$",
+        "replacement": "$1$2 expedition, October $3$4",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição · outubro de (\\d{4})$",
+        "replacement": "Expedition · October $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^outubro de (\\d{4})$",
+        "replacement": "October $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(← )?Expedição (.+), novembro de (\\d{4})( →| — Tsiino Hiiwiida)?$",
+        "replacement": "$1$2 expedition, November $3$4",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição · novembro de (\\d{4})$",
+        "replacement": "Expedition · November $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^novembro de (\\d{4})$",
+        "replacement": "November $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(← )?Expedição (.+), dezembro de (\\d{4})( →| — Tsiino Hiiwiida)?$",
+        "replacement": "$1$2 expedition, December $3$4",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição · dezembro de (\\d{4})$",
+        "replacement": "Expedition · December $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^dezembro de (\\d{4})$",
+        "replacement": "December $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{1,2}) jan\\. (\\d{4})$",
+        "replacement": "$1 Jan $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{1,2}) fev\\. (\\d{4})$",
+        "replacement": "$1 Feb $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{1,2}) mar\\. (\\d{4})$",
+        "replacement": "$1 Mar $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{1,2}) abr\\. (\\d{4})$",
+        "replacement": "$1 Apr $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{1,2}) maio (\\d{4})$",
+        "replacement": "$1 May $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{1,2}) jun\\. (\\d{4})$",
+        "replacement": "$1 Jun $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{1,2}) jul\\. (\\d{4})$",
+        "replacement": "$1 Jul $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{1,2}) ago\\. (\\d{4})$",
+        "replacement": "$1 Aug $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{1,2}) set\\. (\\d{4})$",
+        "replacement": "$1 Sep $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{1,2}) out\\. (\\d{4})$",
+        "replacement": "$1 Oct $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{1,2}) nov\\. (\\d{4})$",
+        "replacement": "$1 Nov $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{1,2}) dez\\. (\\d{4})$",
+        "replacement": "$1 Dec $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^A expedição ocorreu em (.+), no município de (.+), na região conhecida como Cabeça do Cachorro \\(Tsiino Hiiwiida\\), noroeste do Amazonas\\.$",
+        "replacement": "The expedition took place in $1, in the municipality of $2, in the region known as Cabeça do Cachorro (Tsiino Hiiwiida), north-western Amazonas, Brazil.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d+) trajetos registrados, ([\\d.,]+) km no total$",
+        "replacement": "$1 routes recorded, $2 km in total",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Comunidades visitadas: ([^.]+)\\.$",
+        "replacement": "Communities visited: $1.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Mapa do município de (.+)$",
+        "replacement": "Map of the municipality of $1",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Município de (.+), Amazonas\\.$",
+        "replacement": "Municipality of $1, Amazonas.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição do projeto Tsiino Hiiwiida a (.+), em janeiro de (\\d{4}), em (.+) \\(AM\\): período, área visitada e fotos de campo\\.$",
+        "replacement": "Tsiino Hiiwiida project expedition to $1, in January $2, in $3 (Amazonas, Brazil): dates, area visited and field photographs.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição do projeto Tsiino Hiiwiida a (.+), em fevereiro de (\\d{4}), em (.+) \\(AM\\): período, área visitada e fotos de campo\\.$",
+        "replacement": "Tsiino Hiiwiida project expedition to $1, in February $2, in $3 (Amazonas, Brazil): dates, area visited and field photographs.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição do projeto Tsiino Hiiwiida a (.+), em março de (\\d{4}), em (.+) \\(AM\\): período, área visitada e fotos de campo\\.$",
+        "replacement": "Tsiino Hiiwiida project expedition to $1, in March $2, in $3 (Amazonas, Brazil): dates, area visited and field photographs.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição do projeto Tsiino Hiiwiida a (.+), em abril de (\\d{4}), em (.+) \\(AM\\): período, área visitada e fotos de campo\\.$",
+        "replacement": "Tsiino Hiiwiida project expedition to $1, in April $2, in $3 (Amazonas, Brazil): dates, area visited and field photographs.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição do projeto Tsiino Hiiwiida a (.+), em maio de (\\d{4}), em (.+) \\(AM\\): período, área visitada e fotos de campo\\.$",
+        "replacement": "Tsiino Hiiwiida project expedition to $1, in May $2, in $3 (Amazonas, Brazil): dates, area visited and field photographs.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição do projeto Tsiino Hiiwiida a (.+), em junho de (\\d{4}), em (.+) \\(AM\\): período, área visitada e fotos de campo\\.$",
+        "replacement": "Tsiino Hiiwiida project expedition to $1, in June $2, in $3 (Amazonas, Brazil): dates, area visited and field photographs.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição do projeto Tsiino Hiiwiida a (.+), em julho de (\\d{4}), em (.+) \\(AM\\): período, área visitada e fotos de campo\\.$",
+        "replacement": "Tsiino Hiiwiida project expedition to $1, in July $2, in $3 (Amazonas, Brazil): dates, area visited and field photographs.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição do projeto Tsiino Hiiwiida a (.+), em agosto de (\\d{4}), em (.+) \\(AM\\): período, área visitada e fotos de campo\\.$",
+        "replacement": "Tsiino Hiiwiida project expedition to $1, in August $2, in $3 (Amazonas, Brazil): dates, area visited and field photographs.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição do projeto Tsiino Hiiwiida a (.+), em setembro de (\\d{4}), em (.+) \\(AM\\): período, área visitada e fotos de campo\\.$",
+        "replacement": "Tsiino Hiiwiida project expedition to $1, in September $2, in $3 (Amazonas, Brazil): dates, area visited and field photographs.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição do projeto Tsiino Hiiwiida a (.+), em outubro de (\\d{4}), em (.+) \\(AM\\): período, área visitada e fotos de campo\\.$",
+        "replacement": "Tsiino Hiiwiida project expedition to $1, in October $2, in $3 (Amazonas, Brazil): dates, area visited and field photographs.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição do projeto Tsiino Hiiwiida a (.+), em novembro de (\\d{4}), em (.+) \\(AM\\): período, área visitada e fotos de campo\\.$",
+        "replacement": "Tsiino Hiiwiida project expedition to $1, in November $2, in $3 (Amazonas, Brazil): dates, area visited and field photographs.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Expedição do projeto Tsiino Hiiwiida a (.+), em dezembro de (\\d{4}), em (.+) \\(AM\\): período, área visitada e fotos de campo\\.$",
+        "replacement": "Tsiino Hiiwiida project expedition to $1, in December $2, in $3 (Amazonas, Brazil): dates, area visited and field photographs.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^([\\d.]+) \\(([\\d.]+) das expedições do projeto, ([\\d.]+) de coleções científicas\\)$",
+        "replacement": "$1 ($2 from the project's expeditions, $3 from scientific collections)",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(.+) \\((.+)\\): espécie registrada na Cabeça do Cachorro, Alto Rio Negro, com ([\\d.]+) registros no catálogo e links para bases taxonômicas\\.$",
+        "replacement": "$1 ($2): species recorded in Cabeça do Cachorro, Upper Rio Negro, with $3 records in the catalogue and links to taxonomic databases.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Fichas de ([\\d.]+) espécies de plantas e fungos registradas na Cabeça do Cachorro, organizadas por família\\.$",
+        "replacement": "Pages for $1 plant and fungal species recorded in Cabeça do Cachorro, organised by family.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Fichas de ([\\d.]+) espécies de plantas e fungos da Cabeça do Cachorro \\(Alto Rio Negro\\), por família, com classificação e links para bases taxonômicas\\.$",
+        "replacement": "Pages for $1 plant and fungal species of Cabeça do Cachorro (Upper Rio Negro), by family, with classification and links to taxonomic databases.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(.+) · fonte: IUCN, via GBIF$",
+        "replacement": "$1 · source: IUCN, via GBIF",
+        "flags": "",
+        "terminal": false
+      },
+      {
+        "pattern": "^O mapa mostra os trajetos de GPS das expedições[.] As coletas do projeto somam ([0-9  ]+) registros georreferenciados, de ([0-9  ]+) famílias; os pontos de coleta não são publicados[.] Clique em um trajeto para vê-lo em 3D[.]$",
+        "replacement": "The map shows the GPS routes of the expeditions. The project's collections total $1 georeferenced records from $2 families; collection points are not published. Click a route to see it in 3D.",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Mostrar todos os registros \\(([\\d.]+)\\)$",
+        "replacement": "Show all records ($1)",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^([\\d.]+) espécies$",
+        "replacement": "$1 species",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^([\\d.]+) de ([\\d.]+) espécies$",
+        "replacement": "$1 of $2 species",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(\\d{4}) · ([\\d.]+)$",
+        "replacement": "$1 · $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^(.+)\\. Série de (\\d{4}) a (\\d{4}); pico de ([\\d.]+) registros em (\\d{4})\\.$",
+        "replacement": "$1. Series from $2 to $3; peak of $4 records in $5.",
+        "flags": "",
+        "terminal": false
+      },
+      {
+        "pattern": "^([\\d.]+) registros · ([\\d.,]+%)$",
+        "replacement": "$1 records · $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^([\\d.]+) registros$",
+        "replacement": "$1 records",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Ampliar foto (\\d+) de (\\d+)$",
+        "replacement": "Enlarge photo $1 of $2",
+        "flags": "",
+        "terminal": true
+      },
+      {
+        "pattern": "^Rios e região: (.+)$",
+        "replacement": "Rivers and region: $1",
+        "flags": "",
+        "terminal": true
       }
     ]
   }

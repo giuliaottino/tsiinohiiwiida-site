@@ -53,9 +53,10 @@
   --tsi-space-9: 96px;
 
   /* Tipografia — escala ~1.25, com clamp só nos tamanhos de exibição */
-  --tsi-font-sans: "Montserrat", Arial, sans-serif;
-  --tsi-font-serif: "Source Serif 4", Georgia, serif;
-  --tsi-font-mono: "Space Mono", ui-monospace, monospace;
+  /* As três variáveis antigas apontam para as duas famílias de tsiino-tokens.css. */
+  --tsi-font-sans: var(--font-sans);
+  --tsi-font-serif: var(--font-serif);
+  --tsi-font-mono: var(--font-sans);
   --tsi-fs-xs: 0.75rem;     /* 12.75px com base 17px */
   --tsi-fs-sm: 0.875rem;
   --tsi-fs-base: 1rem;
@@ -72,7 +73,7 @@
 
   /* Forma */
   --tsi-radius: 6px;
-  --tsi-radius-lg: 10px;
+  --tsi-radius-lg: 6px;
 }
 
 
@@ -93,7 +94,7 @@ html body #quarto-header .dropdown-menu .dropdown-item {
 html body #quarto-header .dropdown-menu {
   border: 1px solid var(--tsi-line) !important;
   border-radius: var(--tsi-radius) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: none !important;
   padding: var(--tsi-space-1) 0 !important;
 }
 
@@ -141,7 +142,7 @@ html body :is(#o-projeto, #videos-projeto, #metodo-integrado, #salvaguardas-cta,
   #bolsistas-instituicoes, #equipe-ampliada).content-card.content-card.content-card.content-card {
   background: var(--tsi-bg) !important;
   background-image: none !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   border: 0 !important;
   border-top: 1px solid var(--tsi-line) !important;
   border-radius: 0 !important;
@@ -186,7 +187,7 @@ html body .btn-main {
   color: #fff !important;
   border: 0 !important;
   border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   font-family: var(--tsi-font-sans) !important;
   font-size: var(--tsi-fs-sm) !important;
   font-weight: 600 !important;
@@ -232,7 +233,7 @@ html body #o-projeto .section-title {
 
 /* Citações de abertura (.lead): fio neutro no lugar da barra ocre */
 html body .lead {
-  border-left: 2px solid var(--tsi-line-strong) !important;
+  border-left: 0;
 }
 
 /* Números-chave: menores, na cor do texto */
@@ -249,7 +250,7 @@ html body #o-projeto.content-card.about-section.projeto-editorial .about-stat st
 html body #frentes-integradas .feature-title {
   background: none !important;
   border: 0 !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   padding: 0 !important;
   color: var(--tsi-ink) !important;
   text-transform: none !important;
@@ -279,7 +280,7 @@ html body #frentes-integradas .feature-panel::after {
 /* Rótulo "Eixo N": texto simples em vez de selo com sombra */
 html body #frentes-integradas .feature-panel h3 {
   background: none !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   padding: 0 !important;
   color: var(--tsi-on-dark-muted) !important;
 }
@@ -288,7 +289,7 @@ html body #frentes-integradas .feature-panel h3 {
 html body #metodo-integrado .method-river {
   border: 0 !important;
   border-radius: 0 !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   background: none !important;
   gap: var(--tsi-space-2) !important;
 }
@@ -297,7 +298,7 @@ html body #metodo-integrado .method-step {
   border-radius: var(--tsi-radius) !important;
   background: var(--tsi-bg-subtle) !important;
   background-image: none !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 html body #metodo-integrado .method-number {
   width: auto !important;
@@ -322,7 +323,7 @@ html body #metodo-integrado .impact-card {
   border: 0 !important;
   border-top: 1px solid var(--tsi-line) !important;
   border-radius: 0 !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   padding: var(--tsi-space-4) 0 0 !important;
 }
 html body #metodo-integrado .impact-card.impact-card {
@@ -345,7 +346,7 @@ html body .method-eyebrow {
 html body .video-card {
   border: 0 !important;
   border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 html body .video-card .video-caption {
   background: var(--tsi-bg) !important;
@@ -359,7 +360,7 @@ html body #salvaguardas-cta .safeguards-editorial-tags span {
   background: none !important;
   border: 0 !important;
   border-radius: 0 !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   padding: 0 !important;
 }
 
@@ -369,7 +370,7 @@ html body #pesquisadores-responsaveis :is(.researchers-panel, .researchers-summa
   background-image: none !important;
   border: 0 !important;
   border-radius: 0 !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 html body #pesquisadores-responsaveis .researchers-panel {
   padding: 0 !important;
@@ -426,7 +427,7 @@ html body #objetivos .core-title-line {
 }
 html body #objetivos .core-objective-card.core-objective-card {
   background: var(--tsi-bg) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   border: 1px solid var(--tsi-line) !important;
   border-radius: var(--tsi-radius-lg) !important;
 }
@@ -436,7 +437,7 @@ html body #salvaguardas-cta .safeguards-editorial-card {
   background: var(--tsi-bg-subtle) !important;
   border: 0 !important;
   border-radius: var(--tsi-radius-lg) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 
 /* Expedições recentes: título contido sobre as fotos */
@@ -447,7 +448,7 @@ html body #expedicoes-recentes .exp-collage-heading {
 
 /* Divulgação: cartões sem sombra; link e selo sem caixa-alta */
 html body #divulgacao .carousel-slide {
-  box-shadow: none !important;
+  box-shadow:none !important;
   border-radius: var(--tsi-radius-lg) !important;
 }
 html body #divulgacao .carousel-link,
@@ -476,7 +477,7 @@ html body .researcher-card {
   background-image: none !important;
   border: 0 !important;
   border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 html body .agency-pill {
   background: none !important;
@@ -490,7 +491,7 @@ html body .agency-pill {
    4. Expedições
    ------------------------------------------------------------------------- */
 html body .expedition-card {
-  box-shadow: none !important;
+  box-shadow:none !important;
   border-radius: var(--tsi-radius-lg) !important;
 }
 html body .meta-pill {
@@ -500,10 +501,10 @@ html body .meta-pill {
   padding: 0 !important;
 }
 html body .expedition-break {
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 html body .map-legend {
-  box-shadow: none !important;
+  box-shadow:none !important;
   border-radius: var(--tsi-radius) !important;
 }
 html body .map-legend-details > summary {
@@ -520,236 +521,19 @@ html body .map-legend-details > summary {
 html body main p.lead {
   background: none !important;
   border: 0 !important;
-  border-left: 2px solid var(--tsi-line-strong) !important;
+  border-left: 0;
   border-radius: 0 !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   padding: 0 0 0 var(--tsi-space-4) !important;
 }
-html body .big-statement {
-  background: none !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  font-size: var(--tsi-fs-xl) !important;
-  line-height: var(--tsi-lh-snug) !important;
-  color: var(--tsi-ink) !important;
-}
-
-/* Números de apoio (170+, 2, 4): sem caixa, separados por fio */
-html body .mini-facts .mini-fact {
-  background: none !important;
-  border: 0 !important;
-  border-top: 1px solid var(--tsi-line) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  padding: var(--tsi-space-3) 0 0 !important;
-}
-html body .mini-facts .mini-fact strong {
-  color: var(--tsi-ink) !important;
-  font-size: var(--tsi-fs-xl) !important;
-}
-
-/* Exsicatas: cartão leve, legenda neutra em vez de faixa verde */
-html body .specimen-panel :is(.specimen-card, .herbarium-mini-card) {
-  background: var(--tsi-bg-subtle) !important;
-  border: 0 !important;
-  border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
-}
-html body .specimen-panel :is(.specimen-card, .herbarium-mini-card) figcaption {
-  background: none !important;
-  color: var(--tsi-muted) !important;
-}
-html body .specimen-panel :is(.specimen-card, .herbarium-mini-card) figcaption b {
-  color: var(--tsi-ink) !important;
-}
-html body .specimen-panel :is(.specimen-card, .herbarium-mini-card) figcaption span {
-  color: var(--tsi-muted) !important;
-}
-
-/* Galeria "Viajantes, coleções…": título simples; selos viram texto */
-html body .full-bleed-gallery {
-  background: var(--tsi-bg) !important;
-}
-html body .full-bleed-gallery .gallery-title-wrap {
-  background: none !important;
-  box-shadow: none !important;
-}
-html body .full-bleed-gallery .gallery-title {
-  background: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  color: var(--tsi-ink) !important;
-  text-transform: none !important;
-  font-size: var(--tsi-fs-3xl) !important;
-  letter-spacing: var(--tsi-tracking-tight) !important;
-  line-height: var(--tsi-lh-tight) !important;
-}
-/* Rótulos sobre foto: fundo escuro translúcido discreto, só para legibilidade */
-html body .image-card .chip,
-html body .indicator-photo-card > span {
-  background: rgba(0, 0, 0, 0.5) !important;
-  border-radius: var(--tsi-radius) !important;
-  padding: 2px var(--tsi-space-2) !important;
-  color: #fff !important;
-}
-html body .indicator-photo-card {
-  border-radius: var(--tsi-radius-lg) !important;
-  box-shadow: none !important;
-}
-html body .data-photo-main {
-  border-radius: var(--tsi-radius-lg) !important;
-  box-shadow: none !important;
-}
-html body .data-photo-main .caption {
-  border-radius: var(--tsi-radius) !important;
-}
-
-/* Arquivos de entrada do painel */
-html body .input-status-grid .input-file {
-  background: none !important;
-  border: 0 !important;
-  border-top: 1px solid var(--tsi-line) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  padding: var(--tsi-space-3) 0 0 !important;
-}
-html body .input-status-grid .input-file > span {
-  background: none !important;
-  color: var(--tsi-accent-strong) !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-}
-
-/* Painéis: sem caixa externa; o título do painel em escala de seção */
-html body .dashboard-block {
-  background: none !important;
-  background-image: none !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-}
-html body .dashboard-heading .eyebrow {
-  background: none !important;
-  border: 0 !important;
-  padding: 0 !important;
-}
-html body .dashboard-heading h3 {
-  font-size: var(--tsi-fs-3xl) !important;
-  letter-spacing: var(--tsi-tracking-tight) !important;
-  line-height: var(--tsi-lh-tight) !important;
-  color: var(--tsi-ink) !important;
-}
-
-/* KPIs: fundo claro, número na cor do texto e em tamanho contido
-   (styles.css força fundo verde-escuro; o seletor .kpi-grid prevalece) */
-html body .kpi-grid .kpi-card {
-  background: var(--tsi-bg-subtle) !important;
-  background-image: none !important;
-  border: 0 !important;
-  border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
-  color: var(--tsi-text) !important;
-}
-html body .kpi-grid .kpi-card .kpi-number {
-  color: var(--tsi-ink) !important;
-  font-size: var(--tsi-fs-xl) !important;
-  line-height: var(--tsi-lh-tight) !important;
-  letter-spacing: normal !important;
-}
-html body .kpi-grid .kpi-card > span {
-  color: var(--tsi-ink) !important;
-}
-html body .kpi-grid .kpi-card > p {
-  color: var(--tsi-muted) !important;
-}
-
-/* Gráficos e rankings: moldura fina, sem sombra; linhas do ranking sem caixas */
-html body .chart-card {
-  background: var(--tsi-bg) !important;
-  background-image: none !important;
-  border: 1px solid var(--tsi-line) !important;
-  border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
-}
-html body .rank-card h4 {
-  color: var(--tsi-muted) !important;
-}
-html body .rank-list li {
-  background: none !important;
-  border: 0 !important;
-  border-bottom: 1px solid var(--tsi-line) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-/* Lista de espécies (details/summary): barra clara em vez de faixa escura */
-html body .species-drawer > summary {
-  background: var(--tsi-bg-subtle) !important;
-  background-image: none !important;
-  color: var(--tsi-ink) !important;
-  border: 0 !important;
-  border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
-}
-html body .species-drawer > summary .species-summary-label {
-  color: var(--tsi-ink) !important;
-  font-size: var(--tsi-fs-md) !important;
-}
-html body .species-drawer > summary .species-summary-count {
-  background: none !important;
-  border: 0 !important;
-  color: var(--tsi-muted) !important;
-  text-transform: none !important;
-  letter-spacing: normal !important;
-}
-html body .species-drawer > summary::after {
-  background: none !important;
-  border: 1px solid var(--tsi-line-strong) !important;
-  color: var(--tsi-ink) !important;
-  box-shadow: none !important;
-}
-html body .species-drawer {
-  border: 0 !important;
-  box-shadow: none !important;
-  background: none !important;
-}
-
-/* Infraestrutura dos dados */
-html body .data-principles article {
-  background: none !important;
-  border: 0 !important;
-  border-top: 1px solid var(--tsi-line) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  padding: var(--tsi-space-3) 0 0 !important;
-}
-html body .data-principles article b {
-  color: var(--tsi-ink) !important;
-}
-html body .data-infra-visual .data-flow-card {
-  background: var(--tsi-bg-subtle) !important;
-  background-image: none !important;
-  color: var(--tsi-text) !important;
-  border: 0 !important;
-  border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
-}
-html body .data-infra-visual .data-flow-card > span {
-  color: var(--tsi-muted) !important;
-}
-html body .data-infra-visual .data-flow-card li {
-  color: var(--tsi-text) !important;
-}
+/* As regras da página Acesso aos dados ficam em assets/css/pages/acesso.css. */
 
 
 /* -------------------------------------------------------------------------
    5. Equipe
    ------------------------------------------------------------------------- */
 html body .team-card {
-  box-shadow: none !important;
+  box-shadow:none !important;
   border: 0 !important;
   border-radius: var(--tsi-radius) !important;
   background: var(--tsi-bg-subtle) !important;
@@ -759,7 +543,7 @@ html body .team-card::before {
 }
 html body .team-card:hover {
   transform: none !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 /* [data-role] repetido: vence as regras legadas que coloriam nome e cargo
    por categoria (vermelho/ocre) */
@@ -768,14 +552,14 @@ html body .team-card[data-role] .team-name {
 }
 html body .team-card[data-role] .team-project-role {
   color: var(--tsi-text) !important;
-  border-left: 2px solid var(--tsi-line-strong) !important;
+  border-left: 0;
   background: none !important;
 }
 
 /* Cartão: hierarquia nome > cargo > instituição, sem alturas mínimas fixas
    (geravam vãos grandes nos cartões dos bolsistas) e sem sombra residual. */
 html body .team-card[data-role] {
-  box-shadow: none !important;
+  box-shadow:none !important;
   padding: var(--tsi-space-4) !important;
   min-height: 0 !important;
 }
@@ -929,7 +713,7 @@ html body .hero-actions .btn-ghost {
   color: #fff !important;
   border: 1px solid rgba(255, 255, 255, 0.6) !important;
   border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   font-family: var(--tsi-font-sans) !important;
   font-size: var(--tsi-fs-sm) !important;
   font-weight: 600 !important;
@@ -943,7 +727,7 @@ html body .team-network-panel {
   background: none !important;
   background-image: none !important;
   border: 0 !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 html body .team-network-panel::before {
   display: none !important;
@@ -953,7 +737,7 @@ html body .team-network-node .team-node-inner {
   background-image: none !important;
   border: 0 !important;
   border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 html body .team-network-node .team-node-halo {
   display: none !important;
@@ -972,12 +756,12 @@ html body .team-network-node-total :is(.team-number, .team-label, .team-node-hel
 html body .team-controls {
   background: none !important;
   border: 0 !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 html body .team-search {
   border: 1px solid var(--tsi-line-strong) !important;
   border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   background: var(--tsi-bg) !important;
 }
 html body .team-filter-buttons .team-filter {
@@ -985,7 +769,7 @@ html body .team-filter-buttons .team-filter {
   font-size: var(--tsi-fs-sm) !important;
   text-transform: none !important;
   letter-spacing: normal !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   background: var(--tsi-bg) !important;
   color: var(--tsi-text) !important;
   border: 1px solid var(--tsi-line-strong) !important;
@@ -1011,7 +795,7 @@ html body :is(.hv-clean-overview, .tsiino-validator-intro-card) {
   background: var(--tsi-bg-subtle) !important;
   border: 0 !important;
   border-radius: var(--tsi-radius-lg) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 html body :is(.hv-clean-overview, .tsiino-validator-intro-card) h2 {
   color: var(--tsi-ink) !important;
@@ -1023,7 +807,7 @@ html body .hv-panel {
   border: 0 !important;
   border-top: 1px solid var(--tsi-line) !important;
   border-radius: 0 !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 html body .hv-section-title {
   display: block !important;
@@ -1045,12 +829,12 @@ html body .hv-section-title h2 {
 html body .hv-panel :is(input[type="text"], input[type="file"], select) {
   border: 1px solid var(--tsi-line-strong) !important;
   border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   background: var(--tsi-bg) !important;
 }
 html body :is(.hv-primary, .hv-secondary) {
   border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
   text-transform: none !important;
   letter-spacing: normal !important;
   font-family: var(--tsi-font-sans) !important;
@@ -1073,7 +857,7 @@ html body .hv-status {
   background: var(--tsi-bg-subtle) !important;
   border: 0 !important;
   border-radius: var(--tsi-radius) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 
 
@@ -1112,7 +896,15 @@ html body .page-hero.page-hero-team {
   background-image:
     linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.45) 50%, rgba(0,0,0,.15) 100%),
     linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,.55) 100%),
-    url("../../figures/campo.jpg") !important;
+    url("../img/opt/figures/campo-960.jpg") !important;
+  /* Navegadores com image-set() escolhem o AVIF; os demais ficam com o JPG acima. */
+  background-image:
+    linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.45) 50%, rgba(0,0,0,.15) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,.55) 100%),
+    image-set(
+      url("../img/opt/figures/campo-1440.avif") type("image/avif"),
+      url("../img/opt/figures/campo-960.jpg") type("image/jpeg")
+    ) !important;
   background-size: cover !important;
   background-position: center 60% !important;
 }
@@ -1205,14 +997,14 @@ html body .page-hero-team .hero-actions {
 html body :is(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
   outline: 2px solid var(--tsi-accent) !important;
   outline-offset: 2px !important;
-  box-shadow: 0 0 0 4px var(--tsi-bg) !important;
+  box-shadow:none !important;
   border-radius: 2px;
 }
 /* Sobre fotos e faixas escuras o anel precisa ser claro */
 html body :is(.hero-strip, .page-hero, .conservation-hero, .hv-site-hero, .tsiino-site-footer, #quarto-header)
   :is(a, button, summary, [tabindex]):focus-visible {
   outline-color: var(--tsi-on-dark) !important;
-  box-shadow: none !important;
+  box-shadow:none !important;
 }
 
 /* Âncoras (#secao) não ficam escondidas atrás da navbar fixa */
@@ -1294,3 +1086,432 @@ html body .leaflet-control-attribution {
     color: var(--tsi-muted);
   }
 }
+
+/* ==========================================================================
+   Desempenho e melhoria progressiva (2026-11)
+   ========================================================================== */
+
+/* <picture> não cria caixa própria: o layout continua sendo o do <img>. */
+picture {
+  display: contents;
+}
+
+/* width/height no HTML reservam o espaço (sem salto de layout); a altura
+   continua proporcional quando o CSS define só a largura. */
+/* :where() tem especificidade zero: qualquer regra do site continua valendo. */
+:where(img[width][height]) {
+  height: auto;
+}
+
+/* Entrada animada só quando o JS marca <html class="reveal-on">.
+   Sem JS, ou com "reduzir movimento", o conteúdo fica sempre visível. */
+html:not(.reveal-on) .reveal-ready {
+  opacity: 1 !important;
+  transition: none !important;
+}
+html:not(.reveal-on) .reveal-ready:not(.full-bleed-feature):not(#logos-institucionais) {
+  transform: none !important;
+}
+html:not(.reveal-on) :is(.full-bleed-feature, #logos-institucionais).reveal-ready {
+  transform: translateX(-50%) !important;
+}
+html.reveal-on .reveal-ready {
+  transition-duration: 0.42s !important;
+  transition-delay: min(var(--reveal-delay, 0ms), 120ms) !important;
+}
+
+/* Vídeos do YouTube: miniatura local; o player só carrega no clique. */
+.yt-facade {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: #11150d;
+  cursor: pointer;
+}
+.yt-facade img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.yt-facade-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 68px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+  border-radius: var(--radius);
+  background: rgba(17, 21, 13, 0.82);
+  transition: background-color 160ms ease;
+}
+.yt-facade-play::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-40%, -50%);
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent #fff;
+}
+.yt-facade:hover .yt-facade-play,
+.yt-facade:focus-visible .yt-facade-play {
+  background: #a93632;
+}
+.yt-facade:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -5px;
+}
+.video-frame-wrap {
+  position: relative;
+}
+
+/* Ícone do GitHub no rodapé (SVG embutido, sem a fonte de ícones). */
+.tsiino-footer-dev-links svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: -0.125em;
+}
+
+
+/* -------------------------------------------------------------------------
+   10. Cabeçalho, idioma e acessibilidade (2026-11)
+   ------------------------------------------------------------------------- */
+
+/* Pular para o conteúdo: fora da tela até receber foco pelo teclado. */
+.tsiino-skip-link {
+  position: absolute;
+  left: 12px;
+  top: -80px;
+  z-index: 20000;
+  padding: 10px 14px;
+  background: #fff;
+  color: #171717;
+  font: 600 0.95rem/1.2 var(--tsi-font-sans);
+  border-radius: var(--tsi-radius);
+  text-decoration: none;
+}
+.tsiino-skip-link:focus {
+  top: 12px;
+  outline: 3px solid #a93632;
+  outline-offset: 2px;
+}
+
+/* Foco visível em tudo que é interativo (só para teclado). */
+html body :is(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid #a93632 !important;
+  outline-offset: 2px !important;
+}
+/* Sobre foto/vídeo escuros o contorno é branco. */
+html body :is(#quarto-header, .hero-strip, .page-hero, .conservation-hero, .hv-site-hero, .doc-hero, .tsiino-site-footer)
+  :is(a, button, [tabindex]):focus-visible {
+  outline-color: #fff !important;
+}
+
+/* Link de idioma no cabeçalho (um link real para /en/…). */
+#quarto-header .quarto-navbar-tools {
+  display: flex;
+  align-items: center;
+  margin-left: var(--tsi-space-3);
+}
+.tsiino-lang-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid currentColor;
+  border-radius: var(--tsi-radius);
+  font: 600 0.85rem/1 var(--tsi-font-sans);
+  letter-spacing: 0.01em;
+  color: var(--tsi-ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.tsiino-lang-link:hover {
+  background: var(--tsi-ink);
+  color: #fff;
+}
+.tsiino-lang-short {
+  display: none;
+}
+/* Páginas com hero escuro: cabeçalho em branco sobre a imagem. */
+html body:has(.hero-strip, .page-hero, .conservation-hero, .hv-site-hero, .doc-hero) #quarto-header .tsiino-lang-link {
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.18);
+}
+html body:has(.hero-strip, .page-hero, .conservation-hero, .hv-site-hero, .doc-hero) #quarto-header .tsiino-lang-link:hover {
+  background: #fff;
+  color: #171717;
+  text-shadow: none;
+}
+
+/* Celular e meia tela (menu recolhido, breakpoint existente de 991.98px):
+   logo + nome à esquerda, idioma e botão do menu à direita, numa linha só. */
+@media (max-width: 991.98px) {
+  html body #quarto-header .navbar-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    column-gap: var(--tsi-space-2) !important;
+    padding-left: var(--tsi-space-4) !important;
+    padding-right: var(--tsi-space-4) !important;
+  }
+  html body #quarto-header .navbar-brand-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--tsi-space-2) !important;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    order: 0 !important;
+  }
+  html body #quarto-header .navbar-brand {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  html body #quarto-header .navbar-brand-logo {
+    flex: 0 0 auto !important;
+  }
+  html body #quarto-header .navbar-brand .navbar-logo {
+    width: 36px !important;
+    min-width: 36px !important;   /* sem isto o flex espremia a logo para 32 px de largura */
+    height: 36px !important;
+    max-height: 36px !important;
+    object-fit: contain !important;
+  }
+  html body #quarto-header .navbar-title {
+    font: 700 1.02rem/1.15 var(--tsi-font-sans) !important;
+    letter-spacing: -0.01em !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  html body:has(.hero-strip, .page-hero, .conservation-hero, .hv-site-hero, .doc-hero) #quarto-header .navbar-title {
+    color: #fff !important;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7) !important;
+  }
+  html body #quarto-header .quarto-navbar-tools {
+    order: 1 !important;
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+  }
+  html body #quarto-header .navbar-toggler {
+    order: 2 !important;
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+  html body #quarto-header .navbar-collapse {
+    order: 3 !important;
+    flex-basis: 100% !important;
+  }
+  /* A logo já está no cabeçalho: a do hero seria repetição. */
+  html body :is(.hero-logo-badge, .page-hero-logo) {
+    display: none !important;
+  }
+}
+@media (max-width: 429.98px) {
+  /* "English" continua sendo o nome lido por leitores de tela; só some da vista. */
+  .tsiino-lang-full {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .tsiino-lang-short { display: inline; }
+  .tsiino-lang-link { padding: 0 10px; }
+}
+
+html body .hero-strip .hero-title-panel h1 {
+  margin-top: 0.35rem !important;
+}
+html body .hero-strip .hero-name-note {
+  font-size: clamp(0.92rem, 1.25vw, 1.05rem) !important;
+  max-width: 44ch !important;
+}
+
+/* O projeto em números: algarismos tabulares, colunas iguais, rótulo claro. */
+html body #o-projeto .about-stat-caption {
+  margin: var(--tsi-space-5) 0 var(--tsi-space-2) !important;
+  font: 700 0.72rem/1.2 var(--tsi-font-mono) !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--tsi-muted) !important;
+}
+html body #o-projeto .about-stat-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  column-gap: var(--tsi-space-5) !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-top: 0 !important;
+}
+html body #o-projeto .about-stat strong,
+html body #o-projeto.content-card.about-section.projeto-editorial .about-stat strong {
+  font-variant-numeric: tabular-nums lining-nums !important;
+  font-feature-settings: "tnum" 1, "lnum" 1 !important;
+  font-size: clamp(2rem, 3vw, 2.6rem) !important;
+  line-height: 1 !important;
+}
+
+/* Equipe: texto auxiliar dos filtros com contraste suficiente. */
+html body .team-network-node:not(.team-network-node-total) .team-node-helper {
+  color: var(--tsi-muted) !important;
+}
+
+/* Rodapé: os títulos em ocre sobre verde tinham contraste 2,6:1. */
+html body .tsiino-site-footer .tsiino-footer-title {
+  color: #f6f1e8 !important;
+}
+
+/* Botão do menu e textos do hero legíveis sobre nuvens claras. */
+@media (max-width: 991.98px) {
+  html body:has(.hero-strip, .page-hero, .conservation-hero, .hv-site-hero, .doc-hero) #quarto-header .navbar-toggler-icon {
+    filter: brightness(0) invert(1) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.7)) !important;
+    opacity: 1 !important;
+  }
+}
+html body :is(.hero-strip, .page-hero-expeditions) :is(.hero-subtitle, .hero-name-note, .page-hero-subtitle, p) {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 2px 16px rgba(0, 0, 0, 0.8) !important;
+}
+
+
+/* -------------------------------------------------------------------------
+   11. Ligações para as páginas de conteúdo (2026-11)
+   ------------------------------------------------------------------------- */
+
+/* Home: "saiba mais" dos eixos e das seções */
+html body .feature-panel .axis-more {
+  margin: var(--tsi-space-3) 0 0 !important;
+  font: 600 0.88rem/1.4 var(--tsi-font-sans) !important;
+}
+html body .feature-panel .axis-more a {
+  color: inherit !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+html body .section-more {
+  margin: var(--tsi-space-4) 0 !important;
+  font: 600 0.92rem/1.6 var(--tsi-font-sans) !important;
+}
+html body .section-more a {
+  color: var(--tsi-accent-strong) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+/* Rodapé: links do projeto */
+.tsiino-footer-nav { display: flex; flex-direction: column; gap: 4px; }
+.tsiino-footer-nav a {
+  color: #f6f1e8;
+  font: 500 0.9rem/1.5 var(--tsi-font-sans);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.tsiino-footer-nav a:hover { color: #fff; }
+
+
+/* -------------------------------------------------------------------------
+   12. Sistema editorial em todas as páginas (2026-11)
+   Camada final: garante as duas famílias, os pesos e a ausência de enfeites
+   mesmo onde o CSS legado de cada página ainda define outra coisa.
+   ------------------------------------------------------------------------- */
+html body {
+  font-family: var(--font-sans);
+  color: var(--text);
+  font-variant-numeric: lining-nums;
+}
+
+/* Títulos: serifa semibold, caixa normal, sem hifenização. */
+html body :is(h1, h2, h3, h4) {
+  font-family: var(--font-serif) !important;
+  font-weight: var(--fw-semibold) !important;
+  text-transform: none !important;
+  letter-spacing: -0.008em !important;
+  hyphens: none !important;
+  text-wrap: balance;
+}
+
+/* Interface: nunca quebra palavra com hífen. */
+html body :is(button, .btn, .btn-main, [role="button"], nav a, label, summary, th, .nav-link, .dropdown-item) {
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+}
+
+/* Eyebrows e rótulos: texto simples em versalete. Sem cápsula, sem fundo, sem mono. */
+html body :is(.hero-kicker, .about-eyebrow, .method-eyebrow, .feature-eyebrow, .researchers-kicker,
+  .doc-kicker, .doc-meta, .eyebrow, .team-network-kicker, .agency-pill, .carousel-type-pill,
+  .logos-group-title, .tsiino-footer-title, .nf-code, .chip) {
+  display: inline-block;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.9375rem !important;
+  font-weight: var(--fw-semibold) !important;
+  font-variant-caps: all-small-caps !important;
+  text-transform: none !important;
+  letter-spacing: 0.07em !important;
+  line-height: var(--lh-ui) !important;
+  hyphens: none !important;
+}
+html body :is(.about-eyebrow, .method-eyebrow, .feature-eyebrow, .researchers-kicker, .doc-meta, .eyebrow,
+  .team-network-kicker, .agency-pill, .carousel-type-pill, .logos-group-title, .nf-code) {
+  color: var(--text-muted) !important;
+}
+html body :is(.hero-kicker, .doc-kicker) { color: var(--ochre-on-dark) !important; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55) !important; }
+
+/* Hero da home e de Expedições: em vez de caixa atrás do rótulo, uma película
+   escura à esquerda garante o contraste de todo o bloco de texto. */
+html body :is(.hero-strip, .page-hero-expeditions) .hero-kicker {
+  display: block !important;
+  line-height: var(--lh-ui) !important;
+  margin-bottom: var(--sp-2) !important;
+}
+html body .hero-strip .hero-overlay,
+html body .page-hero-expeditions .page-hero-overlay {
+  background: linear-gradient(90deg, rgba(17, 21, 13, 0.78) 0%, rgba(17, 21, 13, 0.5) 42%, rgba(17, 21, 13, 0.08) 78%),
+              linear-gradient(180deg, rgba(17, 21, 13, 0.35) 0%, rgba(17, 21, 13, 0) 30%, rgba(17, 21, 13, 0.45) 100%) !important;
+}
+
+/* Números de dados em qualquer página. */
+html body :is(.about-stat strong, .researchers-number, .team-number, .kpi-number, .method-number) {
+  font-family: var(--font-serif) !important;
+  font-weight: var(--fw-semibold) !important;
+  font-variant-numeric: tabular-nums lining-nums !important;
+}
+
+/* Nenhum texto encostado na borda: seções de conteúdo têm respiro lateral mínimo. */
+@media (max-width: 991.98px) {
+  html body main :is(.content-card, .objectives-section, .core-objectives-head, .exp-section, .doc-body) {
+    padding-left: max(var(--gutter), 16px) !important;
+    padding-right: max(var(--gutter), 16px) !important;
+    box-sizing: border-box !important;
+  }
+}
+/* Sem rolagem lateral: endereços e identificadores longos quebram dentro da coluna
+   (antes isso ficava escondido por overflow-x: hidden no body). */
+html body main :is(p, li, dd, dt, td, figcaption, a, code) { overflow-wrap: anywhere; }
+
+/* Home, "na mídia": título, texto e links no mesmo container do resto do site. */
+html body #divulgacao :is(.section-title, .lead, .section-more) {
+  width: var(--container) !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+html body .section-more { line-height: 1.9 !important; }
