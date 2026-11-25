@@ -38,6 +38,8 @@
     onlyIssueCols: false,
     tab: 'sheet',
     mapper: null,        // { preview, mapping, undo: [] }
+    edits: new Map(),    // correções pendentes: 'linha|campo' -> { row, field, value, issue }
+    fixed: new Map(),    // ocorrência (_i) -> { choice, fields } já corrigida no navegador
     map: null,
     mapFilter: { error: true, warning: true, clear: true },
     base: 'map'
@@ -160,18 +162,19 @@
       await ensureAwake();
       setStatus('Lendo a estrutura da planilha...', '');
       const preview = await request('/converter/preview', { method: 'POST', body: formFor(file) });
+      const others = otherSheetsNote(preview);
       if (options().collection === 'CUSTOM' || !preview.detected_standard) {
         openMapper(preview);
         setStatus(
-          options().collection === 'CUSTOM'
+          (options().collection === 'CUSTOM'
             ? 'Confira o mapeamento das colunas para o padrão INPA/BRAHMS.'
-            : 'A planilha não está no padrão técnico INPA/BRAHMS. Confira as correspondências sugeridas abaixo e clique em <strong>Aplicar mapeamento e validar</strong>.',
+            : 'A planilha não está no padrão técnico INPA/BRAHMS. Confira as correspondências sugeridas abaixo e clique em <strong>Aplicar mapeamento e validar</strong>.') + others,
           'warning'
         );
         return;
       }
       closeMapper();
-      setStatus(`Planilha no padrão INPA/BRAHMS (aba <strong>${esc(preview.sheet_name)}</strong>). Validando ${esc(file.name)}...`, '');
+      setStatus(`Planilha no padrão INPA/BRAHMS (aba <strong>${esc(preview.sheet_name)}</strong>). Validando ${esc(file.name)}...${others}`, '');
       const result = await request('/upload', { method: 'POST', body: formFor(file) });
       showResult(await hydrate(result));
     } catch (err) {
@@ -179,6 +182,30 @@
     } finally {
       setBusy(false);
     }
+  }
+
+  /* Sugere as abas do arquivo no campo "Aba da planilha" e avisa quais outras existem.
+   * Sem aba informada, a API escolhe sozinha a aba mais próxima do padrão INPA/BRAHMS. */
+  function otherSheetsNote(preview) {
+    const names = (preview && preview.sheet_names) || [];
+    const input = $('sheet-name');
+    if (input && names.length) {
+      let list = $('sheet-name-options');
+      if (!list) {
+        list = document.createElement('datalist');
+        list.id = 'sheet-name-options';
+        input.insertAdjacentElement('afterend', list);
+        input.setAttribute('list', list.id);
+      }
+      list.innerHTML = names.map((n) => `<option value="${esc(n)}"></option>`).join('');
+    }
+    const others = names.filter((n) => n !== preview.sheet_name && n !== 'Validação Tsiino');
+    state.sheetsNote = others.length
+      ? ` <br>Aba validada: <strong>${esc(preview.sheet_name)}</strong>. Outras abas no arquivo: ` +
+        `${others.map((n) => `<strong>${esc(n)}</strong>`).join(', ')}. ` +
+        'Para validar outra, escolha-a em <em>Aba da planilha</em> e envie de novo.'
+      : '';
+    return state.sheetsNote;
   }
 
   function fail(err) {
@@ -505,7 +532,8 @@
     const byRow = new Map();
     const global = [];
     const issueCols = new Set();
-    result.issues.forEach((it) => {
+    result.issues.forEach((it, idx) => {
+      it._i = idx;
       if (it.row_number == null) { global.push(it); return; }
       const header = fieldToHeader[it.column_name] || it.column_name || '';
       const key = it.row_number + '|' + header;
@@ -525,6 +553,7 @@
       rowSev.set(row, best);
     });
     result._view = { columns, headerToField, fieldToHeader, byCell, byRow, global, hasOrphans, rowSev, issueCols, text: new Map() };
+    result._rowIndex = new Map(result.table.map((r) => [r._row_number, r]));
     result._stats = computeStats(result);
     return result;
   }
@@ -622,6 +651,9 @@
   // ---------------------------------------------------------------- renderização do resultado
   function showResult(result) {
     state.result = prepareResult(result);
+    state.edits = new Map();
+    state.fixed = new Map();
+    closeFix();
     state.filter = 'all';
     state.code = '';
     state.query = '';
@@ -640,12 +672,13 @@
     renderSheet();
     renderIssueList();
     configureDownloads(result);
+    renderCorrections();
     switchTab('sheet');
     const s = result.summary;
     const verdict = s.error_count
       ? `${plural(s.error_count, 'erro', 'erros')} em ${plural(s.rows_with_errors, 'linha', 'linhas')} precisam de correção antes do depósito.`
       : 'Nenhum erro encontrado. Revise os alertas antes do depósito.';
-    setStatus(`Validação concluída em ${esc(s.elapsed_seconds)}s: ${esc(verdict)}`, s.error_count ? 'warning' : 'ok');
+    setStatus(`Validação concluída em ${esc(s.elapsed_seconds)}s: ${esc(verdict)}${state.sheetsNote || ''}`, s.error_count ? 'warning' : 'ok');
     results && results.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
@@ -964,8 +997,268 @@
   }
 
   function messageHtml(it) {
-    return `<span class="tsr-msg" data-sev="${esc(it.severity)}" title="${esc(it.code)}${it.source ? ' · ' + esc(it.source) : ''}">` +
-      `<b>${esc(SEV_LABEL[it.severity] || '')}</b> ${esc(it.message)}${it.suggestion ? `<em>Sugestão: ${esc(it.suggestion)}</em>` : ''}</span>`;
+    const fixable = isFixable(it);
+    const done = fixable && issueFixed(it);
+    const opts = fixable ? fixOptions(it) : [];
+    const sugg = opts.length > 1
+      ? `<em>${opts.length} sugestões: ${esc(opts.map((o) => o.label).join(' · '))}</em>`
+      : it.suggestion ? `<em>Sugestão: ${esc(it.suggestion)}</em>` : '';
+    const action = !fixable ? '' : done
+      ? `<span class="tsr-fix-done">Corrigido (pendente) <button type="button" class="tsr-link" data-fix="${it._i}">alterar</button></span>`
+      : `<button type="button" class="tsr-fix-btn" data-fix="${it._i}">${opts.length === 1 ? 'Aceitar sugestão' : 'Corrigir'}</button>`;
+    return `<span class="tsr-msg${done ? ' is-fixed' : ''}" data-sev="${esc(it.severity)}" title="${esc(it.code)}${it.source ? ' · ' + esc(it.source) : ''}">` +
+      `<b>${esc(SEV_LABEL[it.severity] || '')}</b> ${esc(it.message)}${sugg}${action}</span>`;
+  }
+
+  // ---------------------------------------------------------------- correções na ferramenta
+  /* As correções ficam pendentes no navegador (state.edits) até "Aplicar e revalidar", que envia tudo
+   * para /jobs/{id}/apply: a API regrava a planilha original (mesma formatação, outras abas intactas),
+   * valida de novo e devolve um job novo, de onde saem a planilha corrigida (limpa) e a anotada. */
+  const editKey = (row, field) => `${row}|${field}`;
+
+  function fieldExists(field) {
+    const view = state.result._view;
+    return Boolean(view.fieldToHeader[field]) || view.columns.includes(field);
+  }
+
+  function headerOf(field) {
+    return state.result._view.fieldToHeader[field] || field;
+  }
+
+  function currentValue(row, field) {
+    const pending = state.edits.get(editKey(row, field));
+    if (pending) return pending.value;
+    const rec = state.result._rowIndex.get(row);
+    const v = rec && rec._raw ? rec._raw[headerOf(field)] : null;
+    return v == null ? '' : String(v);
+  }
+
+  function originalValue(row, field) {
+    const rec = state.result._rowIndex.get(row);
+    const v = rec && rec._raw ? rec._raw[headerOf(field)] : null;
+    return v == null ? '' : String(v);
+  }
+
+  /* "00,1258" e "0,1258" são o mesmo número: não contam como mudança. */
+  function sameValue(field, a, b) {
+    const x = String(a ?? '').trim(); const y = String(b ?? '').trim();
+    if (x.toLowerCase() === y.toLowerCase()) return true;
+    if (['lat', 'long'].includes(field)) {
+      const nx = Number(x.replace(',', '.')); const ny = Number(y.replace(',', '.'));
+      return x !== '' && y !== '' && Number.isFinite(nx) && nx === ny;
+    }
+    return false;
+  }
+
+  /* Opções aplicáveis nesta planilha: descarta campos que não existem nela e os que não mudam. */
+  function fixOptions(it) {
+    return (it.options || []).map((o) => {
+      const edits = {};
+      Object.entries(o.edits || {}).forEach(([f, v]) => {
+        const value = v == null ? '' : String(v);
+        if (fieldExists(f) && !sameValue(f, value, originalValue(it.row_number, f))) edits[f] = value;
+      });
+      return { label: o.label, edits };
+    }).filter((o) => Object.keys(o.edits).length);
+  }
+
+  function isFixable(it) {
+    return state.result && it.row_number != null && it.column_name && it.code !== 'TRAILING_FILLED_ROWS' &&
+      (fixOptions(it).length > 0 || fieldExists(it.column_name));
+  }
+
+  function issueFixed(it) {
+    return state.fixed.has(it._i);
+  }
+
+  function otherFields(it, opts) {
+    const fields = [];
+    (it.options || []).forEach((o) => Object.keys(o.edits || {}).forEach((f) => { if (fieldExists(f) && !fields.includes(f)) fields.push(f); }));
+    if (!fields.length && fieldExists(it.column_name)) fields.push(it.column_name);
+    return fields;
+  }
+
+  function closeFix() {
+    document.getElementById('tsr-fix-pop')?.remove();
+  }
+
+  function openFix(button, it) {
+    closeFix();
+    const opts = fixOptions(it);
+    const fields = otherFields(it, opts);
+    const row = it.row_number;
+    const chosen = state.fixed.get(it._i);
+    const describe = (edits) => Object.entries(edits).map(([f, v]) => `${esc(f)} = ${v === '' ? '<i>vazio</i>' : esc(v)}`).join(' · ');
+    const optHtml = opts.map((o, i) => {
+      const single = Object.keys(o.edits).length === 1 && Object.values(o.edits)[0] === o.label;
+      const checked = chosen ? chosen.choice === String(i) : i === 0;
+      return `<label class="tsr-fix-opt"><input type="radio" name="tsr-fix-choice" value="${i}"${checked ? ' checked' : ''}>` +
+        `<span><strong>${esc(o.label)}</strong>${single ? '' : `<small>${describe(o.edits)}</small>`}</span></label>`;
+    }).join('');
+    const otherChecked = chosen ? chosen.choice === 'other' : !opts.length;
+    const inputs = fields.map((f) => `<label class="tsr-fix-field"><span>${esc(f)}${f !== headerOf(f) ? ` <small>(${esc(headerOf(f))})</small>` : ''}</span>` +
+      `<input type="text" name="f:${esc(f)}" value="${esc(currentValue(row, f))}" autocomplete="off"></label>`).join('');
+    const pop = document.createElement('div');
+    pop.id = 'tsr-fix-pop';
+    pop.className = 'tsr-fix-pop';
+    pop.setAttribute('role', 'dialog');
+    pop.setAttribute('aria-label', `Corrigir linha ${row}`);
+    pop.innerHTML = `<form class="tsr-fix-form" data-issue="${it._i}">` +
+      `<p class="tsr-fix-title">Linha ${esc(row)} · ${esc(it.column_name)} <span class="tsr-sev" data-sev="${esc(it.severity)}">${esc(SEV_LABEL[it.severity] || '')}</span></p>` +
+      `<p class="tsr-fix-msg">${esc(it.message)}</p>` +
+      `<fieldset><legend>${opts.length > 1 ? 'Escolha a correção certa' : opts.length ? 'Correção sugerida' : 'Escreva o valor correto'}</legend>` +
+      optHtml +
+      `<label class="tsr-fix-opt"><input type="radio" name="tsr-fix-choice" value="other"${otherChecked ? ' checked' : ''}>` +
+      `<span><strong>${opts.length ? 'Nenhuma destas: escrever o valor' : 'Valor correto'}</strong></span></label>` +
+      `<div class="tsr-fix-other">${inputs}</div></fieldset>` +
+      `<div class="tsr-fix-actions"><button type="submit" class="hv-primary tsr-btn is-small">Aplicar</button>` +
+      (chosen ? '<button type="button" class="hv-secondary tsr-btn is-small" data-fix-undo>Desfazer</button>' : '') +
+      '<button type="button" class="hv-secondary tsr-btn is-small" data-fix-cancel>Cancelar</button></div>' +
+      '<p class="tsr-fix-hint">A correção fica pendente até você clicar em <strong>Aplicar e revalidar</strong>.</p></form>';
+    document.body.appendChild(pop);
+    const r = button.getBoundingClientRect();
+    const w = Math.min(420, window.innerWidth - 32);
+    pop.style.width = w + 'px';
+    pop.style.left = Math.max(16, Math.min(r.left + window.scrollX, window.scrollX + window.innerWidth - w - 16)) + 'px';
+    const h = pop.offsetHeight;
+    const below = window.innerHeight - r.bottom;
+    pop.style.top = ((below < h + 12 && r.top > h + 12) ? r.top + window.scrollY - h - 6 : r.bottom + window.scrollY + 6) + 'px';
+    const form = pop.querySelector('form');
+    form.addEventListener('focusin', (e) => {
+      if (e.target.matches('.tsr-fix-field input')) form.querySelector('input[value="other"]').checked = true;
+    });
+    form.addEventListener('submit', (e) => { e.preventDefault(); submitFix(form, it, opts, fields); });
+    (form.querySelector('input[name="tsr-fix-choice"]:checked') || form.querySelector('input'))?.focus();
+  }
+
+  function setIssueEdits(it, edits, choice) {
+    clearIssueEdits(it);
+    Object.entries(edits).forEach(([field, value]) => {
+      state.edits.set(editKey(it.row_number, field), { row: it.row_number, field, value, issue: it._i });
+    });
+    state.fixed.set(it._i, { choice, fields: Object.keys(edits) });
+  }
+
+  function clearIssueEdits(it) {
+    const prev = state.fixed.get(it._i);
+    if (!prev) return;
+    prev.fields.forEach((f) => {
+      const k = editKey(it.row_number, f);
+      if (state.edits.get(k)?.issue === it._i) state.edits.delete(k);
+    });
+    state.fixed.delete(it._i);
+  }
+
+  function submitFix(form, it, opts, fields) {
+    const choice = form.querySelector('input[name="tsr-fix-choice"]:checked')?.value;
+    if (choice == null) return;
+    let edits;
+    if (choice === 'other') {
+      edits = {};
+      fields.forEach((f) => {
+        const v = form.querySelector(`input[name="f:${CSS.escape(f)}"]`)?.value ?? '';
+        if (v.trim() !== currentValue(it.row_number, f).trim() || state.fixed.has(it._i)) edits[f] = v.trim();
+      });
+      if (!Object.keys(edits).length) { closeFix(); return; }
+    } else {
+      edits = opts[Number(choice)].edits;
+    }
+    setIssueEdits(it, edits, choice);
+    closeFix();
+    refreshAfterEdit();
+  }
+
+  function refreshAfterEdit() {
+    const y = window.scrollY;
+    const wrap = $('validator-sheet')?.parentElement;
+    const x = wrap ? wrap.scrollLeft : 0;
+    renderSheet();
+    renderCorrections();
+    renderIssueList();
+    if (wrap) wrap.scrollLeft = x;
+    window.scrollTo(0, y);
+  }
+
+  /* Ocorrências com uma única sugestão aplicável e ainda não corrigidas. */
+  function singleSuggestionIssues(code) {
+    return state.result.issues.filter((it) => (!code || it.code === code) && isFixable(it) &&
+      !issueFixed(it) && fixOptions(it).length === 1);
+  }
+
+  function acceptSingles(code) {
+    const list = singleSuggestionIssues(code);
+    list.forEach((it) => setIssueEdits(it, fixOptions(it)[0].edits, '0'));
+    refreshAfterEdit();
+    setStatus(`${plural(list.length, 'sugestão aceita', 'sugestões aceitas')}. Confira na planilha e clique em <strong>Aplicar e revalidar</strong>.`, 'ok');
+  }
+
+  function renderCorrections() {
+    const node = $('tsr-corrections-note');
+    if (!node || !state.result) return;
+    const s = state.result.summary;
+    const pending = state.edits.size;
+    const rows = new Set([...state.edits.values()].map((e) => e.row)).size;
+    const singles = singleSuggestionIssues().length;
+    const done = s.corrections;
+    const parts = [];
+    if (done) {
+      const before = done.previous_error_count;
+      parts.push(`<p><strong>Correções aplicadas:</strong> ${plural(done.edits, 'célula alterada', 'células alteradas')}` +
+        `${done.cleared_rows ? `, ${plural(done.cleared_rows, 'linha limpa', 'linhas limpas')}` : ''}. ` +
+        (before != null ? `Erros: ${fmt(before)} → ${fmt(s.error_count)}. ` : '') +
+        'Baixe a planilha corrigida (sem anotações) ou a anotada (com os alertas que restam).</p>');
+    }
+    if (pending) {
+      parts.push(`<p><strong>${plural(pending, 'correção pendente', 'correções pendentes')}</strong> em ${plural(rows, 'linha', 'linhas')}.</p>` +
+        '<div class="tsr-corr-actions"><button type="button" class="hv-primary tsr-btn is-small" data-apply-edits>Aplicar e revalidar</button>' +
+        '<button type="button" class="hv-secondary tsr-btn is-small" data-discard-edits>Descartar pendentes</button></div>');
+    }
+    if (singles) {
+      parts.push(`<div class="tsr-corr-actions"><button type="button" class="hv-secondary tsr-btn is-small" data-accept-single>` +
+        `Aceitar todas as sugestões únicas (${fmt(singles)})</button>` +
+        '<span class="tsr-corr-hint">Só as ocorrências com uma única sugestão; as de múltipla escolha você decide uma a uma.</span></div>');
+    }
+    node.hidden = !parts.length;
+    node.innerHTML = parts.join('');
+    const corrected = $('tsr-download-corrected');
+    if (corrected) {
+      const show = Boolean(done) || pending > 0;
+      corrected.hidden = !show;
+      corrected.textContent = pending ? 'Aplicar correções e baixar corrigida' : 'Baixar planilha corrigida';
+      corrected.href = done && !pending ? `${API}/jobs/${encodeURIComponent(state.result.job_id)}/corrected.xlsx` : '#';
+    }
+  }
+
+  async function applyEdits() {
+    if (!state.result || !state.edits.size) return false;
+    const edits = [...state.edits.values()].map((e) => ({ row: e.row, column: headerOf(e.field), value: e.value }));
+    setBusy(true, 'Aplicando correções...');
+    try {
+      setStatus(`Aplicando ${plural(edits.length, 'correção', 'correções')} e validando de novo...`, '');
+      await ensureAwake();
+      const result = await request(`/jobs/${encodeURIComponent(state.result.job_id)}/apply`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ edits })
+      });
+      showResult(await hydrate(result));
+      return true;
+    } catch (err) {
+      if (err instanceof ApiError && err.status === 404) {
+        setStatus('A sessão de validação expirou no servidor (ela dura algumas horas). Envie a planilha de novo; as correções pendentes precisam ser refeitas.', 'error');
+      } else {
+        fail(err);
+      }
+      return false;
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function downloadFrom(kind) {
+    const id = encodeURIComponent(state.result.job_id);
+    const path = kind === 'corrected' ? `/jobs/${id}/corrected.xlsx` : `/jobs/${id}/download.xlsx`;
+    const a = document.createElement('a');
+    a.href = API + path;
+    document.body.appendChild(a); a.click(); a.remove();
   }
 
   function sheetColumns() {
@@ -997,7 +1290,12 @@
         const items = cellIssues(row, h);
         const sev = items.length ? (items.some((i) => i.severity === 'error') ? 'error' : items.some((i) => i.severity === 'warning') ? 'warning' : 'info') : '';
         const v = raw[h];
-        return `<td${sev ? ` data-sev="${sev}"` : ''}>${isFilled(v) ? `<div class="tsr-cell-value">${esc(v)}</div>` : '<div class="tsr-cell-value is-empty">vazio</div>'}` +
+        const pending = state.edits.get(editKey(row, view.headerToField[h] || h));
+        const valueHtml = pending
+          ? `<div class="tsr-cell-value is-edited"><s>${isFilled(v) ? esc(v) : 'vazio'}</s> <span aria-hidden="true">→</span> ` +
+            `<strong>${pending.value === '' ? '<i>vazio</i>' : esc(pending.value)}</strong></div>`
+          : isFilled(v) ? `<div class="tsr-cell-value">${esc(v)}</div>` : '<div class="tsr-cell-value is-empty">vazio</div>';
+        return `<td${sev ? ` data-sev="${sev}"` : ''}${pending ? ' data-edited="true"' : ''}>${valueHtml}` +
           (items.length ? `<div class="tsr-cell-issues">${items.map(messageHtml).join('')}</div>` : '') + '</td>';
       }).join('');
       let orphan = '';
@@ -1050,10 +1348,12 @@
         `<span class="tsr-issue-count">${fmt(c.n)}<small>${rows.length ? `${pctTxt(rows.length, total)} das linhas` : 'planilha'}</small></span></summary>` +
         `<div class="tsr-issue-body">` +
         (msgs.length > 1 ? `<ul class="tsr-issue-msgs">${msgs.slice(0, 6).map(([m, n]) => `<li>${esc(m)} <span>${fmt(n)}×</span></li>`).join('')}${msgs.length > 6 ? `<li class="is-muted">+ ${fmt(msgs.length - 6)} variações</li>` : ''}</ul>` : '') +
-        (c.suggestions ? `<p class="tsr-issue-note">${fmt(c.suggestions)} ${c.suggestions === 1 ? 'ocorrência tem' : 'ocorrências têm'} sugestão de correção na planilha anotada.</p>` : '') +
+        (c.suggestions ? `<p class="tsr-issue-note">${fmt(c.suggestions)} ${c.suggestions === 1 ? 'ocorrência tem' : 'ocorrências têm'} sugestão de correção: use <strong>Corrigir</strong> na planilha anotada ou aceite em lote.</p>` : '') +
         (rows.length ? `<div class="tsr-issue-rows"><span>Linhas:</span>${rows.slice(0, ROWS_PREVIEW).map((r) => `<a href="#hv-row-${r}" data-goto="${r}">${r}</a>`).join('')}` +
           `${rows.length > ROWS_PREVIEW ? `<button type="button" class="tsr-link" data-code="${esc(c.code)}">+ ${fmt(rows.length - ROWS_PREVIEW)} — ver todas na planilha</button>` : ''}</div>` : '') +
-        `<div class="tsr-issue-actions">${rows.length ? `<button type="button" class="hv-secondary tsr-btn is-small" data-code="${esc(c.code)}">Filtrar planilha por esta ocorrência</button>` : ''}</div>` +
+        `<div class="tsr-issue-actions">${rows.length ? `<button type="button" class="hv-secondary tsr-btn is-small" data-code="${esc(c.code)}">Filtrar planilha por esta ocorrência</button>` : ''}` +
+        (() => { const n = singleSuggestionIssues(c.code).length; return n ? `<button type="button" class="hv-secondary tsr-btn is-small" data-accept-code="${esc(c.code)}">Aceitar as ${fmt(n)} sugestões únicas deste tipo</button>` : ''; })() +
+        '</div>' +
         '</div></details>';
     }).join('');
   }
@@ -1353,6 +1653,22 @@
     });
     document.addEventListener('click', (e) => {
       const t = e.target;
+      if (state.result) {
+        const fixBtn = t.closest('[data-fix]');
+        if (fixBtn) { const it = state.result.issues[Number(fixBtn.dataset.fix)]; if (it) openFix(fixBtn, it); return; }
+        if (t.closest('[data-fix-cancel]')) { closeFix(); return; }
+        if (t.closest('[data-fix-undo]')) {
+          const form = t.closest('form'); const it = form && state.result.issues[Number(form.dataset.issue)];
+          if (it) { clearIssueEdits(it); closeFix(); refreshAfterEdit(); }
+          return;
+        }
+        if (t.closest('[data-apply-edits]')) { applyEdits(); return; }
+        if (t.closest('[data-discard-edits]')) { state.edits = new Map(); state.fixed = new Map(); refreshAfterEdit(); return; }
+        if (t.closest('[data-accept-single]')) { acceptSingles(''); return; }
+        const ac = t.closest('[data-accept-code]');
+        if (ac) { acceptSingles(ac.dataset.acceptCode); return; }
+        if (!t.closest('#tsr-fix-pop')) closeFix();
+      }
       const tab = t.closest('.tsr-tab[data-tab]');
       if (tab && state.result) { switchTab(tab.dataset.tab); return; }
       const open = t.closest('[data-open-tab]');
@@ -1387,13 +1703,25 @@
         e.preventDefault(); filterByCode(e.target.dataset.code);
       }
     });
-    ['download-annotated', 'tsr-download-annotated'].forEach((id) => $(id)?.addEventListener('click', (e) => {
-      if (e.currentTarget.getAttribute('aria-disabled') === 'true') e.preventDefault();
+    ['download-annotated', 'tsr-download-annotated'].forEach((id) => $(id)?.addEventListener('click', async (e) => {
+      if (e.currentTarget.getAttribute('aria-disabled') === 'true') { e.preventDefault(); return; }
+      if (state.result && state.edits.size) {
+        // Correções pendentes: aplica antes, para a anotada já sair com elas.
+        e.preventDefault();
+        if (await applyEdits()) downloadFrom('annotated');
+      }
     }));
+    $('tsr-download-corrected')?.addEventListener('click', async (e) => {
+      if (!state.result) { e.preventDefault(); return; }
+      if (state.edits.size) {
+        e.preventDefault();
+        if (await applyEdits()) downloadFrom('corrected');
+      }
+    });
     document.addEventListener('change', onMapperEvent);
     ['dragstart', 'dragover', 'dragleave', 'drop'].forEach((t) => document.addEventListener(t, onDrag));
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') document.querySelectorAll('.hv-mapper-v20-popup').forEach((p) => p.remove());
+      if (e.key === 'Escape') { document.querySelectorAll('.hv-mapper-v20-popup').forEach((p) => p.remove()); closeFix(); }
       if (state.mapper && (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && !e.target.matches('input, textarea')) {
         e.preventDefault();
         if (state.mapper.undo.length) { state.mapper.mapping = JSON.parse(state.mapper.undo.pop()); renderMapper(); }

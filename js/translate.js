@@ -539,6 +539,7 @@ window.TsiinoTranslations = {
       "Outro / customizado": "Other / custom",
       "Aba da planilha, opcional": "Worksheet, optional",
       "Ex.: Espécimes": "E.g.: Espécimes",
+      "Automática: a aba no padrão INPA": "Automatic: the tab in INPA format",
       "Validar nomes na Flora e Funga do Brasil": "Validate names against Flora e Funga do Brasil",
       "Validar coordenadas e localidade": "Validate coordinates and locality",
       "Planilha": "Spreadsheet",
